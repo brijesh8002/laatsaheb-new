@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard | Laat Saheb</title>
+  
+  <link rel="stylesheet" href="web/css/style.css" />
+  <link rel="stylesheet" href="web/css/style2.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="web/image/logo-icon.png" />
+</head>
+
+
+<body>
+  <div id="header"></div>
+
+  <div class="pd-wrapper">
+    <!-- IMAGE SECTION -->
+    <div class="pd-gallery">
+      <div class="pd-thumbs">
+        <img src="web/image/tn1.webp" onclick="pdChangeImg(this)" />
+        <img src="web/image/tn1.webp" onclick="pdChangeImg(this)" />
+        <img src="web/image/ctgimg2.webp" onclick="pdChangeImg(this)" />
+        <img src="web/image/ctgimg1.webp" onclick="pdChangeImg(this)" />
+        <img src="web/image/ctgimg2.webp" onclick="pdChangeImg(this)" />
+      </div>
+
+      <div class="pd-main">
+        <img id="pdMainImg" src="web/image/tn1.webp" />
+        <!-- <div class="pd-zoom-lens" id="pdLens"></div> -->
+        <div  class="crd-wishlist new-list" onclick="addwish()">
+          <i class="fa-solid fa-heart-circle-plus"></i>
+        </div>
+        <!-- <div class="pd-zoom-controls">
+          <button onclick="zoomIn()">+</button>
+          <button onclick="zoomOut()">−</button>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- PRODUCT DETAILS -->
+    <div class="pd-details">
+      <h1 class="pd-title">WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</h1>
+
+      <div class="pd-price-box">
+        <span class="pd-old">₹6,999</span>
+        <span class="pd-new">₹1,499</span>
+        <span class="pd-discount">79% OFF</span>
+      </div>
+
+      <div class="pd-rating">⭐⭐⭐⭐⭐ <span>(79 reviews)</span></div>
+
+      <div class="pd-offers-box">
+
+        <div class="pd-offers-header">
+          🎁 OFFERS
+        </div>
+
+        <div class="pd-offer-item">
+          🔥 <b>FLAT250</b> - Flat ₹250 OFF on above ₹2499
+        </div>
+
+        <div class="pd-offer-item">
+          🔥 <b>FLAT800</b> - Flat ₹800 OFF on above ₹4999
+        </div>
+
+        <div class="pd-offer-item">
+          🔥 <b>FLAT25%</b> - Minimum Cart Value ₹5999
+        </div>
+
+        <div class="pd-offer-item">
+          🔥 <b>FLAT40%</b> - Minimum Cart Value ₹7999
+        </div>
+
+      </div>
+      <div class="pd-size-box">
+      <p>Select Color</p>
+
+      <div class="pd-sizes">
+          <button onclick="pdSelectSize(this)">Black</button>
+          <button onclick="pdSelectSize(this)">Brown</button>
+          <button onclick="pdSelectSize(this)">Blue</button>
+          <button onclick="pdSelectSize(this)">White</button>
+          <button onclick="pdSelectSize(this)">Yellow</button>
+        </div>
+        </div>
+
+
+      <!-- SIZE -->
+      <div class="pd-size-box">
+        <div class="size-selection d-flex justify-content-between">
+          <p>Select Size</p>
+          <button style="
+                border: none;
+                background: none;
+                font-size: 13px;
+                cursor: pointer;
+              " onclick="abcOpen()">
+            <span style="
+                  display: inline-block;
+                  transform: rotate(180deg);
+                  margin-right: 4px;
+                ">📏</span>
+            <span style="text-decoration: underline">Open Size Chart</span>
+          </button>
+        </div>
+        <div class="pd-sizes">
+          <button onclick="pdSelectSize(this)">S/36</button>
+          <button onclick="pdSelectSize(this)">M/38</button>
+          <button onclick="pdSelectSize(this)">L/40</button>
+          <button onclick="pdSelectSize(this)">XL/42</button>
+          <button onclick="pdSelectSize(this)">XXL/44</button>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+
+
+      <div class="pd-action-box">
+
+        <!-- Top Row -->
+        <div class="pd-top-row">
+
+          <div class="pd-qty-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
+
+          <a class="pd-out-stock" href="cart.html">Add To Cart</a>
+
+        </div>
+
+        <!-- Offer Tag -->
+        <div class="pd-upi-offer">
+          Extra ₹100 Off on UPI
+        </div>
+
+        <!-- Buy Button -->
+        <a href="checkout.html">
+          <button class="pd-buy-upi">
+
+            <span class="pd-buy-text">BUY NOW With UPI / COD</span>
+
+            <!-- Icons -->
+            <div class="pd-icons">
+              <div class="pd-icon"><img src="web/image/google.jpg"></div>
+              <div class="pd-icon"><img src="web/image/paytm.png"></div>
+              <div class="pd-icon"><img src="web/image/phonepe.png"></div>
+            </div>
+
+            <!-- Arrow -->
+            <i class="bi bi-chevron-right pd-arrow"></i>
+
+            <small>Powered by razorpay</small>
+
+          </button>
+        </a>
+        <br>
+
+        <div class="mt-2 pd-buy-upi p-0" >
+          <a href="https://wa.me/919165849535" target="_blank" >
+  <img width="100%" style="border-radius: 10px;" src="web/image/buy-whatsapp.png" alt="whatsapp">
+</a>
+          
+        </div>
+
+      </div>
+
+      <!-- FEATURES -->
+
+
+      <!-- <p class="pd-desc">
+        Premium cotton kurta with jacquard design. Perfect for festive &
+        casual wear.
+      </p> -->
+
+      <div class="abc-accordion mt-4">
+        <div class="abc-item active">
+          <button class="abc-header">
+            <span><i class="bi bi-list-ul"></i> PRODUCT DETAILS</span>
+            <i class="bi bi-chevron-down abc-icon"></i>
+          </button>
+
+          <div class="abc-content show">
+
+            <!-- SPECIFICATIONS -->
+            <h3 class="pd-title">Specifications</h3>
+
+            <div class="pd-spec-grid">
+
+              <div class="pd-spec-item">
+                <span>Sleeve Length</span>
+                <p>Full Sleeves</p>
+              </div>
+
+              <div class="pd-spec-item">
+                <span>Neck</span>
+                <p>Mandarin Collar</p>
+              </div>
+
+              <div class="pd-spec-item">
+                <span>Print or Pattern Type</span>
+                <p>Embroidery</p>
+              </div>
+
+              <div class="pd-spec-item">
+                <span>Length</span>
+                <p>Knee Length</p>
+              </div>
+
+              <div class="pd-spec-item">
+                <span>Occasion</span>
+                <p>Festive</p>
+              </div>
+
+              <div class="pd-spec-item">
+                <span>Color</span>
+                <p>Purple</p>
+              </div>
+
+            </div>
+
+            <!-- SIZE & FIT -->
+            <h3 class="pd-title">Size & Fit</h3>
+
+            <div class="pd-text">
+              Size worn by the model: 40<br>
+              Chest: 40"<br>
+              Height: 6'1"
+            </div>
+
+            <!-- MATERIAL -->
+            <h3 class="pd-title">Material & Care</h3>
+
+            <div class="pd-text">
+              Silk Blend<br>
+              Machine Wash
+            </div>
+
+          </div>
+        </div>
+
+        <div class="abc-item">
+          <button class="abc-header">
+            <span><i class="bi bi-arrow-repeat"></i> SHIPING & RETURNS</span>
+            <i class="bi bi-chevron-down abc-icon"></i>
+          </button>
+          <div class="abc-content">
+
+            <ul class="pd-features mb-3">
+              <li>✔ Orders are typically delivered within 5–7 working days.</li>
+              <li>✔ Estimated delivery within working days</li>
+              <li>✔ Returns and exchanges must be raised within 2 days. Pls check our refund policy</li>
+              <li>✔ 100% Quality Assured</li>
+              <li>✔ Cash on Delivery Available</li>
+              <li>✔ Free Delivery in India</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- <div class="abc-item">
+          <button class="abc-header">
+            <span><i class="bi bi-box-arrow-in-right"></i> PLACE RETURN
+              REQUEST</span>
+            <i class="bi bi-chevron-down abc-icon"></i>
+          </button>
+          <div class="abc-content">
+            <p>
+              Submit your return request easily from your account dashboard.
+            </p>
+          </div>
+        </div>
+
+        <div class="abc-item">
+          <button class="abc-header">
+            <span><i class="bi bi-cash-coin"></i> CASH ON DELIVERY TERM</span>
+            <i class="bi bi-chevron-down abc-icon"></i>
+          </button>
+          <div class="abc-content">
+            <p>
+              Cash on Delivery orders may require confirmation before
+              dispatch.
+            </p>
+          </div>
+        </div> -->
+
+        <div class="abc-item">
+          <button class="abc-header">
+            <span><i class="bi bi-building"></i> COMPANY DETAILS</span>
+            <i class="bi bi-chevron-down abc-icon"></i>
+          </button>
+          <div class="abc-content">
+            <p><span class="abc-label">Company Name : </span> Laat Saheb</p>
+            <p><span class="abc-label">Address : </span> 32/1 Bk Bhatia Gali Sindhi Colony,Indore ,Mp ,India </p>
+            <p><span class="abc-label">Email : </span>laatsahebofficial@gmail.com</p>
+            <p><span class="abc-label">GSTIN : </span>23COIPK4233D1ZD</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="pd-secure mt-4">
+
+        <!-- Heading -->
+        <h3 class="pd-secure-title">
+          Guarantee safe & secure checkout
+        </h3>
+
+        <!-- Payment Box -->
+        <div class="pd-payment-box">
+          <img src="web/image/secure6.jpg">
+          <img src="web/image/secure2.jpg">
+          <img src="web/image/secure3.jpg">
+          <img src="web/image/secure4.jpg">
+        </div>
+
+        <!-- Features -->
+        <div class="pd-features-new">
+
+          <div class="pd-feature">
+            <i class="bi bi-truck"></i>
+            <p>Fast<br>Shipping</p>
+          </div>
+
+          <div class="pd-feature">
+            <i class="bi bi-arrow-return-left"></i>
+            <p>2 Day<br>Exchange<br>Policy</p>
+          </div>
+
+          <div class="pd-feature">
+            <i class="bi bi-heart"></i>
+            <p>Best<br>Quality</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Review and Feedback -->
+  <section class="prx-review container">
+    <!-- HEADER -->
+    <div class="prx-top">
+      <div class="prx-rating-box">
+        <h1>5.0</h1>
+        <div class="prx-stars">★★★★★</div>
+        <p>Based on 2 reviews</p>
+      </div>
+
+      <div class="prx-progress">
+        <div class="prx-row">
+          <span>5★</span>
+          <div class="prx-bar">
+            <div style="width: 100%"></div>
+          </div>
+          <span>2</span>
+        </div>
+        <div class="prx-row">
+          <span>4★</span>
+          <div class="prx-bar"></div>
+          <span>0</span>
+        </div>
+        <div class="prx-row">
+          <span>3★</span>
+          <div class="prx-bar"></div>
+          <span>0</span>
+        </div>
+        <div class="prx-row">
+          <span>2★</span>
+          <div class="prx-bar"></div>
+          <span>0</span>
+        </div>
+        <div class="prx-row">
+          <span>1★</span>
+          <div class="prx-bar"></div>
+          <span>0</span>
+        </div>
+      </div>
+
+      <div class="prx-action">
+        <button onclick="uxrOpen()">Write Review</button>
+      </div>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="prx-grid">
+      <h4><b>Reviews & Feedback</b></h4>
+      <div class="prx-card">
+        <div>
+          <div class="prx-user d-flex align-items-center justify-content-start gap-2 mb-3">
+            <img src="web/image/user-img.jpeg" alt="" />
+            <div>
+              <h6 class="mb-0 fw-bold">Harshal Roy</h6>
+              <div class="prx-stars-fill">★★★★★ (5.0)</div>
+            </div>
+          </div>
+          <h6 class="fw-bold">
+            Review For :
+            <span style="font-weight: 500">WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</span>
+          </h6>
+          <p><b>Size : </b> M</p>
+          <p>Perfect fitting & premium quality 🔥</p>
+          <div class="upload-image_row">
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="prx-card">
+        <div>
+          <div class="prx-user d-flex align-items-center justify-content-start gap-2 mb-3">
+            <img src="web/image/user-img.jpeg" alt="" />
+            <div>
+              <h6 class="mb-0 fw-bold">Harshal Roy</h6>
+              <div class="prx-stars-fill">★★★★★ (5.0)</div>
+            </div>
+          </div>
+          <h6 class="fw-bold">
+            Review For :
+            <span style="font-weight: 500">WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</span>
+          </h6>
+          <p><b>Size : </b> M</p>
+          <p>Perfect fitting & premium quality 🔥</p>
+          <div class="upload-image_row">
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+            <div class="user-upload">
+              <a href="web/image/tn1.webp" target="_blank">
+                <img src="web/image/tn1.webp" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-more-reviews mt-5">
+      <a class="py-3 px-5 border text-black border-1 btn-review" href="customer_review.html">
+        See all Reviews</a>
+    </div>
+  </section>
+
+  <!-- <section class="review-modal">
+        <div class="review-form">
+            <div class="form-top d-flex justify-content-between">
+                <h4>Tell us about your reviews</h4>
+                <i class="bi bi-x "></i>
+            </div>
+            <div class="product-det d-flex flex-column justify-content-center align-items-center">
+                <div class="product-image">
+                    <img src="web/image/tn1.webp" alt="">
+                </div>
+                <div class="product-name">
+                    <h6>WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</h6>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+  <div class="uxr-overlay" id="uxrModal">
+    <div class="uxr-modal">
+      <!-- HEADER -->
+      <div class="uxr-head">
+        <h2>Tell us about your reviews</h2>
+        <span onclick="uxrClose()">✕</span>
+      </div>
+
+      <!-- PRODUCT -->
+      <div class="uxr-product">
+        <img src="web/image/ctgimg1.webp" alt="" />
+        <p>NAVY BLUE ROYAL BARAAT WHITE JACQUARD DESIGNER KURTA</p>
+      </div>
+
+      <!-- RATING -->
+      <div class="uxr-rating">
+        <div class="uxr-stars" id="uxrStars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p id="uxrLabel">Select Rating</p>
+      </div>
+
+      <!-- FEEDBACK -->
+      <div class="uxr-field">
+        <label>Feedback <span>*</span></label>
+        <textarea placeholder="Write your feedback..." required></textarea>
+      </div>
+
+      <!-- UPLOAD -->
+      <label class="uxr-upload">
+        <input type="file" hidden />
+        <div>
+          <p>📷</p>
+
+          <small>(.jpg, .png, .gif • max 5MB)</small>
+        </div>
+      </label>
+
+      <!-- BUTTON -->
+      <button class="uxr-btn">Next</button>
+    </div>
+  </div>
+
+  <!-- Review and Feedback -->
+
+  <!-- hot selling start -->
+  <section class="my-5">
+    <div class="container">
+      <div class="mainsection-heading">
+        <h1>KURTA'S FOR YOU!</h1>
+      </div>
+
+      <div class="row g-2">
+        <div class="col-xl-3 col-md-4 col-6">
+          <a href="product-detail.html">
+            <div class="prd-crd">
+              <div class="prd-img">
+                <img src="web/image/ctgimg1.webp" alt="" />
+                <img src="web/image/ctgimg2.webp" alt="" />
+                <div class="btn-add">Quick View</div>
+              </div>
+
+              <a href="wishlist.html" class="crd-wishlist" style="top: 1rem">
+                <i class="fa-solid fa-heart-circle-plus"></i>
+              </a>
+              <p class="mobile-dis">79% Off</p>
+              <div class="prd-info">
+                <p class="prd-name">
+                  Koti Kurta - White Elephant Jacquard Designer Garment
+                </p>
+                <p class="prd-price">
+                  <del>Rs. 6,999.00</del>
+                  <span class="price">Rs. 1,499.00</span>
+                                <br>
+                  <span class="saving ">( Save 5499.00 )</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-md-4 col-6">
+          <a href="product-detail.html">
+            <div class="prd-crd">
+              <div class="prd-img">
+                <img src="web/image/ctgimg1.webp" alt="" />
+                <img src="web/image/ctgimg2.webp" alt="" />
+                <div class="btn-add">Quick View</div>
+              </div>
+
+              <a href="wishlist.html" class="crd-wishlist">
+                <i class="fa-solid fa-heart-circle-plus"></i>
+              </a>
+              <p class="mobile-dis">79% Off</p>
+              <div class="prd-info">
+                <p class="prd-name">
+                  Koti Kurta - White Elephant Jacquard Designer Garment
+                </p>
+                <p class="prd-price">
+                  <del>Rs. 6,999.00</del>
+                  <span class="price">Rs. 1,499.00</span>
+                                <br>
+                  <span class="saving ">( Save 5499.00 )</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-md-4 col-6">
+          <a href="product-detail.html">
+            <div class="prd-crd">
+              <div class="prd-img">
+                <img src="web/image/ctgimg1.webp" alt="" />
+                <img src="web/image/ctgimg2.webp" alt="" />
+                <div class="btn-add">Quick View</div>
+              </div>
+
+              <a href="wishlist.html" class="crd-wishlist">
+                <i class="fa-solid fa-heart-circle-plus"></i>
+              </a>
+              <p class="mobile-dis">79% Off</p>
+              <div class="prd-info">
+                <p class="prd-name">
+                  Koti Kurta - White Elephant Jacquard Designer Garment
+                </p>
+                <p class="prd-price">
+                  <del>Rs. 6,999.00</del>
+                  <span class="price">Rs. 1,499.00</span>
+                                <br>
+                  <span class="saving ">( Save 5499.00 )</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-md-4 col-6">
+          <a href="product-detail.html">
+            <div class="prd-crd">
+              <div class="prd-img">
+                <img src="web/image/ctgimg1.webp" alt="" />
+                <img src="web/image/ctgimg2.webp" alt="" />
+                <div class="btn-add">Quick View</div>
+              </div>
+
+              <a href="wishlist.html" class="crd-wishlist">
+                <i class="fa-solid fa-heart-circle-plus"></i>
+              </a>
+              <p class="mobile-dis">79% Off</p>
+              <div class="prd-info">
+                <p class="prd-name">
+                  Koti Kurta - White Elephant Jacquard Designer Garment
+                </p>
+                <p class="prd-price">
+                  <del>Rs. 6,999.00</del>
+                  <span class="price">Rs. 1,499.00</span>
+                                <br>
+                  <span class="saving ">( Save 5499.00 )</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- hot selling end -->
+
+  <div id="footerId"></div>
+
+  <!-- Size Chart Modal -->
+  <div class="abc-overlay" id="abcModal">
+    <div class="abc-modal">
+      <!-- HEADER -->
+      <div class="abc-header">
+        <h2 class="abc-title pe-5 text-center w-100">
+          Koti Kurta - White Elephant Jacquard Designer Garment
+        </h2>
+        <!-- <div class="abc-subtitle">Size Charts</div> -->
+        <button class="abc-close" onclick="abcClose()">×</button>
+      </div>
+
+      <!-- BODY -->
+      <div class="abc-body">
+        <div style="font-size: 12px; color: #666; text-align: center">
+          Sizes can vary from 2-3 cm because they are measured by hand. 1 inch
+          = 2.54 cm
+        </div>
+
+        <!-- TABS -->
+        <div class="abc-tabs">
+          <span class="">INCHES</span> | <span class="active">CM</span>
+        </div>
+
+        <!-- TABLE -->
+        <table class="abc-table ">
+          <tr>
+            <th>SIZE</th>
+            <th>CHEST</th>
+            <th>WAIST</th>
+            <th>LENGTH</th>
+            <th>SHOULDER</th>
+            <th>SLEEVE LENGTH</th>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>36</td>
+            <td>36.5</td>
+            <td>42</td>
+            <td>17</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>38</td>
+            <td>38.5</td>
+            <td>42</td>
+            <td>17.5</td>
+            <td>24.5</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>40</td>
+            <td>40.5</td>
+            <td>43</td>
+            <td>18</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>42</td>
+            <td>42.5</td>
+            <td>43</td>
+            <td>18.5</td>
+            <td>25.5</td>
+          </tr>
+          <tr>
+            <td>2XL</td>
+            <td>44</td>
+            <td>44.5</td>
+            <td>44</td>
+            <td>19</td>
+            <td>26</td>
+          </tr>
+        </table>
+        <table class="abc-table ">
+          <tr>
+            <th>SIZE</th>
+            <th>CHEST</th>
+            <th>WAIST</th>
+            <th>LENGTH</th>
+            <th>SHOULDER</th>
+            <th>SLEEVE LENGTH</th>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>91.4</td>
+            <td>92.7</td>
+            <td>107</td>
+            <td>43.2</td>
+            <td>61</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>96.5</td>
+            <td>97.8</td>
+            <td>107</td>
+            <td>44.5</td>
+            <td>62.2</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>102</td>
+            <td>103</td>
+            <td>109</td>
+            <td>45.7</td>
+            <td>63.5</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>107</td>
+            <td>108</td>
+            <td>109</td>
+            <td>47</td>
+            <td>64.8</td>
+          </tr>
+          <tr>
+            <td>2XL</td>
+            <td>112</td>
+            <td>113</td>
+            <td>112</td>
+            <td>48.3</td>
+            <td>66</td>
+          </tr>
+        </table>
+
+        <!-- IMAGE -->
+        <div class="abc-img-wrap">
+          <img src="web/image/size_chart.png" alt="Measurement Guide" />
+        </div>
+
+        <!-- NOTES -->
+        <ol class="abc-notes">
+          <li>
+            <b>Shoulder to Shoulder:</b> Measure from one shoulder to another.
+          </li>
+          <li><b>Chest:</b> Measure around the fullest part.</li>
+          <li><b>Front Length:</b> Measure from highest shoulder point.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function abcOpen() {
+    document.getElementById("abcModal").style.display = "flex";
+
+    // default state → CM active
+    setUnit("inch");
+  }
+
+  function abcClose() {
+    document.getElementById("abcModal").style.display = "none";
+  }
+
+  function setUnit(unit) {
+    const tabs = document.querySelectorAll(".abc-tabs span");
+    const tables = document.querySelectorAll(".abc-table");
+
+    // remove active from all
+    tabs.forEach(tab => tab.classList.remove("active"));
+    tables.forEach(table => table.classList.remove("active"));
+
+    if (unit === "inch") {
+      tabs[0].classList.add("active");
+      tables[0].classList.add("active");
+    } else {
+      tabs[1].classList.add("active");
+      tables[1].classList.add("active");
+    }
+  }
+
+  // click events for tabs
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".abc-tabs span");
+
+    tabs[0].addEventListener("click", () => setUnit("inch"));
+    tabs[1].addEventListener("click", () => setUnit("cm"));
+  });
+</script>
+
+  <!--  Review and feedback Script -->
+  <script>
+    function uxrOpen() {
+      document.getElementById("uxrModal").style.display = "flex";
+    }
+    function uxrClose() {
+      document.getElementById("uxrModal").style.display = "none";
+    }
+
+    /* STAR LOGIC */
+    const stars = document.querySelectorAll("#uxrStars span");
+    const label = document.getElementById("uxrLabel");
+
+    const texts = ["Bad", "Okay", "Good", "Very Good", "Excellent"];
+
+    stars.forEach((star, i) => {
+      star.addEventListener("click", () => {
+        stars.forEach((s) => s.classList.remove("active"));
+
+        for (let j = 0; j <= i; j++) {
+          stars[j].classList.add("active");
+        }
+
+        label.innerText = texts[i];
+      });
+    });
+  </script>
+
+  <!--Product details dropdowns -->
+  <script>
+    document.querySelectorAll(".abc-header").forEach((header) => {
+      header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+
+        document.querySelectorAll(".abc-content").forEach((c) => {
+          if (c !== content) {
+            c.style.maxHeight = null;
+            c.classList.remove("open");
+            c.previousElementSibling.classList.remove("active");
+          }
+        });
+
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          content.classList.remove("open");
+          header.classList.remove("active");
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.classList.add("open");
+          header.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+  <!-- Image zoom  -->
+  <script>
+    // const box = document.querySelector(".pd-main");
+    // const img = document.getElementById("pdMainImg");
+    // const lens = document.getElementById("pdLens");
+
+    // let zoomLevel = 2;
+    // const lensSize = 140;
+
+    // let currentX = 0;
+    // let currentY = 0;
+
+    // function isMobile() {
+    //   return window.innerWidth <= 768;
+    // }
+
+    /* =========================
+       DESKTOP (HOVER LENS)
+    ========================= */
+    // if (!isMobile()) {
+
+    //   box.addEventListener("mouseenter", () => {
+    //     lens.style.display = "block";
+    //   });
+
+    //   box.addEventListener("mouseleave", () => {
+    //     lens.style.display = "none";
+    //     img.style.transform = "scale(1)";
+    //   });
+
+    //   box.addEventListener("mousemove", (e) => {
+    //     const rect = box.getBoundingClientRect();
+
+    //     let x = e.clientX - rect.left;
+    //     let y = e.clientY - rect.top;
+
+    //     x = Math.max(lensSize / 2, Math.min(x, rect.width - lensSize / 2));
+    //     y = Math.max(lensSize / 2, Math.min(y, rect.height - lensSize / 2));
+
+    //     currentX = x;
+    //     currentY = y;
+
+    //     updateZoom();
+    //   });
+
+    // }
+
+    /* =========================
+       MOBILE (DRAG ZOOM 🔥)
+    ========================= */
+    // else {
+
+    //   lens.style.display = "none";
+
+    //   let isZoomed = false;
+
+    //   /* TAP TO ENABLE ZOOM */
+    //   box.addEventListener("click", (e) => {
+    //     const rect = box.getBoundingClientRect();
+
+    //     currentX = e.clientX - rect.left;
+    //     currentY = e.clientY - rect.top;
+
+    //     isZoomed = !isZoomed;
+    //     zoomLevel = isZoomed ? 2.5 : 1;
+
+    //     updateZoom();
+    //   });
+
+      /* 🔥 DRAG MOVE */
+      // box.addEventListener("touchmove", (e) => {
+      //   if (!isZoomed) return;
+
+      //   const rect = box.getBoundingClientRect();
+
+      //   let touch = e.touches[0];
+
+      //   let x = touch.clientX - rect.left;
+      //   let y = touch.clientY - rect.top;
+
+      //   // clamp inside
+      //   x = Math.max(0, Math.min(x, rect.width));
+      //   y = Math.max(0, Math.min(y, rect.height));
+
+      //   currentX = x;
+      //   currentY = y;
+
+      //   updateZoom();
+      // });
+
+    // }
+
+    /* =========================
+       COMMON FUNCTION
+    ========================= */
+    // function updateZoom() {
+    //   const rect = box.getBoundingClientRect();
+
+    //   const percentX = (currentX / rect.width) * 100;
+    //   const percentY = (currentY / rect.height) * 100;
+
+    //   img.style.transformOrigin = `${percentX}% ${percentY}%`;
+    //   img.style.transform = `scale(${zoomLevel})`;
+    // }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+    // function zoomIn() {
+    //   zoomLevel += 0.5;
+    //   if (zoomLevel > 5) zoomLevel = 5;
+    //   updateZoom();
+    // }
+
+    // function zoomOut() {
+    //   zoomLevel -= 0.5;
+    //   if (zoomLevel < 1) zoomLevel = 1;
+    //   updateZoom();
+    // }
+  </script>
+
+  
+  <script src="web/js/script.js"></script>
+  <!-- bottom fixed nav end -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- <script>
+    document.querySelectorAll(".crd-wishlist").forEach(btn => {
+  btn.addEventListener("click", function () {
+    this.classList.toggle("active");
+  });
+});
+  </script> -->
+</body>
+
+</html>

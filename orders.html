@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orders | Laat Saheb</title>
+  <link rel="stylesheet" href="web/css/style.css" />
+  <link rel="stylesheet" href="web/css/style2.css" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="web/image/logo-icon.png" />
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <div class="main-dashboard" style="background: #FFFAF5;">
+
+    <div class="container">
+
+      <!-- Wish List start -->
+
+      <div class="ux-container ">
+
+        <!-- Sidebar -->
+        <div class="ux-sidebar">
+
+          <div class="ux-user-box">
+            <div class="ux-avatar"><img src="web/image/user-img.jpeg" alt=""></div>
+            <div class="ux-user-text">
+              <small>Hello,</small>
+              <div><strong>Shiva </strong></div>
+            </div>
+          </div>
+
+          <div class="ux-menu">
+            <!-- MY ORDERS -->
+            <div class="ux-menu-title">
+              <i class="bi bi-box-fill"></i> MY ORDERS
+            </div>
+
+            <a href="orders.html" class="ux-active">
+              <i class="bi bi-box-seam"></i>My Orders
+            </a>
+
+            <a href="track-product.html">
+              <i class="bi bi-truck"></i>Track Order
+            </a>
+
+            <a href="return-product.html">
+              <i class="bi bi-arrow-return-left"></i>Return Request
+            </a>
+
+
+            <!-- ACCOUNT SETTINGS -->
+            <div class="ux-menu-title">
+              <i class="bi bi-gear-fill"></i> ACCOUNT SETTINGS
+            </div>
+
+            <a href="dashboard.html">
+              <i class="bi bi-speedometer2"></i>Dashboard
+            </a>
+
+            <a href="profile.html">
+              <i class="bi bi-person"></i>Profile Information
+            </a>
+
+            <a href="addresses.html">
+              <i class="bi bi-geo-alt"></i>Manage Addresses
+            </a>
+            <!-- <a href="#">PAN Card Information</a> -->
+
+
+            <div class="ux-menu-title"><i class="bi bi-grid-fill"></i> MY STUFF</div>
+            <!-- <a href="#">My Coupons</a> -->
+            <a href="customer_review.html"><i class="bi bi-chat-square-text"></i>Reviews &
+              Ratings</a>
+            <a href="#"><i class="bi bi-bell"></i> All Notifications</a>
+            <a href="wishlist.html"><i class="bi bi-heart"></i>My Wishlist</a>
+
+
+            <div class="ux-menu-title"><i class="bi bi-person-fill-lock"></i> PRIVACY CENTER</div>
+            <a href="privacy-policy.html"><i class="bi bi-file-text"></i>Privacy Policy</a>
+            <a href="shiping-policy.html"><i class="bi bi-truck"></i>Shipping Policy</a>
+            <a href="return-refund.html"><i class="bi bi-arrow-repeat"></i>Return & Refund</a>
+            <a href="terms-conditions.html"><i class="bi bi-file-earmark-text"></i>Terms &
+              Services</a>
+            <a href="cancel-policy.html"><i class="bi bi-info-circle"></i>Cancellation Policy</a>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <!-- <div class="ux-main"> -->
+
+        <!-- Personal Info -->
+        <div class="brx-dashboard-content ">
+          <div class="brx-dashboard-main">
+            <div class="top-menu-content">
+              <!-- Mobile Toggle -->
+
+
+              <div class="vx-header">
+                <div class="vx-header-left">
+
+                  <div class="new-log ">
+                    <a class="text-black" href="dashboard.html"><i class="bi bi-arrow-left-short"></i></a>
+                    <h2 class="mb-0">My Orders</h2>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- QUICK ACTION -->
+            <div class="row g-2 py-2 my-4  ">
+              <div class="col-6">
+                <a href="return-product.html" class="brxud-box "><i class="bi bi-arrow-return-left"></i>Return
+                  Request</a>
+              </div>
+              <div class="col-6">
+                <a href="track-product.html" class="brxud-box "><i class="bi bi-truck"></i>Track Order</a>
+              </div>
+
+            </div>
+
+            <!-- Orders SECTION -->
+            <div class="brx-orders-page ">
+
+              <div class="track-search">
+
+                <input type="text" placeholder="Enter Order ID">
+
+                <button><i class="bi bi-search"></i> </button>
+
+              </div>
+
+
+              <!-- ORDER CARD -->
+              <div class="brx-order-card">
+
+                <div class="brx-order-top">
+                  <div>
+                    <span class="brx-order-id">Order ID: #BRX458921</span>
+                    <span class="brx-order-date">Placed on 12 Mar 2026</span>
+                  </div>
+
+                  <span class="brx-order-status delivered">
+                    Delivered
+                  </span>
+                </div>
+
+                <div class="brx-order-product">
+
+                  <img src="web/image/tn1.webp">
+
+                  <div class="brx-order-info">
+
+                    <h5>WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</h5>
+
+                    <p>Size: 32 | Color: Black</p>
+
+                    <span class="brx-order-price">
+                      ₹1899
+                    </span>
+
+                  </div>
+
+                  <div class="brx-order-actions">
+
+                    <a href="return-product.html" class="text-decoration-none text-white">
+                      <button class="brx-track-btn">
+                        Return
+                      </button>
+                    </a>
+
+                    <button class="brx-cancel-btn" onclick="openInvoice()">
+                      Invoice
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- ORDER CARD -->
+              <div class="brx-order-card">
+
+                <div class="brx-order-top">
+                  <div>
+                    <span class="brx-order-id">Order ID: #BRX458922</span>
+                    <span class="brx-order-date">Placed on 10 Mar 2026</span>
+                  </div>
+
+                  <span class="brx-order-status shipped">
+                    Shipped
+                  </span>
+                </div>
+
+                <div class="brx-order-product">
+
+                  <img src="web/image/ctgimg1.webp">
+
+                  <div class="brx-order-info">
+
+                    <h5>Olive Suede Loafers</h5>
+
+                    <p>Size: 6 | Color: Olive</p>
+
+                    <span class="brx-order-price">
+                      ₹2199
+                    </span>
+
+                  </div>
+
+                  <div class="brx-order-actions">
+
+                    <a href="track-product.html" class="text-white text-decoration-none">
+                      <button class="brx-track-btn">
+                        Track Order
+                      </button>
+                    </a>
+                    <button class="brx-cancel-btn" onclick="zbxrOpenModal()">
+                      Cancel
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- ORDER CARD -->
+              <div class="brx-order-card">
+
+                <div class="brx-order-top">
+                  <div>
+                    <span class="brx-order-id">Order ID: #BRX458923</span>
+                    <span class="brx-order-date">Placed on 05 Mar 2026</span>
+                  </div>
+
+                  <span class="brx-order-status cancelled">
+                    Cancelled
+                  </span>
+                </div>
+
+                <div class="brx-order-product">
+
+                  <img src="web/image/ctgimg1.webp">
+
+                  <div class="brx-order-info">
+
+                    <h5>Winter Denim Jacket</h5>
+
+                    <p>Size: L | Color: Blue</p>
+
+                    <span class="brx-order-price">
+                      ₹3499
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT ADDRESS MODAL -->
+
+  <div class="address-modal" id="editAddressModal">
+    <div class="address-modal-content">
+      <div class="modal-header">
+        <h4>Edit Address</h4>
+        <button class="close-modal" onclick="closeAddressModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <form class="address-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter name" />
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="text" placeholder="Enter phone number" />
+        </div>
+
+        <div class="form-group full-width">
+          <label>Address</label>
+          <textarea></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" />
+          </div>
+
+          <div class="form-group">
+            <label>State</label>
+            <input type="text" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Pincode</label>
+          <input type="text" />
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="cancel-btn" onclick="closeAddressModal()">
+            Cancel
+          </button>
+
+          <button type="submit" class="save-btn">Save Address</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CHANGE PASSWORD MODAL -->
+
+  <div class="password-modal" id="passwordModal">
+    <div class="password-modal-content">
+      <div class="password-modal-header">
+        <h3>Change Password</h3>
+        <button class="close-password" onclick="closePasswordModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <form class="password-form">
+        <div class="input-group">
+          <label>Current Password</label>
+          <div class="password-field">
+            <input type="password" id="currentPassword" placeholder="Enter current password" />
+            <i class="bi bi-eye toggle-password" onclick="togglePassword('currentPassword', this)"></i>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>New Password</label>
+          <div class="password-field">
+            <input type="password" id="newPassword" placeholder="Enter new password" />
+            <i class="bi bi-eye toggle-password" onclick="togglePassword('newPassword', this)"></i>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <div class="password-field">
+            <input type="password" id="confirmPassword" placeholder="Confirm new password" />
+            <i class="bi bi-eye toggle-password" onclick="togglePassword('confirmPassword', this)"></i>
+          </div>
+        </div>
+
+        <div class="password-actions">
+          <button type="button" class="cancel-btn" onclick="closePasswordModal()">
+            Cancel
+          </button>
+          <button type="submit" class="save-password-btn">
+            Update Password
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- CANCEL ORDER MODAL -->
+  <div class="zbxr-modal" id="zbxrModal">
+    <div class="zbxr-modal-box">
+
+      <div class="zbxr-header">
+        <h2>Cancel Order</h2>
+        <button class="zbxr-close" onclick="zbxrCloseModal()">&times;</button>
+      </div>
+
+      <div class="zbxr-body">
+        <div class="zbxr-product">
+          <img src="web/image/ctgimg2.webp" />
+          <div>
+            <h3>WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</h3>
+            <p>Order ID: #123456</p>
+            <div class="zbxr-price">₹2,999</div>
+          </div>
+        </div>
+
+        <label class="zbxr-label">Reason for Cancellation</label>
+        <select class="zbxr-input">
+          <option>Select reason</option>
+          <option>Ordered by mistake</option>
+          <option>Found cheaper elsewhere</option>
+          <option>Delivery too slow</option>
+          <option>Other</option>
+        </select>
+
+        <label class="zbxr-label">Additional Notes</label>
+        <textarea class="zbxr-textarea" placeholder="Tell us more..."></textarea>
+
+        <label class="zbxr-label">Refund Method</label>
+        <div class="zbxr-payment">
+
+          <div class="zbxr-pay-option active" onclick="zbxrSelect(this)">
+            <div class="zbxr-pay-left">
+              <div class="zbxr-radio"></div>
+              <div>
+                <div class="zbxr-pay-title">Original Payment Method</div>
+                <div class="zbxr-pay-desc">Refund to card / UPI / bank</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="zbxr-pay-option" onclick="zbxrSelect(this)">
+            <div class="zbxr-pay-left">
+              <div class="zbxr-radio"></div>
+              <div>
+                <div class="zbxr-pay-title">Wallet Credit</div>
+                <div class="zbxr-pay-desc">Instant refund to app wallet</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="zbxr-actions">
+        <button class="zbxr-btn zbxr-btn-cancel" onclick="zbxrCloseModal()">Keep Order</button>
+        <button class="zbxr-btn zbxr-btn-danger">Confirm Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Invoice Slip MOdal -->
+  <div id="invoiceModal" class="ls-modal">
+
+    <div class="ls-invoice">
+
+      <!-- HEADER -->
+      <div class="ls-header">
+        <div class="ls-brand">
+          <img src="web/image/logo-icon.png">
+          <div>
+            <h2 style="color: #DF7F1B;">LAAT SAHEB</h2>
+            <!-- <span>Premium Fashion Invoice</span> -->
+          </div>
+        </div>
+
+        <button style="border: none;" onclick="closeInvoice()">✕</button>
+      </div>
+
+      <!-- BODY -->
+      <div class="ls-body">
+
+        <!-- ORDER INFO -->
+        <div class="ls-row">
+          <div>
+            <p class="label">Order ID</p>
+            <h4>#LS20260021</h4>
+          </div>
+          <div>
+            <p class="label">Date</p>
+            <h4>06 April 2026</h4>
+          </div>
+        </div>
+
+        <!-- CUSTOMER -->
+        <div class="ls-card">
+          <p class="label">Billed To</p>
+          <h4>Rakesh Kumar</h4>
+          <span>Delhi, India</span><br>
+          <span>+91 9876543210</span>
+        </div>
+
+        <!-- PRODUCT -->
+        <div class="ls-product">
+          <img src="web/image/tn1.webp">
+          <div>
+            <h3>Koti Kurta – White Elephant Jacquard</h3>
+            <p>Size: M</p>
+            <p>Quantity: 1</p>
+          </div>
+          <div class="price">₹1,499</div>
+        </div>
+
+        <!-- PRICE -->
+        <div class="ls-summary">
+          <div><span>MRP</span><span>₹6,999</span></div>
+          <div><span>Discount</span><span class="red">-₹5,500</span></div>
+          <div><span>Shipping</span><span>Free</span></div>
+
+          <div class="divider"></div>
+
+          <div class="total">
+            <span>Total Paid</span>
+            <span>₹1,499</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="ls-footer">
+        <button onclick="window.print()">Download Invoice</button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  </div>
+  </div>
+
+  <!-- Wish List end -->
+
+  <div id="footerId"></div>
+
+  
+  <script src="web/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <script>
+    function zbxrOpenModal() { document.getElementById('zbxrModal').classList.add('zbxr-modal-active'); }
+    function zbxrCloseModal() { document.getElementById('zbxrModal').classList.remove('zbxr-modal-active'); }
+
+    function zbxrSelect(el) {
+      document.querySelectorAll('.zbxr-pay-option').forEach(e => e.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+
+
+<!-- Invoice Modal script -->
+ <script>
+function openInvoice(){
+  document.getElementById("invoiceModal").style.display="flex";
+}
+
+function closeInvoice(){
+  document.getElementById("invoiceModal").style.display="none";
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Laat Saheb</title>
+  <link rel="stylesheet" href="web/css/style.css" />
+  <link rel="stylesheet" href="web/css/style2.css" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="web/image/logo-icon.png" />
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <div class="main-dashboard" style="background: #FFFAF5;">
+
+    <div class="container">
+
+      <!-- Wish List start -->
+
+      <div class="ux-container ">
+
+        <!-- Sidebar -->
+        <div class="ux-sidebar">
+
+          <div class="ux-user-box">
+            <div class="ux-avatar"><img src="web/image/user-img.jpeg" alt=""></div>
+            <div class="ux-user-text">
+              <small>Hello,</small>
+              <div><strong>Shiva </strong></div>
+            </div>
+          </div>
+
+          <div class="ux-menu">
+            <!-- MY ORDERS -->
+            <div class="ux-menu-title">
+              <i class="bi bi-box-fill"></i> MY ORDERS
+            </div>
+
+            <a href="orders.html" >
+              <i class="bi bi-box-seam"></i>My Orders
+            </a>
+
+            <a href="track-product.html" >
+              <i class="bi bi-truck"></i>Track Order
+            </a>
+
+            <a href="return-product.html" >
+              <i class="bi bi-arrow-return-left"></i>Return Request
+            </a>
+
+
+            <!-- ACCOUNT SETTINGS -->
+            <div class="ux-menu-title">
+              <i class="bi bi-gear-fill"></i> ACCOUNT SETTINGS
+            </div>
+
+            <a href="dashboard.html" >
+              <i class="bi bi-speedometer2"></i>Dashboard
+            </a>
+
+            <a href="profile.html" class="ux-active">
+              <i class="bi bi-person"></i>Profile Information
+            </a>
+
+            <a href="addresses.html" >
+              <i class="bi bi-geo-alt"></i>Manage Addresses
+            </a>
+            <!-- <a href="#">PAN Card Information</a> -->
+
+
+            <div class="ux-menu-title"><i class="bi bi-grid-fill"></i> MY STUFF</div>
+            <!-- <a href="#">My Coupons</a> -->
+            <a href="customer_review.html" ><i class="bi bi-chat-square-text"></i>Reviews &
+              Ratings</a>
+            <a href="#" ><i class="bi bi-bell"></i> All Notifications</a>
+            <a href="wishlist.html" ><i class="bi bi-heart"></i>My Wishlist</a>
+
+
+            <div class="ux-menu-title"><i class="bi bi-person-fill-lock"></i> PRIVACY CENTER</div>
+            <a href="privacy-policy.html" ><i class="bi bi-file-text"></i>Privacy Policy</a>
+            <a href="shiping-policy.html" ><i class="bi bi-truck"></i>Shipping Policy</a>
+            <a href="return-refund.html" ><i class="bi bi-arrow-repeat"></i>Return & Refund</a>
+            <a href="terms-conditions.html" ><i class="bi bi-file-earmark-text"></i>Terms &
+              Services</a>
+            <a href="cancel-policy.html" ><i class="bi bi-info-circle"></i>Cancellation Policy</a>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <!-- <div class="ux-main"> -->
+
+        <!-- Personal Info -->
+        <div class="brx-dashboard-content ">
+          <div class="brx-dashboard-main">
+            <div class="top-menu-content">
+              <!-- Mobile Toggle -->
+
+
+              <div class="vx-header">
+                <div class="vx-header-left">
+
+                  <div class="new-log ">
+                    <a class="text-black" href="dashboard.html"><i class="bi bi-arrow-left-short"></i></a>
+                    <h2 class="mb-0">My Profile</h2>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <!-- PROFILE SECTION -->
+            <div class="brx-profile-section">
+              <!-- LEFT SIDE -->
+              <div class="brx-profile-left">
+                <!-- PROFILE CARD -->
+
+                <div class="brx-profile-card">
+                  <div class="d-flex justify-content-center gap-5 align-item-center flex-wrap w-100">
+                    <div class="brx-profile-img">
+                      <img id="profilePreview" src="web/image/user-img.jpeg" />
+
+                      <!-- Hidden file input -->
+                      <input type="file" id="profileInput" accept="image/*" hidden>
+
+                      <!-- Click icon -->
+                      <div class="image-edit-user" onclick="document.getElementById('profileInput').click()">
+                        <i class="bi bi-pencil"></i>
+                      </div>
+                    </div>
+                    <div class="info-user d-flex align-items-start justify-content-center flex-column"
+                      style="cursor: pointer;">
+                      <h4>Shiva</h4>
+                      <p class="brx-user-email mb-0">shiva@gmail.com</p>
+                    </div>
+                  </div>
+
+                  <div class="brx-profile-stats">
+                    <a href="orders.html">
+                      <div>
+                        <h5>12</h5>
+                        <span><i class="bi bi-box"></i> Orders</span>
+                      </div>
+                    </a>
+
+                    <a href="wishlist.html">
+                      <div>
+                        <h5>8</h5>
+                        <span><i class="bi bi-heart"></i> Wishlist</span>
+                      </div>
+                    </a>
+
+                    <a href="addresses.html">
+                      <div>
+                        <h5>3</h5>
+                        <span><i class="bi bi-geo-alt"></i> Addresses</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- EDIT PROFILE -->
+                <div class="brx-profile-form modern-profile-form">
+                  <div class="profile-form-header">
+                    <h5>Personal Information</h5>
+                    <span class="profile-status">
+                      <i class="bi bi-shield-check"></i><span class="display-verified-none">
+                        Account Verified
+                      </span>
+                    </span>
+                  </div>
+
+                  <!-- PROFILE IMAGE UPDATE -->
+
+
+                  <div class="brx-form-grid">
+                    <div class="brx-input">
+                      <label>Full Name</label>
+                      <input type="text" value="Brijesh Singh" />
+                    </div>
+
+                    <div class="brx-input">
+                      <label>Email Address</label>
+                      <input type="email" value="brijesh@gmail.com" readonly />
+                    </div>
+
+                    <div class="brx-input">
+                      <label>Phone Number</label>
+                      <input type="tel" value="+91 9876543210" />
+                    </div>
+
+                    <div class="brx-input">
+                      <label>Date of Birth</label>
+                      <input type="date" />
+                    </div>
+
+                    <div class="brx-input">
+                      <label>Gender</label>
+                      <select>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+
+                    <div class="brx-input">
+                      <label>Country</label>
+                      <input type="text" value="India" />
+                    </div>
+
+                    <div class="brx-input">
+                      <label>City</label>
+                      <input type="text" value="Noida" />
+                    </div>
+
+                    <div class="brx-input">
+                      <label>State</label>
+                      <input type="text" value="Uttar Pradesh" />
+                    </div>
+
+                    <div class="brx-input">
+                      <label>Pincode</label>
+                      <input type="text" value="201301" />
+                    </div>
+                  </div>
+
+                  <div class="profile-actions">
+                    <button class="cancel-profile-btn">Cancel</button>
+
+                    <button class="brx-update-btn">
+                      <i class="bi bi-check-circle"></i> Save Changes
+                    </button>
+                  </div>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="brx-profile-right">
+                  <!-- SAVED ADDRESS -->
+                  <div class="brx-right-card">
+                    <div class="brx-card-header">
+                      <h4>Saved Address</h4>
+                      <button class="brx-edit-address" onclick="openAddressModal()">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                    </div>
+
+                    <div class="brx-address-box">
+                      <h6>Brijesh Singh</h6>
+
+                      <p>Sector 62, Noida Uttar Pradesh - 201301 India</p>
+
+                      <span class="brx-phone"> +91 9876543210 </span>
+                    </div>
+                  </div>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDIT ADDRESS MODAL -->
+
+      <div class="address-modal" id="editAddressModal">
+        <div class="address-modal-content">
+          <div class="modal-header">
+            <h4>Edit Address</h4>
+            <button class="close-modal" onclick="closeAddressModal()">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+
+          <form class="address-form">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Enter name" />
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="text" placeholder="Enter phone number" />
+            </div>
+
+            <div class="form-group full-width">
+              <label>Address</label>
+              <textarea></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>City</label>
+                <input type="text" />
+              </div>
+
+              <div class="form-group">
+                <label>State</label>
+                <input type="text" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Pincode</label>
+              <input type="text" />
+            </div>
+
+            <div class="modal-actions">
+              <button type="button" class="cancel-btn" onclick="closeAddressModal()">
+                Cancel
+              </button>
+
+              <button type="submit" class="save-btn">Save Address</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+
+
+
+    </div>
+  </div>
+
+  <!-- Wish List end -->
+
+  <div id="footerId"></div>
+
+  
+  <script src="web/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+ 
+
+</body>
+
+</html>

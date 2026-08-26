@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>login | Laat Saheb</title>
+  <link rel="stylesheet" href="web/css/style.css" />
+  <link rel="stylesheet" href="web/css/style2.css" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="web/image/logo-icon.png" />
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <!-- Wish List start -->
+
+  <div class="container">
+    <div class="vx-layout">
+      <!-- SIDEBAR (DESKTOP ONLY) -->
+      <aside class="vx-sidebar-account">
+        <h2>Account</h2>
+        <ul>
+          <li class="active">Account Settings</li>
+          <li>Payments</li>
+          <li>Orders</li>
+          <li>Help Center</li>
+        </ul>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="vx-account">
+        <!-- HEADER -->
+        <div class="vx-header">
+          <div class="vx-header-left">
+            <div class="new-log ">
+              <a class="text-black" href="dashboard.html"><i class="bi bi-arrow-left-short"></i></a>
+              <h2 class="mb-0">Account</h2>
+            </div>
+
+            <div class="new-log justify-content-between">
+              <div class="vx-card vx-muted">
+                Log in to get exclusive offers
+              </div>
+              <a href="login.html"><button class="vx-login-btn">Log In</button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOGIN INFO -->
+
+        <!-- FINANCE -->
+        <!-- <div class="vx-card">
+            <h3>Finance On UPI</h3>
+
+            <div class="vx-item">
+              <div class="vx-icon"><i class="bi bi-wallet2"></i></div>
+              <div class="vx-content">
+                <p>superCard | Buy Now Pay Later in 3</p>
+                <span>Enjoy 3% cashback | Activate FK UPI</span>
+              </div>
+              <i class="bi bi-chevron-right"></i>
+            </div>
+          </div> -->
+
+        <!-- LANGUAGE -->
+        <!-- <div class="vx-card">
+          <h3>Try Laat Saheb in your language</h3>
+
+          <div class="vx-lang">
+            <span>हिंदी</span>
+            <span>தமிழ்</span>
+            <span>తెలుగు</span>
+            <span>ಕನ್ನಡ</span>
+            <span class="vx-more">+8 more</span>
+          </div>
+        </div> -->
+
+        <!-- SETTINGS -->
+        <div class="vx-card">
+          <h3>Account Settings</h3>
+
+          <a href="#" class="text-black">
+          <div class="vx-item" onclick="himOpen()">
+            <div class="vx-icon"><i class="bi bi-translate"></i></div>
+            <p>Select Language</p>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          </a>
+
+          <a href="#" class="text-black">
+          <div class="vx-item">
+            <div class="vx-icon"><i class="bi bi-bell"></i></div>
+            <p>Notification Settings</p>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          </a>
+
+          <a href="#" class="text-black">
+          <div class="vx-item">
+            <div class="vx-icon"><i class="bi bi-headphones"></i></div>
+            <p>Help Center</p>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          </a>
+        </div>
+
+
+
+        <!-- INFO -->
+        <div class="vx-card">
+          <h3>Feedback & Information</h3>
+
+          <a href="privacy-policy.html" class="text-black">
+            <div class="vx-item">
+            <div class="vx-icon"><i class="bi bi-file-text"></i></div>
+            <p>Privacy & Policy</p>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          </a>
+
+          <a href="shiping-policy.html" class="text-black">
+            <div class="vx-item">
+            <div class="vx-icon"><i class="bi bi-truck"></i></div>
+            <p>Shipping Policy</p>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          </a>
+
+          <a href="return-refund.html" class="text-black">
+            <div class="vx-item">
+            <div class="vx-icon"><i class="bi bi-arrow-repeat"></i></div>
+            <p>Return & Refund</p>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          </a>
+
+          <a href="terms-conditions.html" class="text-black">
+            <div class="vx-item">
+            <div class="vx-icon"><i class="bi bi-file-earmark-text"></i></div>
+            <p>Terms & Services</p>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          </a>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Wish List end -->
+
+  <div id="footerId"></div>
+
+  
+  <script src="web/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
