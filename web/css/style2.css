@@ -2705,38 +2705,74 @@ width: 100%;
 }
 
 
-/* Testing */
+/* =========================================================
+   VX TESTIMONIALS
+   TRUE INFINITE MARQUEE
+   MOBILE = TWO INDEPENDENT DRAGGABLE MARQUEES
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root {
 
-      --vx-test-card: #f5f2d8;
+    --vx-test-bg: #8f0000;
+
+    --vx-test-card: #f5f2d8;
+
     --vx-test-text: #8f0000;
+
     --vx-test-white: #ffffff;
-    --vx-card-width: 500px;
-    --vx-card-height: 88px;
+
+    --vx-test-star: #ff9500;
+
+
+    /* Desktop */
+
+    --vx-desktop-card-width: 500px;
+
+    --vx-desktop-card-height: 88px;
+
+
+    /* Mobile */
+
+    --vx-mobile-card-width: 82vw;
+
+    --vx-mobile-card-height: 60px;
+
+
+    /* Gap */
+
+    --vx-mobile-gap: 10px;
 }
 
 
-/* ==========================================
-   TESTIMONIAL MAIN SECTION
-========================================== */
+/* =========================================================
+   MAIN SECTION
+========================================================= */
 
 .vx-testimonials {
+
     width: 100%;
+
+    position: relative;
+
     overflow: hidden;
 
-    background: var(--primary);
-
-    padding: 45px 0 55px;
+    background: var(--vx-test-bg);
 
     box-sizing: border-box;
 }
 
 
-/* ==========================================
-   TESTIMONIAL HEADER
-========================================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .vx-testimonials-header {
+
     width: 100%;
 
     text-align: center;
@@ -2748,12 +2784,18 @@ width: 100%;
     box-sizing: border-box;
 }
 
+
 .vx-testimonials-header h2 {
+
     margin: 0 0 16px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 34px;
+
     line-height: 1.2;
 
     font-weight: 700;
@@ -2761,12 +2803,18 @@ width: 100%;
     color: var(--vx-test-white);
 }
 
+
 .vx-testimonials-header p {
+
     margin: 0;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 17px;
+
     line-height: 1.4;
 
     font-weight: 600;
@@ -2774,16 +2822,31 @@ width: 100%;
     color: var(--vx-test-white);
 }
 
+
 .vx-testimonials-header p strong {
+
     font-weight: 700;
 }
 
 
-/* ==========================================
-   REVIEW WINDOW
-========================================== */
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+.vx-desktop-reviews {
+
+    width: 100%;
+
+    display: block;
+}
+
+
+/* =========================================================
+   DESKTOP WINDOW
+========================================================= */
 
 .vx-review-window {
+
     width: 100%;
 
     position: relative;
@@ -2794,125 +2857,188 @@ width: 100%;
 }
 
 
-/* ==========================================
-   PREMIUM FADE ON SIDES
-========================================== */
+/* =========================================================
+   DESKTOP SIDE FADE
+========================================================= */
 
 .vx-review-window::before,
 .vx-review-window::after {
+
     content: "";
 
     position: absolute;
 
     top: 0;
+
     bottom: 0;
 
-    width: 70px;
+    width: 90px;
 
-    z-index: 5;
+    z-index: 20;
 
     pointer-events: none;
 }
 
+
 .vx-review-window::before {
+
     left: 0;
 
-    background: linear-gradient(
-        to right,
-        #ec8a2165,
-        transparent
-    );
+    background:
+        linear-gradient(
+            to right,
+            var(--vx-test-bg),
+            transparent
+        );
 }
+
 
 .vx-review-window::after {
+
     right: 0;
 
-    background: linear-gradient(
-        to left,
-        #ec8a2165,
-        transparent
-    );
+    background:
+        linear-gradient(
+            to left,
+            var(--vx-test-bg),
+            transparent
+        );
 }
 
 
-/* ==========================================
-   MOVING TRACK
-========================================== */
+/* =========================================================
+   DESKTOP TRACK
+========================================================= */
 
 .vx-review-track {
+
     display: flex;
 
-    width: max-content;
+    align-items: center;
+
+    padding: 5px 0;
 
     gap: 30px;
 
-    align-items: center;
-
-    animation:
-        vxReviewMarquee 28s linear infinite;
+    width: max-content;
 
     will-change: transform;
+
+    animation:
+        vxDesktopMarquee
+        30s
+        linear
+        infinite;
 }
 
 
-/* Pause when mouse is over reviews */
+/* =========================================================
+   DESKTOP MARQUEE
+========================================================= */
 
-.vx-review-window:hover .vx-review-track {
-    animation-play-state: paused;
+@keyframes vxDesktopMarquee {
+
+    from {
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            );
+    }
+
+    to {
+
+        transform:
+            translate3d(
+                calc(-50% - 15px),
+                0,
+                0
+            );
+    }
 }
 
 
-/* ==========================================
-   REVIEW CARD
-========================================== */
+/* =========================================================
+   DESKTOP REVIEW CARD
+========================================================= */
 
 .vx-review-card {
-    width: var(--vx-card-width);
-    min-width: var(--vx-card-width);
 
-    min-height: var(--vx-card-height);
+    width:
+        var(--vx-desktop-card-width);
+
+    min-width:
+        var(--vx-desktop-card-width);
+
+    height:
+        var(--vx-desktop-card-height);
+
+    min-height:
+        var(--vx-desktop-card-height);
 
     display: flex;
 
     align-items: center;
 
-    padding: 10px 20px 10px 10px;
+    flex-shrink: 0;
 
-    background: var(--vx-test-card);
+    padding:
+        10px 20px 10px 10px;
+
+    background:
+        var(--vx-test-card);
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
 
     border-radius: 45px;
-
-    border: 1px solid rgba(255, 255, 255, 0.65);
 
     box-sizing: border-box;
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.12),
-        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+
+        0 8px 20px
+        rgba(0,0,0,.12),
+
+        inset 0 1px 1px
+        rgba(255,255,255,.8);
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 
-/* Small hover effect */
+/* =========================================================
+   DESKTOP HOVER
+========================================================= */
 
 .vx-review-card:hover {
-    transform: translateY(-3px);
+
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 12px 25px rgba(0, 0, 0, 0.18),
-        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+
+        0 12px 25px
+        rgba(0,0,0,.18),
+
+        inset 0 1px 1px
+        rgba(255,255,255,.8);
 }
 
 
-/* ==========================================
-   CUSTOMER IMAGE
-========================================== */
+/* =========================================================
+   USER IMAGE
+========================================================= */
 
 .vx-review-user {
+
     width: 62px;
+
     min-width: 62px;
 
     height: 62px;
@@ -2921,34 +3047,47 @@ width: 100%;
 
     overflow: hidden;
 
-    border: 3px solid var(--vx-test-white);
+    flex-shrink: 0;
+
+    border:
+        3px solid
+        var(--vx-test-white);
 
     background: #ddd;
 
     box-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.12);
+        0 3px 10px
+        rgba(0,0,0,.12);
 
     box-sizing: border-box;
 }
 
+
 .vx-review-user img {
+
     width: 100%;
+
     height: 100%;
 
     display: block;
 
     object-fit: cover;
+
+    pointer-events: none;
 }
 
 
-/* ==========================================
-   REVIEW CONTENT
-========================================== */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .vx-review-content {
-    min-width: 0;
 
     flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
 
     padding-left: 14px;
 
@@ -2956,16 +3095,21 @@ width: 100%;
 }
 
 
-/* ==========================================
-   CUSTOMER NAME
-========================================== */
+/* =========================================================
+   NAME
+========================================================= */
 
 .vx-review-content h3 {
+
     margin: 0 0 4px;
 
-    color: var(--vx-test-text);
+    color:
+        var(--vx-test-text);
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 19px;
 
@@ -2981,18 +3125,18 @@ width: 100%;
 }
 
 
-/* ==========================================
-   STAR RATING
-========================================== */
+/* =========================================================
+   STARS
+========================================================= */
 
 .vx-stars {
-    color: var(--primary);
+
+    color:
+        var(--vx-test-star);
 
     font-size: 19px;
 
     line-height: 1;
-
-    letter-spacing: 0;
 
     margin-left: 3px;
 
@@ -3000,16 +3144,21 @@ width: 100%;
 }
 
 
-/* ==========================================
-   REVIEW TEXT
-========================================== */
+/* =========================================================
+   MESSAGE
+========================================================= */
 
 .vx-review-content p {
+
     margin: 0;
 
-    color: var(--vx-test-text);
+    color:
+        var(--vx-test-text);
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 15px;
 
@@ -3019,373 +3168,641 @@ width: 100%;
 
     display: -webkit-box;
 
-    -webkit-line-clamp: 2;
-
     -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 2;
 
     overflow: hidden;
 }
 
 
-/* ==========================================
-   INFINITE MARQUEE
-========================================== */
+/* =========================================================
+   MOBILE CONTAINER
+========================================================= */
 
-@keyframes vxReviewMarquee {
+.vx-mobile-reviews {
 
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-
-    100% {
-        transform: translate3d(
-            calc(-50% - 15px),
-            0,
-            0
-        );
-    }
-
+    display: none;
 }
 
 
-/* ==========================================
+/* =========================================================
    TABLET
-   992px → 1200px
-========================================== */
+========================================================= */
 
-@media (max-width: 1199px) {
-
-    .vx-testimonials {
-        padding: 40px 0 50px;
-    }
-
+@media (max-width:1199px) {
 
     .vx-testimonials-header h2 {
+
         font-size: 31px;
     }
 
-
     .vx-testimonials-header p {
+
         font-size: 16px;
     }
 
-
     .vx-review-track {
+
         gap: 24px;
 
-        animation-duration: 26s;
+        animation-duration: 27s;
     }
 
-
     .vx-review-card {
+
         width: 430px;
+
         min-width: 430px;
+
+        height: 80px;
 
         min-height: 80px;
 
-        padding: 8px 17px 8px 8px;
+        padding:
+            8px 17px 8px 8px;
 
         border-radius: 40px;
     }
 
-
     .vx-review-user {
+
         width: 56px;
+
         min-width: 56px;
 
         height: 56px;
+
+        border-width: 2px;
     }
 
-
     .vx-review-content {
+
         padding-left: 11px;
     }
 
-
     .vx-review-content h3 {
+
         font-size: 17px;
     }
-
 
     .vx-stars {
+
         font-size: 17px;
     }
 
-
     .vx-review-content p {
+
         font-size: 13px;
     }
-
 }
 
 
-/* ==========================================
+/* =========================================================
    SMALL TABLET
-   768px → 991px
-========================================== */
+========================================================= */
 
-@media (max-width: 991px) {
+@media (max-width:991px) {
 
     .vx-testimonials {
-        padding: 38px 0 48px;
+
+        padding-top: 38px;
+
+        padding-bottom: 48px;
     }
 
-
     .vx-testimonials-header {
+
         padding-bottom: 24px;
     }
 
-
     .vx-testimonials-header h2 {
+
         font-size: 29px;
 
         margin-bottom: 12px;
     }
 
-
     .vx-review-track {
+
         gap: 20px;
 
-        animation-duration: 24s;
+        animation-duration: 59s;
     }
 
-
     .vx-review-card {
+
         width: 390px;
+
         min-width: 390px;
+
+        height: 76px;
 
         min-height: 76px;
 
-        padding: 8px 15px 8px 8px;
+        padding:
+            8px 15px 8px 8px;
 
         border-radius: 38px;
     }
 
-
     .vx-review-user {
+
         width: 52px;
+
         min-width: 52px;
 
         height: 52px;
-
-        border-width: 2px;
     }
 
-
     .vx-review-content {
+
         padding-left: 10px;
     }
 
-
     .vx-review-content h3 {
+
         font-size: 16px;
     }
-
 
     .vx-stars {
+
         font-size: 16px;
     }
 
-
     .vx-review-content p {
+
         font-size: 12.5px;
     }
-
 }
 
 
-/* ==========================================
+/* =========================================================
    MOBILE
-   600px AND BELOW
-========================================== */
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
 
     .vx-testimonials {
-        padding: 32px 0 42px;
+
+        width: 100%;
+
+        padding:
+            27px 0 38px;
+
+        overflow: hidden;
     }
 
 
-    /* Header */
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
     .vx-testimonials-header {
-        padding: 0 15px 22px;
+
+        padding:
+            0 15px 20px;
     }
 
 
     .vx-testimonials-header h2 {
-        font-size: 26px;
+
+        font-size: 21px;
 
         line-height: 1.2;
 
-        margin-bottom: 9px;
+        margin-bottom: 8px;
     }
 
 
     .vx-testimonials-header p {
-        font-size: 14px;
+
+        font-size: 11px;
     }
 
 
-    /* Marquee */
+    /* =====================================================
+       HIDE DESKTOP
+    ===================================================== */
 
-    .vx-review-track {
-        gap: 15px;
+    .vx-desktop-reviews {
 
-        animation-duration: 21s;
+        display: none !important;
     }
 
 
-    /* Card */
+    /* =====================================================
+       MOBILE TWO ROWS
+    ===================================================== */
 
+    .vx-mobile-reviews {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 14px;
+
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       EACH MARQUEE WINDOW
+    ===================================================== */
+
+    .vx-mobile-review-window {
+
+        width: 100%;
+
+        position: relative;
+
+        overflow: hidden;
+
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       TRUE MARQUEE TRACK
+    ===================================================== */
+
+    .vx-mobile-review-track {
+
+        display: flex;
+
+        align-items: center;
+
+        gap:
+            var(--vx-mobile-gap);
+
+        width: max-content;
+
+        position: relative;
+
+        left: 0;
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            );
+
+        will-change:
+            transform;
+
+        cursor: grab;
+
+        user-select: none;
+
+        -webkit-user-select: none;
+
+        touch-action: pan-y;
+    }
+
+
+    /* =====================================================
+       WHILE DRAGGING
+    ===================================================== */
+
+    .vx-mobile-review-track.is-dragging {
+
+        cursor: grabbing;
+    }
+
+
+    /* =====================================================
+       MOBILE CARD
+    ===================================================== */
+
+    .vx-mobile-review-track
     .vx-review-card {
-        width: calc(100vw - 50px);
 
-        min-width: calc(100vw - 50px);
+        width:
+            var(--vx-mobile-card-width);
 
-        min-height: 72px;
+        min-width:
+            var(--vx-mobile-card-width);
 
-        padding: 7px 13px 7px 7px;
+        height:
+            var(--vx-mobile-card-height);
 
-        border-radius: 36px;
+        min-height:
+            var(--vx-mobile-card-height);
+
+        flex-shrink: 0;
+
+        padding:
+            6px 10px 6px 6px;
+
+        border-radius: 32px;
+
+        box-shadow:
+            0 5px 14px
+            rgba(0,0,0,.13);
+
+        transition: none;
     }
 
 
-    /* Image */
+    /* =====================================================
+       IMAGE
+    ===================================================== */
 
+    .vx-mobile-review-track
     .vx-review-user {
-        width: 48px;
-        min-width: 48px;
 
-        height: 48px;
+        width: 46px;
+
+        min-width: 46px;
+
+        height: 46px;
 
         border-width: 2px;
     }
 
 
-    /* Content */
+    /* =====================================================
+       CONTENT
+    ===================================================== */
 
+    .vx-mobile-review-track
     .vx-review-content {
-        padding-left: 9px;
+
+        padding-left: 8px;
+
+        min-width: 0;
+
+        overflow: hidden;
     }
 
 
+    /* =====================================================
+       NAME
+    ===================================================== */
+
+    .vx-mobile-review-track
     .vx-review-content h3 {
-        font-size: 15px;
 
-        line-height: 1.1;
+        font-size: 13px;
 
-        margin-bottom: 3px;
+        line-height: 1.05;
+
+        margin:
+            0 0 3px;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
     }
 
 
+    /* =====================================================
+       STARS
+    ===================================================== */
+
+    .vx-mobile-review-track
     .vx-stars {
-        font-size: 15px;
+
+        font-size: 12px;
 
         margin-left: 2px;
     }
 
 
-    .vx-review-content p {
-        font-size: 12px;
+    /* =====================================================
+       MESSAGE
+    ===================================================== */
 
-        line-height: 1.2;
+    .vx-mobile-review-track
+    .vx-review-content p {
+
+        font-size: 10.5px;
+
+        line-height: 1.12;
+
+        margin: 0;
+
+        display: -webkit-box;
+
+        -webkit-box-orient: vertical;
 
         -webkit-line-clamp: 2;
+
+        overflow: hidden;
     }
 
 
-    /* Side fade */
+    /* =====================================================
+       SECOND ROW
+    ===================================================== */
 
-    .vx-review-window::before,
-    .vx-review-window::after {
-        width: 25px;
+    .vx-track-two {
+
+        margin-left: 0;
     }
 
+
+    /* =====================================================
+       SIDE FADE
+    ===================================================== */
+
+    .vx-mobile-review-window::before,
+    .vx-mobile-review-window::after {
+
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+
+        bottom: 0;
+
+        width: 24px;
+
+        z-index: 30;
+
+        pointer-events: none;
+    }
+
+
+    .vx-mobile-review-window::before {
+
+        left: 0;
+
+        background:
+            linear-gradient(
+                to right,
+                var(--vx-test-bg),
+                transparent
+            );
+    }
+
+
+    .vx-mobile-review-window::after {
+
+        right: 0;
+
+        background:
+            linear-gradient(
+                to left,
+                var(--vx-test-bg),
+                transparent
+            );
+    }
 }
 
 
-/* ==========================================
+/* =========================================================
    SMALL PHONES
-   380px AND BELOW
-========================================== */
+========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width:380px) {
 
     .vx-testimonials {
-        padding: 28px 0 38px;
+
+        padding:
+            25px 0 34px;
     }
 
+    .vx-testimonials-header {
+
+        padding-bottom: 17px;
+    }
 
     .vx-testimonials-header h2 {
-        font-size: 23px;
-    }
 
+        font-size: 20px;
+    }
 
     .vx-testimonials-header p {
-        font-size: 13px;
+
+        font-size: 10px;
     }
 
+    .vx-mobile-reviews {
 
-    .vx-review-track {
         gap: 12px;
-
-        animation-duration: 19s;
     }
 
+    .vx-mobile-review-track {
 
+        gap: 8px;
+    }
+
+    .vx-mobile-review-track
     .vx-review-card {
-        width: calc(100vw - 30px);
 
-        min-width: calc(100vw - 30px);
+        width:
+            calc(100vw - 40px);
 
-        min-height: 68px;
+        min-width:
+            calc(100vw - 40px);
 
-        padding: 6px 11px 6px 6px;
+        height: 56px;
 
-        border-radius: 34px;
+        min-height: 56px;
+
+        padding: 6px;
+
+        border-radius: 29px;
     }
 
-
+    .vx-mobile-review-track
     .vx-review-user {
-        width: 44px;
-        min-width: 44px;
 
-        height: 44px;
+        width: 42px;
+
+        min-width: 42px;
+
+        height: 42px;
     }
 
-
-    .vx-review-content {
-        padding-left: 8px;
-    }
-
-
+    .vx-mobile-review-track
     .vx-review-content h3 {
-        font-size: 14px;
+
+        font-size: 12px;
     }
 
-
+    .vx-mobile-review-track
     .vx-stars {
-        font-size: 14px;
-    }
 
-
-    .vx-review-content p {
         font-size: 11px;
     }
 
+    .vx-mobile-review-track
+    .vx-review-content p {
+
+        font-size: 9.5px;
+    }
 }
 
 
-/* ==========================================
-   REDUCE MOTION ACCESSIBILITY
-========================================== */
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width:340px) {
+
+    .vx-mobile-review-track
+    .vx-review-card {
+
+        width:
+            calc(100vw - 30px);
+
+        min-width:
+            calc(100vw - 30px);
+    }
+
+    .vx-mobile-review-track
+    .vx-review-user {
+
+        width: 40px;
+
+        min-width: 40px;
+
+        height: 40px;
+    }
+
+    .vx-mobile-review-track
+    .vx-review-content h3 {
+
+        font-size: 11px;
+    }
+
+    .vx-mobile-review-track
+    .vx-stars {
+
+        font-size: 10px;
+    }
+
+    .vx-mobile-review-track
+    .vx-review-content p {
+
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .vx-review-track {
-        animation: none;
-    }
+    .vx-review-track,
+    .vx-mobile-review-track {
 
+        animation: none !important;
+    }
 }
-/* Testing */

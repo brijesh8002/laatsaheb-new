@@ -689,43 +689,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!v) return;
 
+            // if (window.innerWidth <= 10) {
 
-            if (window.innerWidth <= 768) {
-
-                /*
-                 * Middle card
-                 */
-
-                const center =
-                    index + 1;
+            //     const center =
+            //         index + 1;
 
 
-                if (i === center) {
+            //     if (i === center) {
 
-                    card.classList.add("active");
+            //         card.classList.add("active");
 
-                    const playPromise =
-                        v.play();
+            //         const playPromise =
+            //             v.play();
 
-                    if (
-                        playPromise !== undefined
-                    ) {
+            //         if (
+            //             playPromise !== undefined
+            //         ) {
 
-                        playPromise.catch(
-                            function () {}
-                        );
+            //             playPromise.catch(
+            //                 function () {}
+            //             );
 
-                    }
+            //         }
 
-                } else {
+            //     } else {
 
-                    card.classList.remove("active");
+            //         card.classList.remove("active");
 
-                    v.pause();
+            //         v.pause();
 
-                }
+            //     }
 
-            } else {
+            // } 
+            else {
 
                 card.classList.remove("active");
 
