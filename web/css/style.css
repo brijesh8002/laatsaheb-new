@@ -7,9 +7,43 @@
   font-family: "Poppins", sans-serif;
 }
 
-:root{
-  --primary:#ec8b21;
+
+:root {
+
+    --primary:#F5A228;
+
+    --secondary:#371110;
+
+    --vx-test-bg: #8f0000;
+
+    --vx-test-card: #f5f2d8;
+
+    --vx-test-text: #8f0000;
+
+    --vx-test-white: #ffffff;
+
+
+
+    /* Desktop */
+
+    --vx-desktop-card-width: 500px;
+
+    --vx-desktop-card-height: 88px;
+
+
+    /* Mobile */
+
+    --vx-mobile-card-width: 82vw;
+
+    --vx-mobile-card-height: 60px;
+
+
+    /* Gap */
+
+    --vx-mobile-gap: 10px;
 }
+
+
 a {
   text-decoration: none !important;
 }
@@ -54,8 +88,8 @@ li {
   height: 40px;
 }
 .offer-bar2 {
-  background: var(--primary);
-  color: white;
+  background: var(--secondary);
+  color: var(--primary);
   overflow: hidden;
   white-space: nowrap;
   padding: 8px 0;
@@ -65,19 +99,18 @@ li {
 }
 
 .main-header {
-  width: 100%;
-  background: #fff;
-  /* transition: 0s; */
-  z-index: 9999999999;
-  /* margin-top: 40px; */
+    width: 100%;
+    background: var(--secondary);
+    z-index: 9999999999;
 }
 
-/* Scroll ke baad */
+/* Fixed after scrolling */
 .main-header.fixed {
-  /* margin-top: 0px; */
-  position: fixed;
-  top: 0;
-  left: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999999999;
 }
 
 /* Google translate widget */
@@ -344,7 +377,7 @@ z-index: 99;
 /* HEADING */
 .xzcv-heading h1 {
   text-align: center;
-  font-size: 34px;
+  /* font-size: 34px; */
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -490,27 +523,65 @@ z-index: 99;
 }
 
 .btn-add {
-  color: white;
-  background: var(--primay);
+  color: black;
+  background: white;
   text-align: center;
-  padding: 10px 20px;
+  padding: 20px 0;
   position: absolute;
-  width: 90%;
+  width: 100%;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   bottom: -54%;
-  left: 5%;
-  border-radius: 4px;
-  transition: 0.3s ease;
+  left: 0;
+  /* border-radius: 4px; */
+  transition: 0.6s ease;
+}
+.btn-add2 {
+  display: none;
+  color: black;
+  background: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.6s ease;
+}
+.btn-add p {
+ color: black;
+ border: 1px solid black;
+ width: 100%;
+ padding: 10px 0;
+ border-radius: 1px;
+ transition: .6s ease;
+ margin-bottom: 0;
+}
+.btn-add2 p {
+ color: black;
+ border: 1px solid black;
+ width: 100%;
+ padding: 10px 0;
+ border-radius: 1px;
+ transition: .6s ease;
+ margin-bottom: 0;
+}
+
+.btn-add p:hover{
+  color: white;
+ background: black;
+}
+.btn-add2 p:hover{
+  color: white;
+ background: black;
 }
 .crd-wishlist {
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem;
+  left: 0.5rem;
   border: none;
   outline: none;
-  background: transparent;
-  color: white;
+  background: white;
+  color: var(--secondary);
   height: 35px;
   width: 35px;
   border-radius: 5px;
@@ -519,33 +590,39 @@ z-index: 99;
   align-items: center;
   justify-content: center;
   transition: 0.3s ease;
+  border-radius: 50px;
   /* border: 1px solid #fabe29; */
 }
-.crd-wishlist.new-list {
+/* .crd-wishlist.new-list {
   top: 2.5rem;
   height: 40px;
   width: 40px;
 }
 .crd-wishlist.new-list i {
   font-size: 25px;
-}
+  border: 1px solid black;
+} */
+.crd-wishlist i {
+  font-size: 18px;
+  margin-top: 3px;
+} 
 .crd-wishlist:hover {
-  color: rgb(255, 0, 0);
+  color: var(--primary);
 }
 
 .crd-wishlist.active {
-  color: rgb(255, 0, 0);
+  color: var(--primary);
 }
 .mobile-dis {
   position: absolute;
-  top: 0.7rem;
-  left: 0.5rem;
+  top: 0;
+  right: 0;
   background-color: var(--primary);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.53);
   color: #fff;
-  font-size: 12px;
-  padding: 3px 20px;
-  border-radius: 50px;
+  font-size: 14px;
+  padding: 2px 15px;
+  /* border-radius: 50px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -555,30 +632,45 @@ z-index: 99;
   /* text-align: center; */
   padding: 0.5rem 0;
 }
+
+.prd-info h6 {
+    color: grey;
+    font-weight: 400;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
 .prd-info .prd-name {
-  font-size: 16px;
+  font-size: 18px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 30px;
   margin-bottom: 0.5rem;
   text-transform: capitalize;
   /* font-weight: bold; */
 }
 
 .prd-info .prd-price del {
-  font-size: 12px;
+  font-size: 14px;
   color: red;
+  margin-bottom: 5px;
 }
-.prd-info .prd-price .saving {
-  /* background-color: #000; */
+.prd-info .prd-price {
   color: var(--primary);
-  border-radius: 5px;
-  font-size: 12px;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.prd-info .prd-price .saving {
+  color: var(--vx-test-bg);
+  font-size: 15px;
+
 }
 
 .prd-crd:hover .btn-add {
-  bottom: 5%;
+  bottom: 0;
 }
 
 /* review section */
@@ -1119,19 +1211,26 @@ body {
   }
 
   .prd-info .prd-name {
-    font-size: 14px;
+    font-size: 15px;
     -webkit-line-clamp: 1;
     margin-bottom: 0;
   }
   .prd-info .prd-price del {
-    font-size: 10px;
-  }
-  .prd-info .prd-price .price {
     font-size: 12px;
   }
 
+  .prd-info .prd-price {
+  font-size: 15px;
+}
+  
+
   .btn-add {
-    padding: 8px 15px;
+    display: none;
+
+  }
+  .btn-add2 {
+    display: block;
+    padding: 8px 0;
     font-size: 15px;
   }
 
@@ -3924,6 +4023,17 @@ textarea {
   display: flex;
   gap: 15px;
   transition: transform 0.6s ease;
+  touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+
+    cursor: grab;
+
+    transition: transform 0.6s ease;
+}
+.brij-track:active {
+    cursor: grabbing;
 }
 
 /* CARD */
@@ -3932,7 +4042,7 @@ textarea {
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 9/16;
+  aspect-ratio: 9/18;
   background: #000;
   transition: 0.4s;
 }

@@ -552,19 +552,19 @@
 .vx-srch-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: white;
   display: none;
-  z-index: 999;
+  z-index: 99999999999;
 }
 
 /* MODAL */
 .vx-srch-modal {
-  position: fixed;
+  /* position: fixed;
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 700px;
-  max-width: 95%;
+  width: 700px; */
+  max-width: 100%;
   display: none;
   z-index: 1000;
 }
@@ -572,8 +572,8 @@
 /* SEARCH BOX */
 .vx-srch-box {
   background: #fff;
-  padding: 15px 20px;
-  border-radius: 12px;
+  padding: 5px 10px;
+  /* border-radius: 12px; */
   display: flex;
   align-items: center;
   width: 100%;
@@ -589,18 +589,21 @@
 
 .vx-srch-box span {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 30px;
+}
+.vx-srch-box span i{
+  color: #686565;
 }
 
 /* RELATED */
 .vx-related {
   margin-top: 12px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  /* background: #fff; */
+  /* border-radius: 12px; */
+  padding: 0 15px;
+  /* box-shadow: 0 10px 25px rgba(0,0,0,0.1); */
   overflow-y: scroll;
-  max-height:50vh ;
+  max-height:95vh ;
   scrollbar-width: none;
 }
 
@@ -2126,7 +2129,7 @@ width: 100%;
     /* Container */
 .xzcv-search-container {
   width: 100%;
-  padding: 12px 16px;
+  padding: 8px 16px;
   background: transparent ;
 }
 
@@ -2137,7 +2140,7 @@ width: 100%;
   gap: 12px;
   background: #fff;
   border-radius: 16px;
-  padding: 14px 18px;
+  padding: 10px 18px;
   border: 2px solid rgba(236, 139, 33, 0.25);
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
@@ -2154,8 +2157,8 @@ width: 100%;
 
 /* Icon */
 .xzcv-search-icon {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   stroke: #EC8B21;
 }
 
@@ -2164,16 +2167,27 @@ width: 100%;
   border: none;
   outline: none;
   width: 100%;
-  font-size: 16px;
+  font-size: 17px;
   font-family: 'Poppins', sans-serif;
   color: #333;
   background: transparent;
 }
 
 .xzcv-search-box input::placeholder {
-  color: #999;
+  color: #333;
 }
 
+
+.xzcv-search-box input {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.xzcv-search-box input.placeholder-changing {
+    opacity: 0;
+    transform: translateY(3px);
+}
 
 
 
@@ -2552,7 +2566,7 @@ width: 100%;
   background: white;
     position: absolute;
     left: 0;
-    bottom: -90px;
+    bottom: -78px;
     
 }
 
@@ -2568,13 +2582,10 @@ width: 100%;
 
 @media (max-width: 600px) {
   .xzcv-search-box {
-    padding: 12px 14px;
     border-radius: 12px;
   }
 
-  .xzcv-search-box input {
-    font-size: 14px;
-  }
+
 
 
 
@@ -2655,7 +2666,7 @@ width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--primary);       /* CHANGE BUTTON COLOR */
+    background: var(--secondary);       /* CHANGE BUTTON COLOR */
     color: #ffffff;            /* CHANGE TEXT COLOR */
     border-radius: 18px;
     text-decoration: none;
@@ -2677,7 +2688,7 @@ width: 100%;
 /* -------------Shop By Price--------------- */
 .price-offer{
   text-decoration: none;
-  color: grey;
+  color: black;
 }
 .shop-offer{
   border-radius: 10px;
@@ -2716,37 +2727,7 @@ width: 100%;
    VARIABLES
 ========================================================= */
 
-:root {
 
-    --vx-test-bg: #8f0000;
-
-    --vx-test-card: #f5f2d8;
-
-    --vx-test-text: #8f0000;
-
-    --vx-test-white: #ffffff;
-
-    --vx-test-star: #ff9500;
-
-
-    /* Desktop */
-
-    --vx-desktop-card-width: 500px;
-
-    --vx-desktop-card-height: 88px;
-
-
-    /* Mobile */
-
-    --vx-mobile-card-width: 82vw;
-
-    --vx-mobile-card-height: 60px;
-
-
-    /* Gap */
-
-    --vx-mobile-gap: 10px;
-}
 
 
 /* =========================================================
@@ -2761,7 +2742,7 @@ width: 100%;
 
     overflow: hidden;
 
-    background: var(--vx-test-bg);
+    background: var(--secondary);
 
     box-sizing: border-box;
 }
@@ -2887,7 +2868,7 @@ width: 100%;
     background:
         linear-gradient(
             to right,
-            var(--vx-test-bg),
+            var(--secondary),
             transparent
         );
 }
@@ -2900,7 +2881,7 @@ width: 100%;
     background:
         linear-gradient(
             to left,
-            var(--vx-test-bg),
+            var(--secondary),
             transparent
         );
 }
@@ -3132,7 +3113,7 @@ width: 100%;
 .vx-stars {
 
     color:
-        var(--vx-test-star);
+        var(--primary);
 
     font-size: 19px;
 
@@ -3643,7 +3624,7 @@ width: 100%;
         background:
             linear-gradient(
                 to right,
-                var(--vx-test-bg),
+                var(--secondary),
                 transparent
             );
     }
@@ -3656,7 +3637,7 @@ width: 100%;
         background:
             linear-gradient(
                 to left,
-                var(--vx-test-bg),
+                var(--secondary),
                 transparent
             );
     }

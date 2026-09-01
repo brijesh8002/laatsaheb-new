@@ -27,7 +27,7 @@
 
 <!-- topest nav end -->
 <!-- header start -->
-<header class="py-2 main-header" style="background: #2C080C;">
+<header class="py-2 main-header">
     <div class="container d-flex align-items-center justify-content-between text-center position-relative">
 
         <span class="searchicon d-block d-md-none" onclick="openMenu()"><i class="bi bi-list"></i></span>
@@ -42,7 +42,7 @@
                     <circle cx="11" cy="11" r="7" stroke-width="2" fill="none" />
                     <line x1="16.5" y1="16.5" x2="21" y2="21" stroke-width="2" />
                 </svg>
-                <input type="text" placeholder="Search for Products">
+                <input type="text" id="xzcvSearchInput" placeholder="Search for Products" autocomplete="off">
             </div>
         </div>
         <div class="topestnav d-flex gap-sm-4 gap-2">
@@ -229,14 +229,14 @@
 
 
 <!-- OVERLAY -->
-<div class="vx-srch-overlay" id="vxOverlay" onclick="closeSearch()">
+<div class="vx-srch-overlay" id="vxOverlay">
 
     <!-- SEARCH BOX -->
     <div class="vx-srch-modal" id="vxSearch">
 
         <!-- SEARCH BAR -->
         <div class="vx-srch-box">
-            <span class="me-3"><i class="bi bi-search"></i></span>
+            <span class="me-2 mt-1" onclick="closeSearch()"><i class="bi bi-arrow-left-short"></i></span>
             <input type="text" placeholder="Search for products...">
         </div>
 
@@ -342,3 +342,6 @@
     </div>
 
 </div>
+
+
+

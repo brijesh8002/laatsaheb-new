@@ -1,964 +1,883 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ==========================================
+  // LOAD HEADER
+  // ==========================================
 
-    // Load Header
-    const headerContainer = document.getElementById("header");
+  const headerContainer = document.getElementById("header");
 
-    if (headerContainer) {
-        fetch("web/include/header.html")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Header not found");
-                }
+  if (headerContainer) {
+    fetch("web/include/header.html")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Header not found");
+        }
 
-                return response.text();
-            })
-            .then(data => {
-                headerContainer.innerHTML = data;
-            })
-            .catch(error => {
-                console.error("Header loading error:", error);
-            });
-    }
+        return response.text();
+      })
+      .then((data) => {
+        // Insert header
+        headerContainer.innerHTML = data;
 
+        // IMPORTANT:
+        // Header is now available in DOM
+        initHeaderFixed();
+        initSearchPlaceholder();
+      })
+      .catch((error) => {
+        console.error("Header loading error:", error);
+      });
+  }
 
-    // Load Footer
-    const footerContainer = document.getElementById("footerId");
+  // ==========================================
+  // LOAD FOOTER
+  // ==========================================
 
-    if (footerContainer) {
-        fetch("web/include/footer.html")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Footer not found");
-                }
+  const footerContainer = document.getElementById("footerId");
 
-                return response.text();
-            })
-            .then(data => {
-                footerContainer.innerHTML = data;
-            })
-            .catch(error => {
-                console.error("Footer loading error:", error);
-            });
-    }
+  if (footerContainer) {
+    fetch("web/include/footer.html")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Footer not found");
+        }
 
+        return response.text();
+      })
+      .then((data) => {
+        footerContainer.innerHTML = data;
+      })
+      .catch((error) => {
+        console.error("Footer loading error:", error);
+      });
+  }
 });
 
+// ==========================================
+// HEADER FIXED ON SCROLL
+// ==========================================
+
+function initHeaderFixed() {
+  const header = document.querySelector(".main-header");
+
+  // if (!header) {
+  //     console.log("Header not found");
+  //     return;
+  // }
+
+  // console.log("Header found");
+
+  function checkHeader() {
+    if (window.scrollY > 0) {
+      header.classList.add("fixed");
+    } else {
+      header.classList.remove("fixed");
+    }
+  }
+
+  // Check immediately
+  checkHeader();
+
+  // Check while scrolling
+  window.addEventListener("scroll", checkHeader, {
+    passive: true,
+  });
+}
 
 /* =========================================================
    FILTER ACCORDION
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".vx-filter-title").forEach(function (title) {
+    title.addEventListener("click", function () {
+      const parent = this.parentElement;
 
-    document.querySelectorAll(".vx-filter-title").forEach(function (title) {
-
-        title.addEventListener("click", function () {
-
-            const parent = this.parentElement;
-
-            if (parent) {
-                parent.classList.toggle("vx-active");
-            }
-
-        });
-
+      if (parent) {
+        parent.classList.toggle("vx-active");
+      }
     });
-
+  });
 });
-
 
 /* =========================================================
    FILTER SIDEBAR
 ========================================================= */
 
 function vxOpenFilter() {
+  const sidebar = document.getElementById("vxSidebar");
 
-    const sidebar = document.getElementById("vxSidebar");
+  if (!sidebar) return;
 
-    if (!sidebar) return;
-
-    sidebar.classList.add("vx-open");
-    document.body.style.overflow = "hidden";
+  sidebar.classList.add("vx-open");
+  document.body.style.overflow = "hidden";
 }
-
 
 function vxCloseFilter() {
+  const sidebar = document.getElementById("vxSidebar");
 
-    const sidebar = document.getElementById("vxSidebar");
+  if (!sidebar) return;
 
-    if (!sidebar) return;
-
-    sidebar.classList.remove("vx-open");
-    document.body.style.overflow = "auto";
+  sidebar.classList.remove("vx-open");
+  document.body.style.overflow = "auto";
 }
-
 
 /* =========================================================
    CART
 ========================================================= */
 
 function vxOpenCart() {
+  const cart = document.getElementById("vxCart");
+  const overlay = document.getElementById("vxCartOverlay");
 
-    const cart = document.getElementById("vxCart");
-    const overlay = document.getElementById("vxCartOverlay");
+  if (cart) {
+    cart.classList.add("vx-open");
+  }
 
-    if (cart) {
-        cart.classList.add("vx-open");
-    }
+  if (overlay) {
+    overlay.classList.add("vx-open");
+  }
 
-    if (overlay) {
-        overlay.classList.add("vx-open");
-    }
-
-    document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 }
-
 
 function vxCloseCart() {
+  const cart = document.getElementById("vxCart");
+  const overlay = document.getElementById("vxCartOverlay");
 
-    const cart = document.getElementById("vxCart");
-    const overlay = document.getElementById("vxCartOverlay");
+  if (cart) {
+    cart.classList.remove("vx-open");
+  }
 
-    if (cart) {
-        cart.classList.remove("vx-open");
-    }
+  if (overlay) {
+    overlay.classList.remove("vx-open");
+  }
 
-    if (overlay) {
-        overlay.classList.remove("vx-open");
-    }
-
-    document.body.style.overflow = "auto";
+  document.body.style.overflow = "auto";
 }
-
 
 /* =========================================================
    SEARCH
 ========================================================= */
 
 function openSearch() {
+  const search = document.getElementById("vxSearch");
+  const overlay = document.getElementById("vxOverlay");
+  const searchHome = document.getElementById("search-home");
 
-    const search = document.getElementById("vxSearch");
-    const overlay = document.getElementById("vxOverlay");
-    const searchHome = document.getElementById("search-home");
+  if (search) {
+    search.style.display = "block";
+  }
 
-    if (search) {
-        search.style.display = "block";
-    }
+  if (overlay) {
+    overlay.style.display = "block";
+  }
 
-    if (overlay) {
-        overlay.style.display = "block";
-    }
+  if (searchHome) {
+    searchHome.style.display = "none";
+  }
 
-    if (searchHome) {
-        searchHome.style.display = "none";
-    }
-
-    document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 }
-
 
 function closeSearch() {
+  const search = document.getElementById("vxSearch");
+  const overlay = document.getElementById("vxOverlay");
+  const searchHome = document.getElementById("search-home");
 
-    const search = document.getElementById("vxSearch");
-    const overlay = document.getElementById("vxOverlay");
-    const searchHome = document.getElementById("search-home");
+  if (search) {
+    search.style.display = "none";
+  }
 
-    if (search) {
-        search.style.display = "none";
-    }
+  if (overlay) {
+    overlay.style.display = "none";
+  }
 
-    if (overlay) {
-        overlay.style.display = "none";
-    }
+  if (searchHome) {
+    searchHome.style.display = "block";
+  }
 
-    if (searchHome) {
-        searchHome.style.display = "block";
-    }
-
-    document.body.style.overflow = "auto";
+  document.body.style.overflow = "auto";
 }
 
+function initSearchPlaceholder() {
+  const input = document.getElementById("xzcvSearchInput");
+
+  if (!input) return;
+
+  const words = [
+    "Kurta",
+    "Short Kurta",
+    "Bomber Jacket",
+    "Jodhpuri",
+    "Indo Western",
+    "Kurta Jacket Set",
+    "Tuxedo",
+    "Blazer",
+    "Pajamas",
+  ];
+
+  let index = 0;
+
+  setInterval(function () {
+    // Don't change while user is typing
+    if (input.value.trim() !== "") {
+      return;
+    }
+
+    index++;
+
+    if (index >= words.length) {
+      index = 0;
+    }
+
+    input.placeholder = "Search for " + words[index] + " ";
+  }, 2000);
+}
 
 /* =========================================================
    PASSWORD SHOW / HIDE
 ========================================================= */
 
 function togglePassword() {
+  const pass = document.getElementById("password");
+  const icon = document.getElementById("toggleIcon");
 
-    const pass = document.getElementById("password");
-    const icon = document.getElementById("toggleIcon");
+  if (!pass || !icon) return;
 
-    if (!pass || !icon) return;
+  if (pass.type === "password") {
+    pass.type = "text";
 
-    if (pass.type === "password") {
+    icon.classList.remove("bi-eye-slash");
+    icon.classList.add("bi-eye");
+  } else {
+    pass.type = "password";
 
-        pass.type = "text";
-
-        icon.classList.remove("bi-eye-slash");
-        icon.classList.add("bi-eye");
-
-    } else {
-
-        pass.type = "password";
-
-        icon.classList.remove("bi-eye");
-        icon.classList.add("bi-eye-slash");
-
-    }
+    icon.classList.remove("bi-eye");
+    icon.classList.add("bi-eye-slash");
+  }
 }
-
 
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
 function openMenu() {
+  const menu = document.getElementById("header-bottom-menu");
 
-    const menu = document.getElementById("header-bottom-menu");
+  if (!menu) return;
 
-    if (!menu) return;
-
-    menu.style.left = "0";
-    document.body.style.overflow = "hidden";
+  menu.style.left = "0";
+  document.body.style.overflow = "hidden";
 }
-
 
 function closeMenu() {
+  const menu = document.getElementById("header-bottom-menu");
 
-    const menu = document.getElementById("header-bottom-menu");
+  if (!menu) return;
 
-    if (!menu) return;
-
-    menu.style.left = "-100%";
-    document.body.style.overflow = "auto";
+  menu.style.left = "-100%";
+  document.body.style.overflow = "auto";
 }
-
 
 /* =========================================================
    HIM POPUP
 ========================================================= */
 
 function himOpen() {
+  const popup = document.getElementById("himPopup");
+  const menu = document.getElementById("header-bottom-menu");
 
-    const popup = document.getElementById("himPopup");
-    const menu = document.getElementById("header-bottom-menu");
+  if (popup) {
+    popup.style.display = "flex";
+  }
 
-    if (popup) {
-        popup.style.display = "flex";
-    }
+  if (menu) {
+    menu.style.left = "-100%";
+  }
 
-    if (menu) {
-        menu.style.left = "-100%";
-    }
-
-    document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 }
-
 
 function himClose() {
+  const popup = document.getElementById("himPopup");
 
-    const popup = document.getElementById("himPopup");
+  if (!popup) return;
 
-    if (!popup) return;
+  popup.style.display = "none";
 
-    popup.style.display = "none";
-
-    document.body.style.overflow = "auto";
+  document.body.style.overflow = "auto";
 }
 
+
+/* =========================================================
+   LANGUAGE TRANSLATOR
+   header.html is loaded using fetch()
+========================================================= */
+
+let selectedLanguage = "en";
+
+
+/* =========================================================
+   SELECT LANGUAGE
+========================================================= */
+
+document.addEventListener("click", function (e) {
+
+    const languageItem =
+        e.target.closest(".him-item");
+
+    if (!languageItem) return;
+
+
+    selectedLanguage =
+        languageItem.dataset.lang;
+
+
+    console.log(
+        "Selected language:",
+        selectedLanguage
+    );
+
+
+    /*
+     * Active language UI
+     */
+
+    document
+        .querySelectorAll(".him-item")
+        .forEach(function (item) {
+
+            item.classList.remove("him-active");
+
+        });
+
+
+    languageItem.classList.add("him-active");
+
+});
+
+
+/* =========================================================
+   APPLY GOOGLE TRANSLATE
+========================================================= */
+
+function himApply() {
+
+    // console.log(
+    //     "Applying language:",
+    //     selectedLanguage
+    // );
+
+
+    const googleSelect =
+        document.querySelector(".goog-te-combo");
+
+
+    // if (!googleSelect) {
+
+    //     console.log(
+    //         "Google Translator is not loaded yet."
+    //     );
+
+    //     return;
+
+    // }
+
+
+    googleSelect.value =
+        selectedLanguage;
+
+
+    googleSelect.dispatchEvent(
+        new Event("change")
+    );
+
+
+    /*
+     * Your existing popup close
+     */
+
+    himClose();
+
+}
+
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+        pageLanguage: "en",
+        includedLanguages: "en,hi,mr,gu,bn,ta,te,kn",
+        autoDisplay: false
+    }, "google_translate_element");
+
+}
 
 /* =========================================================
    PRODUCT IMAGE + STORY
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    /* =====================================================
+  /* =====================================================
        PRODUCT IMAGE CHANGE
     ===================================================== */
 
-    const mainImage = document.getElementById("pdMainImg");
-    const thumbnails = document.querySelectorAll(".pd-thumbs img");
+  const mainImage = document.getElementById("pdMainImg");
+  const thumbnails = document.querySelectorAll(".pd-thumbs img");
 
-    if (mainImage && thumbnails.length > 0) {
+  if (mainImage && thumbnails.length > 0) {
+    thumbnails.forEach(function (img) {
+      img.addEventListener("click", function () {
+        mainImage.src = this.src;
 
-        thumbnails.forEach(function (img) {
-
-            img.addEventListener("click", function () {
-
-                mainImage.src = this.src;
-
-                thumbnails.forEach(function (item) {
-                    item.classList.remove("active-thumb");
-                });
-
-                this.classList.add("active-thumb");
-
-            });
-
+        thumbnails.forEach(function (item) {
+          item.classList.remove("active-thumb");
         });
 
-    }
+        this.classList.add("active-thumb");
+      });
+    });
+  }
 
-
-    /* =====================================================
+  /* =====================================================
        STORY SECTION
     ===================================================== */
 
-    const video = document.getElementById("storyVideo");
-    const modal = document.getElementById("storyModal");
-    const storyName = document.getElementById("storyName");
-    const progress = document.getElementById("progress");
+  const video = document.getElementById("storyVideo");
+  const modal = document.getElementById("storyModal");
+  const storyName = document.getElementById("storyName");
+  const progress = document.getElementById("progress");
 
-    /*
-     * If this page doesn't contain Story UI,
-     * simply don't initialize it.
-     */
+  /*
+   * If this page doesn't contain Story UI,
+   * simply don't initialize it.
+   */
 
-    if (!video || !modal || !storyName || !progress) {
-        return;
-    }
+  if (!video || !modal || !storyName || !progress) {
+    return;
+  }
 
+  const stories = [
+    ["web/image/banner-video1.mp4"],
+    ["web/image/banner-video2.mp4"],
+    ["web/image/banner-video1.mp4"],
+    ["web/image/banner-video2.mp4"],
+    ["web/image/banner-video1.mp4"],
+  ];
 
-    const stories = [
-        [
-            "web/image/banner-video1.mp4"
-        ],
-        [
-            "web/image/banner-video2.mp4"
-        ],
-        [
-            "web/image/banner-video1.mp4"
-        ],
-        [
-            "web/image/banner-video2.mp4"
-        ],
-        [
-            "web/image/banner-video1.mp4"
-        ]
-    ];
+  const names = ["Store 1", "Store 2", "Store 3", "Store 4", "Store 5"];
 
+  let currentUser = 0;
+  let currentIndex = 0;
 
-    const names = [
-        "Store 1",
-        "Store 2",
-        "Store 3",
-        "Store 4",
-        "Store 5"
-    ];
-
-
-    let currentUser = 0;
-    let currentIndex = 0;
-
-
-    /* =====================================================
+  /* =====================================================
        LOAD STORY
     ===================================================== */
 
-    function loadStory() {
-
-        if (
-            !stories[currentUser] ||
-            !stories[currentUser][currentIndex]
-        ) {
-            return;
-        }
-
-        const src = stories[currentUser][currentIndex];
-
-        video.pause();
-
-        video.src = src;
-
-        video.load();
-
-        storyName.innerText =
-            names[currentUser] || "";
-
-
-        /* Progress */
-
-        progress.innerHTML = "";
-
-        stories[currentUser].forEach(function (_, i) {
-
-            const bar = document.createElement("div");
-
-            bar.className =
-                "zbxr-bar" +
-                (i === currentIndex ? " active" : "");
-
-            progress.appendChild(bar);
-
-        });
-
-
-        /* Play safely */
-
-        if (document.visibilityState === "visible") {
-
-            const playPromise = video.play();
-
-            if (playPromise !== undefined) {
-
-                playPromise.catch(function () {
-                    // Browser may block autoplay.
-                });
-
-            }
-
-        }
-
+  function loadStory() {
+    if (!stories[currentUser] || !stories[currentUser][currentIndex]) {
+      return;
     }
 
+    const src = stories[currentUser][currentIndex];
 
-    /* =====================================================
+    video.pause();
+
+    video.src = src;
+
+    video.load();
+
+    storyName.innerText = names[currentUser] || "";
+
+    /* Progress */
+
+    progress.innerHTML = "";
+
+    stories[currentUser].forEach(function (_, i) {
+      const bar = document.createElement("div");
+
+      bar.className = "zbxr-bar" + (i === currentIndex ? " active" : "");
+
+      progress.appendChild(bar);
+    });
+
+    /* Play safely */
+
+    if (document.visibilityState === "visible") {
+      const playPromise = video.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          // Browser may block autoplay.
+        });
+      }
+    }
+  }
+
+  /* =====================================================
        OPEN STORY
     ===================================================== */
 
-    window.openStory = function (user) {
+  window.openStory = function (user) {
+    if (typeof user !== "number" || user < 0 || user >= stories.length) {
+      return;
+    }
 
-        if (
-            typeof user !== "number" ||
-            user < 0 ||
-            user >= stories.length
-        ) {
-            return;
-        }
+    currentUser = user;
+    currentIndex = 0;
 
-        currentUser = user;
-        currentIndex = 0;
+    modal.classList.add("active");
 
-        modal.classList.add("active");
+    document.body.style.overflow = "hidden";
 
-        document.body.style.overflow = "hidden";
+    loadStory();
+  };
 
-        loadStory();
-
-    };
-
-
-    /* =====================================================
+  /* =====================================================
        CLOSE STORY
     ===================================================== */
 
-    window.closeStory = function () {
+  window.closeStory = function () {
+    video.pause();
 
-        video.pause();
+    video.currentTime = 0;
 
-        video.currentTime = 0;
+    modal.classList.remove("active");
 
-        modal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  };
 
-        document.body.style.overflow = "auto";
-
-    };
-
-
-    /* =====================================================
+  /* =====================================================
        NEXT STORY
     ===================================================== */
 
-    window.nextStory = function () {
+  window.nextStory = function () {
+    if (currentIndex < stories[currentUser].length - 1) {
+      currentIndex++;
+    } else if (currentUser < stories.length - 1) {
+      currentUser++;
 
-        if (
-            currentIndex <
-            stories[currentUser].length - 1
-        ) {
+      currentIndex = 0;
+    } else {
+      window.closeStory();
 
-            currentIndex++;
+      return;
+    }
 
-        } else if (
-            currentUser <
-            stories.length - 1
-        ) {
+    loadStory();
+  };
 
-            currentUser++;
-
-            currentIndex = 0;
-
-        } else {
-
-            window.closeStory();
-
-            return;
-
-        }
-
-        loadStory();
-
-    };
-
-
-    /* =====================================================
+  /* =====================================================
        PREVIOUS STORY
     ===================================================== */
 
-    window.prevStory = function () {
+  window.prevStory = function () {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else if (currentUser > 0) {
+      currentUser--;
 
-        if (currentIndex > 0) {
+      currentIndex = stories[currentUser].length - 1;
+    }
 
-            currentIndex--;
+    loadStory();
+  };
 
-        } else if (currentUser > 0) {
-
-            currentUser--;
-
-            currentIndex =
-                stories[currentUser].length - 1;
-
-        }
-
-        loadStory();
-
-    };
-
-
-    /* =====================================================
+  /* =====================================================
        VIDEO ENDED
     ===================================================== */
 
-    video.addEventListener("ended", function () {
-
-        window.nextStory();
-
-    });
-
+  video.addEventListener("ended", function () {
+    window.nextStory();
+  });
 });
-
 
 /* =========================================================
    SIZE SELECT
 ========================================================= */
 
 function pdSelectSize(el) {
+  if (!el) return;
 
-    if (!el) return;
+  const parent = el.parentElement;
 
-    const parent = el.parentElement;
+  if (!parent) return;
 
-    if (!parent) return;
+  const buttons = parent.querySelectorAll("button");
 
-    const buttons = parent.querySelectorAll("button");
+  buttons.forEach(function (btn) {
+    btn.classList.remove("active-size");
+  });
 
-    buttons.forEach(function (btn) {
-
-        btn.classList.remove("active-size");
-
-    });
-
-    el.classList.add("active-size");
+  el.classList.add("active-size");
 }
-
 
 /* =========================================================
    WISHLIST
 ========================================================= */
 
 function addwish(el) {
+  if (!el) return;
 
-    if (!el) return;
-
-    el.classList.toggle("active");
+  el.classList.toggle("active");
 }
-
 
 /* =========================================================
    WATCH & BUY SLIDER
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
+  const track = document.getElementById("brijTrack");
+  const dotsContainer = document.getElementById("brijDots");
 
-    const track = document.getElementById("brijTrack");
-    const dotsContainer = document.getElementById("brijDots");
+  /*
+   * IMPORTANT:
+   * If Watch & Buy doesn't exist on this page,
+   * stop here.
+   */
 
-    /*
-     * IMPORTANT:
-     * If Watch & Buy doesn't exist on this page,
-     * stop here.
-     */
+  if (!track || !dotsContainer) {
+    return;
+  }
 
-    if (!track || !dotsContainer) {
-        return;
-    }
+  let cards = track.querySelectorAll(".brij-card");
 
+  if (!cards.length) {
+    return;
+  }
 
-    let cards =
-        track.querySelectorAll(".brij-card");
+  /* Prevent duplicate initialization */
 
+  if (track.dataset.sliderInitialized === "true") {
+    return;
+  }
 
-    if (!cards.length) {
-        return;
-    }
+  track.dataset.sliderInitialized = "true";
 
-
-    /* Prevent duplicate initialization */
-
-    if (track.dataset.sliderInitialized === "true") {
-        return;
-    }
-
-    track.dataset.sliderInitialized = "true";
-
-
-    /* =====================================================
+  /* =====================================================
        CLONE CARDS FOR INFINITE SLIDER
     ===================================================== */
 
-    const originalHTML = track.innerHTML;
+  const originalHTML = track.innerHTML;
 
-    track.insertAdjacentHTML(
-        "beforeend",
-        originalHTML
-    );
+  track.insertAdjacentHTML("beforeend", originalHTML);
 
+  cards = track.querySelectorAll(".brij-card");
 
-    cards =
-        track.querySelectorAll(".brij-card");
+  const total = cards.length / 2;
 
+  if (!total) {
+    return;
+  }
 
-    const total =
-        cards.length / 2;
+  let index = 0;
+  let interval = null;
 
-
-    if (!total) {
-        return;
-    }
-
-
-    let index = 0;
-    let interval = null;
-
-
-    /* =====================================================
+  /* =====================================================
        DOTS
     ===================================================== */
 
-    dotsContainer.innerHTML = "";
+  dotsContainer.innerHTML = "";
 
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement("span");
 
-    for (let i = 0; i < total; i++) {
+    dot.addEventListener("click", function () {
+      index = i;
 
-        const dot =
-            document.createElement("span");
+      updateSlider();
 
-        dot.addEventListener("click", function () {
+      restartAuto();
+    });
 
-            index = i;
+    dotsContainer.appendChild(dot);
+  }
 
-            updateSlider();
-
-            restartAuto();
-
-        });
-
-        dotsContainer.appendChild(dot);
-
-    }
-
-
-    /* =====================================================
+  /* =====================================================
        UPDATE SLIDER
     ===================================================== */
 
-    function updateSlider() {
+  function updateSlider() {
+    if (!cards[0]) return;
 
-        if (!cards[0]) return;
+    const gap = 15;
 
+    const cardWidth = cards[0].offsetWidth + gap;
 
-        const gap = 15;
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-        const cardWidth =
-            cards[0].offsetWidth + gap;
-
-
-        track.style.transform =
-            `translateX(-${index * cardWidth}px)`;
-
-
-        /* =================================================
+    /* =================================================
            MOBILE VIDEO CONTROL
         ================================================= */
 
-        cards.forEach(function (card, i) {
+    cards.forEach(function (card, i) {
+      const v = card.querySelector("video");
 
-            const v =
-                card.querySelector("video");
+      if (!v) return;
+      // if (window.innerWidth <= 10) {
+      //     const center =
+      //         index + 1;
+      //     if (i === center) {
+      //         card.classList.add("active");
+      //         const playPromise =
+      //             v.play();
+      //         if (
+      //             playPromise !== undefined
+      //         ) {
+      //             playPromise.catch(
+      //                 function () {}
+      //             );
+      //         }
+      //     } else {
+      //         card.classList.remove("active");
+      //         v.pause();
+      //     }
+      // }
+      else {
+        card.classList.remove("active");
 
+        const playPromise = v.play();
 
-            if (!v) return;
+        if (playPromise !== undefined) {
+          playPromise.catch(function () {});
+        }
+      }
+    });
 
-            // if (window.innerWidth <= 10) {
-
-            //     const center =
-            //         index + 1;
-
-
-            //     if (i === center) {
-
-            //         card.classList.add("active");
-
-            //         const playPromise =
-            //             v.play();
-
-            //         if (
-            //             playPromise !== undefined
-            //         ) {
-
-            //             playPromise.catch(
-            //                 function () {}
-            //             );
-
-            //         }
-
-            //     } else {
-
-            //         card.classList.remove("active");
-
-            //         v.pause();
-
-            //     }
-
-            // } 
-            else {
-
-                card.classList.remove("active");
-
-                const playPromise =
-                    v.play();
-
-                if (
-                    playPromise !== undefined
-                ) {
-
-                    playPromise.catch(
-                        function () {}
-                    );
-
-                }
-
-            }
-
-        });
-
-
-        /* =================================================
+    /* =================================================
            DOT ACTIVE
         ================================================= */
 
-        const dots =
-            dotsContainer.querySelectorAll("span");
+    const dots = dotsContainer.querySelectorAll("span");
 
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("active", i === index % total);
+    });
 
-        dots.forEach(function (dot, i) {
-
-            dot.classList.toggle(
-                "active",
-                i === index % total
-            );
-
-        });
-
-
-        /* =================================================
+    /* =================================================
            INFINITE RESET
         ================================================= */
 
-        if (index >= total) {
+    if (index >= total) {
+      setTimeout(function () {
+        track.style.transition = "none";
 
-            setTimeout(function () {
+        index = 0;
 
-                track.style.transition = "none";
+        track.style.transform = "translateX(0px)";
 
-                index = 0;
+        /*
+         * Force browser repaint
+         */
 
-                track.style.transform =
-                    "translateX(0px)";
+        track.offsetHeight;
 
-
-                /*
-                 * Force browser repaint
-                 */
-
-                track.offsetHeight;
-
-
-                setTimeout(function () {
-
-                    track.style.transition =
-                        "transform 0.6s ease";
-
-                }, 50);
-
-            }, 600);
-
-        }
-
+        setTimeout(function () {
+          track.style.transition = "transform 0.6s ease";
+        }, 50);
+      }, 600);
     }
+  }
 
-
-    /* =====================================================
+  /* =====================================================
        NEXT
     ===================================================== */
 
-    window.nextSlide = function () {
+  window.nextSlide = function () {
+    index++;
 
-        index++;
+    updateSlider();
+  };
 
-        updateSlider();
-
-    };
-
-
-    /* =====================================================
+  /* =====================================================
        PREVIOUS
     ===================================================== */
 
-    window.prevSlide = function () {
+  window.prevSlide = function () {
+    if (index <= 0) {
+      index = total - 1;
+    } else {
+      index--;
+    }
 
-        if (index <= 0) {
+    updateSlider();
+  };
 
-            index = total - 1;
-
-        } else {
-
-            index--;
-
-        }
-
-        updateSlider();
-
-    };
-
-
-    /* =====================================================
+  /* =====================================================
        AUTO PLAY
     ===================================================== */
 
-    function startAuto() {
+  function startAuto() {
+    stopAuto();
 
-        stopAuto();
+    interval = setInterval(function () {
+      window.nextSlide();
+    }, 3500);
+  }
 
-        interval =
-            setInterval(function () {
+  function stopAuto() {
+    if (interval) {
+      clearInterval(interval);
 
-                window.nextSlide();
-
-            }, 3500);
-
+      interval = null;
     }
+  }
 
+  function restartAuto() {
+    stopAuto();
 
-    function stopAuto() {
+    startAuto();
+  }
 
-        if (interval) {
-
-            clearInterval(interval);
-
-            interval = null;
-
-        }
-
-    }
-
-
-    function restartAuto() {
-
-        stopAuto();
-
-        startAuto();
-
-    }
-
-
-    /* =====================================================
+  /* =====================================================
        INITIALIZE
     ===================================================== */
 
-    updateSlider();
+  updateSlider();
 
-    startAuto();
+  startAuto();
 
-
-    /* =====================================================
+  /* =====================================================
        MOUSE EVENTS
     ===================================================== */
 
-    track.addEventListener(
-        "mouseenter",
-        stopAuto
-    );
+  track.addEventListener("mouseenter", stopAuto);
 
+  track.addEventListener("mouseleave", startAuto);
 
-    track.addEventListener(
-        "mouseleave",
-        startAuto
-    );
-
-
-    /* =====================================================
+  /* =====================================================
        RESIZE
     ===================================================== */
 
-    let resizeTimer;
+  let resizeTimer;
 
-    window.addEventListener(
-        "resize",
-        function () {
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
 
-            clearTimeout(resizeTimer);
-
-            resizeTimer =
-                setTimeout(function () {
-
-                    updateSlider();
-
-                }, 150);
-
-        }
-    );
-
+    resizeTimer = setTimeout(function () {
+      updateSlider();
+    }, 150);
+  });
 });
-
 
 /* =========================================================
    ADDRESS MODAL
 ========================================================= */
 
 function openAddressModal() {
+  const modal = document.getElementById("editAddressModal");
 
-    const modal =
-        document.getElementById(
-            "editAddressModal"
-        );
+  if (!modal) return;
 
+  modal.classList.add("active");
 
-    if (!modal) return;
-
-
-    modal.classList.add("active");
-
-    document.body.style.overflow =
-        "hidden";
-
+  document.body.style.overflow = "hidden";
 }
 
-
 function closeAddressModal() {
+  const modal = document.getElementById("editAddressModal");
 
-    const modal =
-        document.getElementById(
-            "editAddressModal"
-        );
+  if (!modal) return;
 
+  modal.classList.remove("active");
 
-    if (!modal) return;
-
-
-    modal.classList.remove("active");
-
-    document.body.style.overflow =
-        "auto";
-
+  document.body.style.overflow = "auto";
 }
