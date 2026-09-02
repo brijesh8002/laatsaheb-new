@@ -590,25 +590,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/* =========================================================
-   SIZE SELECT
-========================================================= */
 
-function pdSelectSize(el) {
-  if (!el) return;
 
-  const parent = el.parentElement;
 
-  if (!parent) return;
 
-  const buttons = parent.querySelectorAll("button");
-
-  buttons.forEach(function (btn) {
-    btn.classList.remove("active-size");
-  });
-
-  el.classList.add("active-size");
-}
 
 /* =========================================================
    WISHLIST

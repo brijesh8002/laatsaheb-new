@@ -839,10 +839,10 @@ width: 100%;
 
 
 .pd-thumbs img {
-  width: 70px;
-  height: 90px;
+  /* width: 70px; */
+  height: 101px;
   object-fit: cover;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   cursor: pointer;
   opacity: 0.6;
   transition: 0.3s;
@@ -856,8 +856,8 @@ width: 100%;
 /* MAIN IMAGE */
 .pd-main {
   flex: 1;
-  border-radius: 16px;
-  overflow: hidden;
+  /* border-radius: 16px;
+  overflow: hidden; */
   aspect-ratio: 3/4;
   background: #fff;
   position: relative;
@@ -924,6 +924,7 @@ width: 100%;
 .pd-price-box {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -989,7 +990,8 @@ width: 100%;
 /* SIZE */
 .pd-size-box p {
   margin-bottom: 8px;
-  font-weight: 400;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .pd-sizes button {
@@ -1005,9 +1007,38 @@ width: 100%;
   transition: 0.3s;
 }
 
-.pd-sizes button.active {
+/* .pd-sizes .active-size {
   background: black;
   color: white;
+} */
+
+.pd-products{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.pd-products a{
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #f8564746;
+  padding: 2px;
+  min-height: 80px;
+  max-height: 120px;
+  transition: .3s ease;
+  
+}
+.pd-products a img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 9px;
+}
+.pd-products a:hover{
+  border: 1px solid var(--primary);
 }
 
 
@@ -1322,7 +1353,7 @@ width: 100%;
 /* ===================*/
   .pd-secure {
   text-align: center;
-  padding: 20px 0px;
+  /* padding: 20px 0px; */
   font-family: Arial, sans-serif;
 }
 
@@ -1359,8 +1390,8 @@ width: 100%;
 .pd-features-new {
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;
-  padding: 20px;
+  margin-top: 20px;
+  /* padding: 20px; */
 }
 
 /* Each Feature */
@@ -1390,7 +1421,7 @@ width: 100%;
 
 /* Review and Feedback style */
     .prx-review {
-  padding: 30px;
+  /* padding: 30px; */
   font-family: 'Inter', sans-serif;
 }
 
@@ -2434,6 +2465,7 @@ width: 100%;
   .pd-wrapper {
     flex-direction: column;
     padding: 20px;
+    gap: 16px;
   }
 
   .pd-gallery,
@@ -2451,6 +2483,9 @@ width: 100%;
   }
     .vx-header-left{
     display: flex;
+  }
+  .pd-thumbs img{
+    height: 135px;
   }
 
   .vx-layout {
@@ -2742,7 +2777,7 @@ width: 100%;
 
     overflow: hidden;
 
-    background: var(--secondary);
+    background: var(--primary);
 
     box-sizing: border-box;
 }
@@ -2868,7 +2903,7 @@ width: 100%;
     background:
         linear-gradient(
             to right,
-            var(--secondary),
+            var(--primary),
             transparent
         );
 }
@@ -2881,7 +2916,7 @@ width: 100%;
     background:
         linear-gradient(
             to left,
-            var(--secondary),
+            var(--primary),
             transparent
         );
 }
@@ -3624,7 +3659,7 @@ width: 100%;
         background:
             linear-gradient(
                 to right,
-                var(--secondary),
+                var(--primary),
                 transparent
             );
     }
@@ -3637,7 +3672,7 @@ width: 100%;
         background:
             linear-gradient(
                 to left,
-                var(--secondary),
+                var(--primary),
                 transparent
             );
     }
@@ -3787,3 +3822,347 @@ width: 100%;
         animation: none !important;
     }
 }
+
+
+/* Share Icon Popup Modal css */
+/* Share Icon Popup Modal css */
+/* =========================================
+   SHARE POPUP
+========================================= */
+
+.share-overlay {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.62);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 99999;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* OPEN OVERLAY */
+
+.share-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================
+   BOTTOM POPUP
+========================================= */
+
+.share-popup {
+    width: 100%;
+    max-width: 600px;
+
+    background: #fff;
+
+    border-radius: 18px 18px 0 0;
+
+    transform: translateY(100%);
+
+    transition: transform 0.35s cubic-bezier(.25, .8, .25, 1);
+
+    overflow: hidden;
+}
+
+
+/* OPEN POPUP */
+
+.share-overlay.active .share-popup {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.share-popup-header {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    border-bottom: 1px solid #e8e8e8;
+}
+
+
+.share-popup-header h3 {
+    margin: 0;
+
+    font-size: 25px;
+    font-weight: 500;
+
+    letter-spacing: 0.2px;
+
+    color: #222;
+}
+
+
+.share-popup-header button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 22px;
+
+    color: #111;
+}
+
+
+/* =========================================
+   COPY LINK
+========================================= */
+
+.share-copy-section {
+    padding: 20px 18px 8px;
+}
+
+
+.share-label {
+    margin: 0 0 15px;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    color: #222;
+}
+
+
+.share-copy-row {
+    display: flex;
+    align-items: stretch;
+
+    gap: 16px;
+}
+
+
+.share-copy-row input {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 84px;
+
+    padding: 0 24px;
+
+    border: 1px solid #cfcfcf;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 19px;
+
+    color: #333;
+
+    background: #fff;
+
+    box-sizing: border-box;
+}
+
+
+.share-copy-btn {
+    width: 82px;
+    min-width: 82px;
+    height: 84px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #f9c85b;
+
+    color: #fff;
+
+    font-size: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.share-copy-btn:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.share-social-section {
+    padding: 12px 18px 30px;
+}
+
+
+.share-social-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.share-social {
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    font-size: 38px;
+
+    transition: 0.2s ease;
+}
+
+
+.share-social:hover {
+    transform: translateY(-3px) scale(1.04);
+}
+
+
+/* WhatsApp */
+
+.share-social.whatsapp {
+    background: #20c65a;
+    color: #fff;
+}
+
+
+/* Facebook */
+
+.share-social.facebook {
+    background: #1877f2;
+    color: #fff;
+}
+
+
+/* Instagram */
+
+.share-social.instagram {
+    color: #fff;
+
+    background:
+        radial-gradient(
+            circle at 30% 107%,
+            #fdf497 0%,
+            #fdf497 5%,
+            #fd5949 45%,
+            #d6249f 60%,
+            #285aeb 90%
+        );
+}
+
+
+/* Telegram */
+
+.share-social.telegram {
+    background: #27a9e0;
+    color: #fff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .share-popup {
+        max-width: 100%;
+
+        border-radius: 16px 16px 0 0;
+    }
+
+    .share-popup-header {
+        height: 70px;
+
+        padding: 0 16px;
+    }
+
+    .share-popup-header h3 {
+        font-size: 25px;
+    }
+
+    .share-copy-section {
+        padding: 20px 16px 8px;
+    }
+
+    .share-label {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .share-copy-row {
+        gap: 16px;
+    }
+
+    .share-copy-row input {
+        height: 84px;
+
+        font-size: 18px;
+
+        padding: 0 20px;
+    }
+
+    .share-copy-btn {
+        width: 80px;
+        min-width: 80px;
+        height: 84px;
+    }
+
+    .share-social-section {
+        padding: 12px 16px 32px;
+    }
+
+    .share-social-icons {
+        gap: 17px;
+    }
+
+    .share-social {
+        width: 68px;
+        height: 68px;
+
+        font-size: 37px;
+    }
+}
+/* Share Icon Popup Modal css */
+/* Share Icon Popup Modal css */

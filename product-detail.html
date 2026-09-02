@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Dashboard | Laat Saheb</title>
-  
+
   <link rel="stylesheet" href="web/css/style.css" />
   <link rel="stylesheet" href="web/css/style2.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,6 +23,23 @@
   <link rel="icon" href="web/image/logo-icon.png" />
 </head>
 
+<style>
+  @media (max-width:768px) {
+    .space-search {
+      display: none;
+    }
+
+    .xzcv-search-container {
+      display: none !important;
+    }
+
+    .xzcv-search-box {
+      display: none;
+    }
+
+  }
+</style>
+
 
 <body>
   <div id="header"></div>
@@ -31,23 +48,24 @@
     <!-- IMAGE SECTION -->
     <div class="pd-gallery">
       <div class="pd-thumbs">
-        <img src="web/image/tn1.webp" onclick="pdChangeImg(this)" />
-        <img src="web/image/tn1.webp" onclick="pdChangeImg(this)" />
-        <img src="web/image/ctgimg2.webp" onclick="pdChangeImg(this)" />
-        <img src="web/image/ctgimg1.webp" onclick="pdChangeImg(this)" />
-        <img src="web/image/ctgimg2.webp" onclick="pdChangeImg(this)" />
+        <img class="active-thumb" src="web/image/tn1.webp" alt="Product image">
+        <img src="web/image/tn1.webp" alt="Product image">
+        <img src="web/image/ctgimg2.webp" alt="Product image">
+        <img src="web/image/ctgimg1.webp" alt="Product image">
+        <img src="web/image/ctgimg2.webp" alt="Product image">
       </div>
 
       <div class="pd-main">
-        <img id="pdMainImg" src="web/image/tn1.webp" />
+        <img id="pdMainImg" src="web/image/tn1.webp" alt="Product image">
+
         <!-- <div class="pd-zoom-lens" id="pdLens"></div> -->
-        <div  class="crd-wishlist new-list" onclick="addwish()">
+        <p class="crd-wishlist " onclick="addwish(this)">
           <i class="bi bi-heart-fill"></i>
-        </div>
-        <!-- <div class="pd-zoom-controls">
-          <button onclick="zoomIn()">+</button>
-          <button onclick="zoomOut()">−</button>
-        </div> -->
+        </p>
+        <p class="crd-wishlist new-list" onclick="sharePopupToggle()">
+          <i class="bi bi-share"></i>
+        </p>
+        <p class="mobile-dis">79% Off</p>
       </div>
     </div>
 
@@ -56,12 +74,23 @@
       <h1 class="pd-title">WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</h1>
 
       <div class="pd-price-box">
-        <span class="pd-old">₹6,999</span>
-        <span class="pd-new">₹1,499</span>
-        <span class="pd-discount">79% OFF</span>
+        <div class="price-section">
+          <span class="pd-new">₹1,499</span>
+          <span class="pd-old">₹6,999</span>
+          <span class="pd-discount">(79% OFF)</span>
+        </div>
+        <div class="social-icon d-flex gap-3">
+          <div class="crd-wishlist2 " onclick="addwish(this)">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+          <div class="crd-wishlist2 new-list" onclick="sharePopupToggle()">
+            <i class="bi bi-share"></i>
+          </div>
+        </div>
+
       </div>
 
-      <div class="pd-rating">⭐⭐⭐⭐⭐ <span>(79 reviews)</span></div>
+
 
       <div class="pd-offers-box">
 
@@ -87,16 +116,30 @@
 
       </div>
       <div class="pd-size-box">
-      <p>Select Color</p>
+        <p>Available Color</p>
+        <div class="pd-products">
+          <a href="product-detail.html">
+            <img src="web/image/col1.webp" alt="">
+          </a>
+          <a href="product-detail.html">
+            <img src="web/image/col2.avif" alt="">
+          </a>
+          <a href="product-detail.html">
+            <img src="web/image/col3.jpg" alt="">
+          </a>
+          <a href="product-detail.html">
+            <img src="web/image/col4.jpg" alt="">
+          </a>
+          <a href="product-detail.html">
+            <img src="web/image/col1.webp" alt="">
+          </a>
+          <a href="product-detail.html">
+            <img src="web/image/col2.avif" alt="">
+          </a>
 
-      <div class="pd-sizes">
-          <button onclick="pdSelectSize(this)">Black</button>
-          <button onclick="pdSelectSize(this)">Brown</button>
-          <button onclick="pdSelectSize(this)">Blue</button>
-          <button onclick="pdSelectSize(this)">White</button>
-          <button onclick="pdSelectSize(this)">Yellow</button>
         </div>
-        </div>
+
+      </div>
 
 
       <!-- SIZE -->
@@ -171,11 +214,11 @@
         </a>
         <br>
 
-        <div class="mt-2 pd-buy-upi p-0" >
-          <a href="https://wa.me/919165849535" target="_blank" >
-  <img width="100%" style="border-radius: 10px;" src="web/image/buy-whatsapp.png" alt="whatsapp">
-</a>
-          
+        <div class="mt-2 pd-buy-upi p-0">
+          <a href="https://wa.me/919165849535" target="_blank">
+            <img width="100%" style="border-radius: 10px;" src="web/image/buy-whatsapp.png" alt="whatsapp">
+          </a>
+
         </div>
 
       </div>
@@ -486,22 +529,6 @@
     </div>
   </section>
 
-  <!-- <section class="review-modal">
-        <div class="review-form">
-            <div class="form-top d-flex justify-content-between">
-                <h4>Tell us about your reviews</h4>
-                <i class="bi bi-x "></i>
-            </div>
-            <div class="product-det d-flex flex-column justify-content-center align-items-center">
-                <div class="product-image">
-                    <img src="web/image/tn1.webp" alt="">
-                </div>
-                <div class="product-name">
-                    <h6>WHITE ELEPHANT PATTERN JACQUARD DESIGNER KURTA</h6>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
   <div class="uxr-overlay" id="uxrModal">
     <div class="uxr-modal">
@@ -560,26 +587,30 @@
           <a href="product-detail.html">
             <div class="prd-crd">
               <div class="prd-img">
-                                <img src="web/image/ctgimg1.webp" alt="" />
-                                <img src="web/image/ctgimg2.webp" alt="" />
-                                <div class="btn-add"><p>Add To Cart</p></div>
-                            </div>
+                <img src="web/image/ctgimg1.webp" alt="" />
+
+                <div class="btn-add">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
 
               <a href="wishlist.html" class="crd-wishlist" style="top: 1rem">
                 <i class="bi bi-heart-fill"></i>
               </a>
               <p class="mobile-dis">79% Off</p>
-              <div class="btn-add2"><p>Add To Cart</p></div>
-                            <div class="prd-info">
-<h6>LAAT SAHEB</h6>
+              <div class="btn-add2">
+                <p>Add To Cart</p>
+              </div>
+              <div class="prd-info">
+                <h6>LAAT SAHEB</h6>
                 <p class="prd-name">
                   Koti Kurta - White Elephant Jacquard Designer Garment
                 </p>
                 <p class="prd-price">
-                  
+
                   <span class="price">Rs. 1,499.00</span>
-                                    <del>Rs. 6,999.00</del>
-                                <br>
+                  <del>Rs. 6,999.00</del>
+                  <br>
                   <span class="saving ">( Save 5499.00 )</span>
                 </p>
               </div>
@@ -590,26 +621,30 @@
           <a href="product-detail.html">
             <div class="prd-crd">
               <div class="prd-img">
-                                <img src="web/image/ctgimg1.webp" alt="" />
-                                <img src="web/image/ctgimg2.webp" alt="" />
-                                <div class="btn-add"><p>Add To Cart</p></div>
-                            </div>
+                <img src="web/image/ctgimg1.webp" alt="" />
+
+                <div class="btn-add">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
 
               <a href="wishlist.html" class="crd-wishlist">
                 <i class="bi bi-heart-fill"></i>
               </a>
               <p class="mobile-dis">79% Off</p>
-              <div class="btn-add2"><p>Add To Cart</p></div>
-                            <div class="prd-info">
-<h6>LAAT SAHEB</h6>
+              <div class="btn-add2">
+                <p>Add To Cart</p>
+              </div>
+              <div class="prd-info">
+                <h6>LAAT SAHEB</h6>
                 <p class="prd-name">
                   Koti Kurta - White Elephant Jacquard Designer Garment
                 </p>
                 <p class="prd-price">
-                  
+
                   <span class="price">Rs. 1,499.00</span>
-                                    <del>Rs. 6,999.00</del>
-                                <br>
+                  <del>Rs. 6,999.00</del>
+                  <br>
                   <span class="saving ">( Save 5499.00 )</span>
                 </p>
               </div>
@@ -620,26 +655,30 @@
           <a href="product-detail.html">
             <div class="prd-crd">
               <div class="prd-img">
-                                <img src="web/image/ctgimg1.webp" alt="" />
-                                <img src="web/image/ctgimg2.webp" alt="" />
-                                <div class="btn-add"><p>Add To Cart</p></div>
-                            </div>
+                <img src="web/image/ctgimg1.webp" alt="" />
+
+                <div class="btn-add">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
 
               <a href="wishlist.html" class="crd-wishlist">
                 <i class="bi bi-heart-fill"></i>
               </a>
               <p class="mobile-dis">79% Off</p>
-              <div class="btn-add2"><p>Add To Cart</p></div>
-                            <div class="prd-info">
-<h6>LAAT SAHEB</h6>
+              <div class="btn-add2">
+                <p>Add To Cart</p>
+              </div>
+              <div class="prd-info">
+                <h6>LAAT SAHEB</h6>
                 <p class="prd-name">
                   Koti Kurta - White Elephant Jacquard Designer Garment
                 </p>
                 <p class="prd-price">
-                  
+
                   <span class="price">Rs. 1,499.00</span>
-                                    <del>Rs. 6,999.00</del>
-                                <br>
+                  <del>Rs. 6,999.00</del>
+                  <br>
                   <span class="saving ">( Save 5499.00 )</span>
                 </p>
               </div>
@@ -650,26 +689,30 @@
           <a href="product-detail.html">
             <div class="prd-crd">
               <div class="prd-img">
-                                <img src="web/image/ctgimg1.webp" alt="" />
-                                <img src="web/image/ctgimg2.webp" alt="" />
-                                <div class="btn-add"><p>Add To Cart</p></div>
-                            </div>
+                <img src="web/image/ctgimg1.webp" alt="" />
+
+                <div class="btn-add">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
 
               <a href="wishlist.html" class="crd-wishlist">
                 <i class="bi bi-heart-fill"></i>
               </a>
               <p class="mobile-dis">79% Off</p>
-              <div class="btn-add2"><p>Add To Cart</p></div>
-                            <div class="prd-info">
-<h6>LAAT SAHEB</h6>
+              <div class="btn-add2">
+                <p>Add To Cart</p>
+              </div>
+              <div class="prd-info">
+                <h6>LAAT SAHEB</h6>
                 <p class="prd-name">
                   Koti Kurta - White Elephant Jacquard Designer Garment
                 </p>
                 <p class="prd-price">
-                  
+
                   <span class="price">Rs. 1,499.00</span>
-                                    <del>Rs. 6,999.00</del>
-                                <br>
+                  <del>Rs. 6,999.00</del>
+                  <br>
                   <span class="saving ">( Save 5499.00 )</span>
                 </p>
               </div>
@@ -826,43 +869,122 @@
     </div>
   </div>
 
+  
+
+
+  <!-- SHARE Product modal OVERLAY -->
+  <div class="share-overlay" id="shareOverlay" onclick="shareOverlayClick(event)">
+
+    <!-- SHARE BOTTOM SHEET -->
+    <div class="share-popup" id="sharePopup">
+
+      <!-- HEADER -->
+      <div class="share-popup-header">
+        <h3>SHARE</h3>
+
+        <button type="button" onclick="sharePopupToggle()" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+
+      <!-- COPY LINK -->
+      <div class="share-copy-section">
+
+        <p class="share-label">Copy Link</p>
+
+        <div class="share-copy-row">
+
+          <input type="text" id="shareLink" readonly value="https://laatsaheb.com/product">
+
+          <button type="button" class="share-copy-btn" onclick="copyShareLink()" aria-label="Copy link">
+            <i class="bi bi-copy"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- SOCIAL SHARE -->
+      <div class="share-social-section">
+
+        <p class="share-label">Share</p>
+
+        <div class="share-social-icons">
+
+          <!-- WhatsApp -->
+          <a href="#" class="share-social whatsapp" onclick="shareWhatsApp(event)" aria-label="Share on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+
+
+          <!-- Facebook -->
+          <a href="#" class="share-social facebook" onclick="shareFacebook(event)" aria-label="Share on Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+
+
+          <!-- Instagram -->
+          <a href="#" class="share-social instagram" onclick="shareInstagram(event)" aria-label="Share on Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+
+          <!-- Telegram -->
+          <a href="#" class="share-social telegram" onclick="shareTelegram(event)" aria-label="Share on Telegram">
+            <i class="bi bi-telegram"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- Size Chart Modal js -->
   <script>
-  function abcOpen() {
-    document.getElementById("abcModal").style.display = "flex";
+    function abcOpen() {
+      document.getElementById("abcModal").style.display = "flex";
 
-    // default state → CM active
-    setUnit("inch");
-  }
-
-  function abcClose() {
-    document.getElementById("abcModal").style.display = "none";
-  }
-
-  function setUnit(unit) {
-    const tabs = document.querySelectorAll(".abc-tabs span");
-    const tables = document.querySelectorAll(".abc-table");
-
-    // remove active from all
-    tabs.forEach(tab => tab.classList.remove("active"));
-    tables.forEach(table => table.classList.remove("active"));
-
-    if (unit === "inch") {
-      tabs[0].classList.add("active");
-      tables[0].classList.add("active");
-    } else {
-      tabs[1].classList.add("active");
-      tables[1].classList.add("active");
+      // default state → CM active
+      setUnit("inch");
     }
-  }
 
-  // click events for tabs
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".abc-tabs span");
+    function abcClose() {
+      document.getElementById("abcModal").style.display = "none";
+    }
 
-    tabs[0].addEventListener("click", () => setUnit("inch"));
-    tabs[1].addEventListener("click", () => setUnit("cm"));
-  });
-</script>
+    function setUnit(unit) {
+      const tabs = document.querySelectorAll(".abc-tabs span");
+      const tables = document.querySelectorAll(".abc-table");
+
+      // remove active from all
+      tabs.forEach(tab => tab.classList.remove("active"));
+      tables.forEach(table => table.classList.remove("active"));
+
+      if (unit === "inch") {
+        tabs[0].classList.add("active");
+        tables[0].classList.add("active");
+      } else {
+        tabs[1].classList.add("active");
+        tables[1].classList.add("active");
+      }
+    }
+
+    // click events for tabs
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabs = document.querySelectorAll(".abc-tabs span");
+
+      tabs[0].addEventListener("click", () => setUnit("inch"));
+      tabs[1].addEventListener("click", () => setUnit("cm"));
+    });
+  </script>
 
   <!--  Review and feedback Script -->
   <script>
@@ -919,130 +1041,171 @@
     });
   </script>
 
-  <!-- Image zoom  -->
+
+  <!-- Share Popup Modal Script -->
   <script>
-    // const box = document.querySelector(".pd-main");
-    // const img = document.getElementById("pdMainImg");
-    // const lens = document.getElementById("pdLens");
+    /* =========================================
+     SHARE POPUP TOGGLE
+  ========================================= */
 
-    // let zoomLevel = 2;
-    // const lensSize = 140;
+    function sharePopupToggle() {
 
-    // let currentX = 0;
-    // let currentY = 0;
+      const overlay = document.getElementById("shareOverlay");
 
-    // function isMobile() {
-    //   return window.innerWidth <= 768;
-    // }
+      if (!overlay) return;
 
-    /* =========================
-       DESKTOP (HOVER LENS)
-    ========================= */
-    // if (!isMobile()) {
+      overlay.classList.toggle("active");
 
-    //   box.addEventListener("mouseenter", () => {
-    //     lens.style.display = "block";
-    //   });
+      // Prevent background scrolling
+      if (overlay.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }
 
-    //   box.addEventListener("mouseleave", () => {
-    //     lens.style.display = "none";
-    //     img.style.transform = "scale(1)";
-    //   });
 
-    //   box.addEventListener("mousemove", (e) => {
-    //     const rect = box.getBoundingClientRect();
+    /* =========================================
+       CLOSE WHEN CLICKING DARK AREA
+    ========================================= */
 
-    //     let x = e.clientX - rect.left;
-    //     let y = e.clientY - rect.top;
+    function shareOverlayClick(event) {
 
-    //     x = Math.max(lensSize / 2, Math.min(x, rect.width - lensSize / 2));
-    //     y = Math.max(lensSize / 2, Math.min(y, rect.height - lensSize / 2));
+      if (event.target.id === "shareOverlay") {
+        sharePopupToggle();
+      }
 
-    //     currentX = x;
-    //     currentY = y;
+    }
 
-    //     updateZoom();
-    //   });
 
-    // }
+    /* =========================================
+       COPY LINK
+    ========================================= */
 
-    /* =========================
-       MOBILE (DRAG ZOOM 🔥)
-    ========================= */
-    // else {
+    function copyShareLink() {
 
-    //   lens.style.display = "none";
+      const input = document.getElementById("shareLink");
 
-    //   let isZoomed = false;
+      if (!input) return;
 
-    //   /* TAP TO ENABLE ZOOM */
-    //   box.addEventListener("click", (e) => {
-    //     const rect = box.getBoundingClientRect();
+      navigator.clipboard.writeText(input.value)
+        .then(function () {
 
-    //     currentX = e.clientX - rect.left;
-    //     currentY = e.clientY - rect.top;
+          const button = document.querySelector(".share-copy-btn");
 
-    //     isZoomed = !isZoomed;
-    //     zoomLevel = isZoomed ? 2.5 : 1;
+          if (!button) return;
 
-    //     updateZoom();
-    //   });
+          const oldIcon = button.innerHTML;
 
-      /* 🔥 DRAG MOVE */
-      // box.addEventListener("touchmove", (e) => {
-      //   if (!isZoomed) return;
+          button.innerHTML = '<i class="bi bi-check-lg"></i>';
 
-      //   const rect = box.getBoundingClientRect();
+          setTimeout(function () {
+            button.innerHTML = oldIcon;
+          }, 1500);
 
-      //   let touch = e.touches[0];
+        })
+        .catch(function () {
 
-      //   let x = touch.clientX - rect.left;
-      //   let y = touch.clientY - rect.top;
+          input.select();
+          document.execCommand("copy");
 
-      //   // clamp inside
-      //   x = Math.max(0, Math.min(x, rect.width));
-      //   y = Math.max(0, Math.min(y, rect.height));
+        });
 
-      //   currentX = x;
-      //   currentY = y;
+    }
 
-      //   updateZoom();
-      // });
 
-    // }
+    /* =========================================
+       GET PRODUCT LINK
+    ========================================= */
 
-    /* =========================
-       COMMON FUNCTION
-    ========================= */
-    // function updateZoom() {
-    //   const rect = box.getBoundingClientRect();
+    function getShareLink() {
+      return window.location.href;
+    }
 
-    //   const percentX = (currentX / rect.width) * 100;
-    //   const percentY = (currentY / rect.height) * 100;
 
-    //   img.style.transformOrigin = `${percentX}% ${percentY}%`;
-    //   img.style.transform = `scale(${zoomLevel})`;
-    // }
+    /* =========================================
+       WHATSAPP
+    ========================================= */
 
-    /* =========================
-       BUTTONS
-    ========================= */
-    // function zoomIn() {
-    //   zoomLevel += 0.5;
-    //   if (zoomLevel > 5) zoomLevel = 5;
-    //   updateZoom();
-    // }
+    function shareWhatsApp(event) {
 
-    // function zoomOut() {
-    //   zoomLevel -= 0.5;
-    //   if (zoomLevel < 1) zoomLevel = 1;
-    //   updateZoom();
-    // }
+      event.preventDefault();
+
+      const link = getShareLink();
+
+      const text =
+        "Check out this product: " + link;
+
+      window.open(
+        "https://wa.me/?text=" + encodeURIComponent(text),
+        "_blank"
+      );
+    }
+
+
+    /* =========================================
+       FACEBOOK
+    ========================================= */
+
+    function shareFacebook(event) {
+
+      event.preventDefault();
+
+      const link = getShareLink();
+
+      window.open(
+        "https://www.facebook.com/sharer/sharer.php?u=" +
+        encodeURIComponent(link),
+        "_blank"
+      );
+    }
+
+
+    /* =========================================
+       INSTAGRAM
+    ========================================= */
+
+    function shareInstagram(event) {
+
+      event.preventDefault();
+
+      const link = getShareLink();
+
+      navigator.clipboard.writeText(link);
+
+      alert("Product link copied. You can paste it on Instagram.");
+
+    }
+
+
+    /* =========================================
+       TELEGRAM
+    ========================================= */
+
+    function shareTelegram(event) {
+
+      event.preventDefault();
+
+      const link = getShareLink();
+
+      const text =
+        "Check out this product: " + link;
+
+      window.open(
+        "https://t.me/share/url?url=" +
+        encodeURIComponent(link) +
+        "&text=" +
+        encodeURIComponent(text),
+        "_blank"
+      );
+    }
   </script>
 
-  
+
+
   <script src="web/js/script.js"></script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <!-- bottom fixed nav end -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
