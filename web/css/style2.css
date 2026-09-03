@@ -844,12 +844,16 @@ width: 100%;
   object-fit: cover;
   /* border-radius: 8px; */
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 1;
   transition: 0.3s;
 }
 
 .pd-thumbs img:hover {
-  opacity: 1;
+  opacity: 0.5;
+  transform: scale(1.05);
+}
+.pd-thumbs .active-thumb {
+  opacity: 0.5;
   transform: scale(1.05);
 }
 
@@ -1007,10 +1011,22 @@ width: 100%;
   transition: 0.3s;
 }
 
-/* .pd-sizes .active-size {
+.pd-sizes button:hover {
   background: black;
   color: white;
-} */
+}
+
+.charges-line{
+  font-size: 14px;
+  font-weight: 300;
+
+}
+.charges-line a{
+  color: black;
+  font-weight: 500;
+  /* text-decoration: underline !important; */
+  border-bottom: 2px solid black;
+}
 
 .pd-products{
   display: flex;
