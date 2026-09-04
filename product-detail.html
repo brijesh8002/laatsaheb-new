@@ -27,6 +27,7 @@
   .mobile-dis2 {
     font-size: 18px;
   }
+
   @media (max-width:768px) {
     .space-search {
       display: none;
@@ -40,6 +41,122 @@
       display: none;
     }
 
+  }
+
+
+  /*  */
+  /* ========================================= RELATED PRODUCTS - CSS ONLY SLIDER ========================================= */
+  .related-products-slider {
+    overflow: hidden;
+  }
+
+  /* Keep your existing ROW */
+  .related-products-slider .row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Finger / touch scrolling */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    /* Smooth snap */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    /* Remove Bootstrap row negative margin effect */
+    padding-bottom: 10px;
+  }
+
+  /* Chrome / Edge / Safari */
+  .related-products-slider .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Keep your existing COL structure */
+  .related-products-slider .row>[class*="col-"] {
+    flex: 0 0 25%;
+    width: 25%;
+    max-width: 25%;
+    scroll-snap-align: start;
+  }
+
+  /* ========================================= MOBILE 2 PRODUCTS VISIBLE ========================================= */
+  @media (max-width: 767.98px) {
+    .related-products-slider .row {
+      gap: 0 !important;
+    }
+
+    .related-products-slider .row>[class*="col-"] {
+      flex: 0 0 50%;
+      width: 50%;
+      max-width: 50%;
+    }
+  }
+
+  /* ========================================= TABLET 3 PRODUCTS VISIBLE ========================================= */
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    .related-products-slider .row>[class*="col-"] {
+      flex: 0 0 33.333333%;
+      width: 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+
+  /* ========================================= DESKTOP 4 PRODUCTS VISIBLE ========================================= */
+  @media (min-width: 1200px) {
+    .related-products-slider .row>[class*="col-"] {
+      flex: 0 0 25%;
+      width: 25%;
+      max-width: 25%;
+    }
+  }
+
+  /* ========================================= OPTIONAL: MAKE DRAGGING FEEL BETTER ========================================= */
+  .related-products-slider .row {
+    cursor: grab;
+  }
+
+  .related-products-slider .row:active {
+    cursor: grabbing;
+  }
+
+  /* ========================================= SLIDER DOTS Decorative CSS-only dots ========================================= */
+  .related-slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .related-slider-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d2d2d2;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+
+
+  /* ========================================= PRODUCT CARD IMPROVEMENT ========================================= */
+  .related-products-slider .prd-crd {
+    height: 100%;
+  }
+
+  /* Prevent links/content from causing weird horizontal overflow */
+  .related-products-slider a {
+    text-decoration: none;
+  }
+
+  /* ========================================= MOBILE CARD SPACING ========================================= */
+  @media (max-width: 575.98px) {
+
+
+    .related-slider-dots {
+      margin-top: 14px;
+    }
   }
 </style>
 
@@ -225,13 +342,13 @@
         </div>
 
         <!-- Offer Tag -->
-        <div class="pd-upi-offer">
+        <!-- <div class="pd-upi-offer">
           Extra ₹100 Off on UPI
-        </div>
+        </div> -->
 
         <!-- Buy Button -->
         <a href="checkout.html">
-          <button class="pd-buy-upi">
+          <button class="pd-buy-upi mt-2">
 
             <span class="pd-buy-text">BUY NOW With UPI / COD</span>
 
@@ -263,10 +380,7 @@
       <!-- FEATURES -->
 
 
-      <!-- <p class="pd-desc">
-        Premium cotton kurta with jacquard design. Perfect for festive &
-        casual wear.
-      </p> -->
+
 
       <div class="abc-accordion mt-4">
         <div class="abc-item active">
@@ -352,10 +466,9 @@
           </div>
         </div>
 
-        <!-- <div class="abc-item">
+        <div class="abc-item">
           <button class="abc-header">
-            <span><i class="bi bi-box-arrow-in-right"></i> PLACE RETURN
-              REQUEST</span>
+            <span><i class="bi bi-box-arrow-in-right"></i> STITCHING</span>
             <i class="bi bi-chevron-down abc-icon"></i>
           </button>
           <div class="abc-content">
@@ -367,7 +480,7 @@
 
         <div class="abc-item">
           <button class="abc-header">
-            <span><i class="bi bi-cash-coin"></i> CASH ON DELIVERY TERM</span>
+            <span><i class="bi bi-cash-coin"></i> 3 DAYS RETURN AND REFUND POLICY</span>
             <i class="bi bi-chevron-down abc-icon"></i>
           </button>
           <div class="abc-content">
@@ -376,7 +489,20 @@
               dispatch.
             </p>
           </div>
-        </div> -->
+        </div>
+
+        <div class="abc-item">
+          <button class="abc-header">
+            <span><i class="bi bi-cash-coin"></i> WASH CARE</span>
+            <i class="bi bi-chevron-down abc-icon"></i>
+          </button>
+          <div class="abc-content">
+            <p>
+              Cash on Delivery orders may require confirmation before
+              dispatch.
+            </p>
+          </div>
+        </div>
 
         <div class="abc-item">
           <button class="abc-header">
@@ -436,7 +562,7 @@
   <section class="prx-review container">
     <!-- HEADER -->
     <div class="prx-top">
-      <div class="prx-rating-box">
+      <!-- <div class="prx-rating-box">
         <h1>5.0</h1>
         <div class="prx-stars">★★★★★</div>
         <p>Based on 2 reviews</p>
@@ -470,8 +596,7 @@
           <div class="prx-bar"></div>
           <span>0</span>
         </div>
-      </div>
-
+      </div> -->
       <div class="prx-action">
         <button onclick="uxrOpen()">Write Review</button>
       </div>
@@ -560,15 +685,15 @@
       </div>
     </div>
 
-    <div class="view-more-reviews mt-5">
-      <a class="py-3 px-5 border text-black border-1 btn-review" href="customer_review.html">
+    <div class="view-more-reviews text-center my-5 ">
+      <a class="py-3 px-5 border bg text-white border-1 btn-review bg-black" href="customer_review.html">
         See all Reviews</a>
     </div>
   </section>
 
 
   <div class="uxr-overlay" id="uxrModal">
-    <div class="uxr-modal">
+    <form class="uxr-modal">
       <!-- HEADER -->
       <div class="uxr-head">
         <h2>Tell us about your reviews</h2>
@@ -596,30 +721,48 @@
       </div>
 
       <!-- UPLOAD -->
-      <label class="uxr-upload">
-        <input type="file" hidden />
-        <div>
-          <p>📷</p>
+      <div class="uxr-field">
+        <label>Picture/Video (Optional)</label>
+        <label class="uxr-upload">
+          <input type="file" hidden />
+          <div>
+            <p>📷</p>
 
-          <small>(.jpg, .png, .gif • max 5MB)</small>
-        </div>
-      </label>
+            <small>(.jpg, .png, .gif , .mp4 • max 5MB)</small>
+          </div>
+        </label>
+      </div>
+
+      <div class="uxr-field">
+        <label>Display name (displayed publicly like
+          John Smith
+          ) </label>
+        <input type="text" placeholder="Enter Name" ></inp>
+      </div>
+
+      <div class="uxr-field">
+        <label>Email Addres </label>
+        <input type="email" placeholder="Enter Email" ></inp>
+      </div>
 
       <!-- BUTTON -->
-      <button class="uxr-btn">Next</button>
+      <div class="d-flex gap-3 mt-3">
+        <button class="uxr-btn2 onclick="uxrClose()"">Cancel</button>
+        <button class="uxr-btn ">Submit</button>
+      </div>
     </div>
   </div>
 
   <!-- Review and Feedback -->
+  <hr>
 
-  <!-- hot selling start -->
-  <section class="my-5">
+  <!-- Related Products Start-->
+  <section class="my-5 related-products-slider">
     <div class="container">
       <div class="mainsection-heading">
-        <h1>KURTA'S FOR YOU!</h1>
+        <h1>Related Products</h1>
       </div>
-
-      <div class="row g-2">
+      <div class="row g-2"> <!-- YOUR EXISTING COL 1 -->
         <div class="col-xl-3 col-md-4 col-6">
           <a href="product-detail.html">
             <div class="prd-crd">
@@ -665,7 +808,7 @@
                 </div>
               </div>
 
-              <a href="wishlist.html" class="crd-wishlist">
+              <a href="wishlist.html" class="crd-wishlist" style="top: 1rem">
                 <i class="bi bi-heart-fill"></i>
               </a>
               <p class="mobile-dis">Extra 10% Off</p>
@@ -699,7 +842,7 @@
                 </div>
               </div>
 
-              <a href="wishlist.html" class="crd-wishlist">
+              <a href="wishlist.html" class="crd-wishlist" style="top: 1rem">
                 <i class="bi bi-heart-fill"></i>
               </a>
               <p class="mobile-dis">Extra 10% Off</p>
@@ -733,7 +876,7 @@
                 </div>
               </div>
 
-              <a href="wishlist.html" class="crd-wishlist">
+              <a href="wishlist.html" class="crd-wishlist" style="top: 1rem">
                 <i class="bi bi-heart-fill"></i>
               </a>
               <p class="mobile-dis">Extra 10% Off</p>
@@ -756,10 +899,97 @@
             </div>
           </a>
         </div>
-      </div>
+
+      </div> <!-- DOTS -->
+      <div class="related-slider-dots"> <span></span> <span></span> </div>
     </div>
   </section>
-  <!-- hot selling end -->
+  <!-- Related Products end -->
+  <hr>
+
+
+  <!-- Recently Viewed Products Start-->
+  <section class="my-5 related-products-slider">
+    <div class="container">
+      <div class="mainsection-heading">
+        <h1>Recently Viewed Products</h1>
+      </div>
+      <div class="row g-2"> <!-- YOUR EXISTING COL 1 -->
+        <div class="col-xl-3 col-md-4 col-6">
+          <a href="product-detail.html">
+            <div class="prd-crd">
+              <div class="prd-img">
+                <img src="web/image/ctgimg1.webp" alt="" />
+
+                <div class="btn-add">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+
+              <a href="wishlist.html" class="crd-wishlist" style="top: 1rem">
+                <i class="bi bi-heart-fill"></i>
+              </a>
+              <p class="mobile-dis">Extra 10% Off</p>
+              <div class="btn-add2">
+                <p>Add To Cart</p>
+              </div>
+              <div class="prd-info">
+                <h6>LAAT SAHEB</h6>
+                <p class="prd-name">
+                  Koti Kurta - White Elephant Jacquard Designer Garment
+                </p>
+                <p class="prd-price">
+
+                  <span class="price">Rs. 1,499.00</span>
+                  <br>
+                  <del>Rs. 6,999.00</del>
+                  <span class="saving ">(79% Off)</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-md-4 col-6">
+          <a href="product-detail.html">
+            <div class="prd-crd">
+              <div class="prd-img">
+                <img src="web/image/ctgimg1.webp" alt="" />
+
+                <div class="btn-add">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+
+              <a href="wishlist.html" class="crd-wishlist" style="top: 1rem">
+                <i class="bi bi-heart-fill"></i>
+              </a>
+              <p class="mobile-dis">Extra 10% Off</p>
+              <div class="btn-add2">
+                <p>Add To Cart</p>
+              </div>
+              <div class="prd-info">
+                <h6>LAAT SAHEB</h6>
+                <p class="prd-name">
+                  Koti Kurta - White Elephant Jacquard Designer Garment
+                </p>
+                <p class="prd-price">
+
+                  <span class="price">Rs. 1,499.00</span>
+                  <br>
+                  <del>Rs. 6,999.00</del>
+                  <span class="saving ">(79% Off)</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div> <!-- DOTS -->
+      <div class="related-slider-dots"> <span></span> <span></span> </div>
+    </div>
+  </section>
+  <!-- Recently Viewed Products End-->
+
 
   <div id="footerId"></div>
 

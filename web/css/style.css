@@ -14,6 +14,8 @@
 
     --secondary:#371110;
 
+    --third:#F2A320;
+
     --vx-test-bg: #8f0000;
 
     --vx-test-card: #f5f2d8;
@@ -546,6 +548,7 @@ z-index: 99;
 
 
 .btn-add {
+  text-transform: uppercase;
   color: black;
   background: white;
   text-align: center;
@@ -560,6 +563,7 @@ z-index: 99;
   transition: 0.6s ease;
 }
 .btn-add2 {
+  text-transform: uppercase;
   display: none;
   color: black;
   background: white;
@@ -4172,11 +4176,13 @@ textarea {
 
 .brij-prev {
   left: -3px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 .brij-next {
   right: 0px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /* DOTS */
