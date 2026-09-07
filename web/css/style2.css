@@ -49,21 +49,24 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  text-transform: uppercase;
 }
 
-.vx-filter-title::after {
-  content: "⮟";
-  transition: 0.3s;
+.vx-filter-title i {
+  transition: 0.5s;
   transform: rotate(180deg);
 }
 
-.vx-filter-block.vx-active .vx-filter-title::after {
+.vx-filter-block.vx-active .vx-filter-title i {
   transform: rotate(0deg);
 }
 
 /* CONTENT ANIMATION */
 .vx-filter-content {
 
+  /* display: flex; */
+  /* gap: 10px; */
+  align-items: center;
   overflow: hidden;
   transition: all 0.3s ease;
   
@@ -72,8 +75,36 @@
 }
 
 .vx-filter-block:not(.vx-active) .vx-filter-content {
-    max-height: 500px;
-    margin-top: 10px;
+    max-height: 150px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    /* margin-top: 10px; */
+    scrollbar-color: #e5e5e5 transparent;
+}
+/* Chrome, Edge, Safari */
+.vx-filter-block:not(.vx-active) .vx-filter-content::-webkit-scrollbar {
+    width: 2px;
+}
+
+.vx-filter-block:not(.vx-active) .vx-filter-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.vx-filter-block:not(.vx-active) .vx-filter-content::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 10px;
+}
+
+.vx-filter-block:not(.vx-active) .vx-filter-content::-webkit-scrollbar-thumb:hover {
+    background: #d2d2d2;
+}
+
+/* Remove top/bottom scrollbar arrow buttons */
+.vx-filter-block:not(.vx-active) .vx-filter-content::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 /* PRICE */
@@ -84,18 +115,251 @@
   color: #777;
 }
 
-.vx-range {
-  width: 100%;
-  margin-top: 10px;
-  accent-color: black;
+/* Price Testing */
+/* ================================
+   PRICE RANGE
+================================ */
+
+.vx-price-range {
+    width: 100%;
+    padding: 10px;
 }
+
+
+/* RANGE WRAPPER */
+
+.vx-range-wrap {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    /* margin-top: 12px; */
+}
+
+
+/* BASE TRACK */
+
+.vx-range-track {
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    right: 3px;
+
+    height: 8px;
+
+    background: #d9d9d9;
+
+    transform: translateY(-50%);
+}
+
+
+/* ACTIVE TRACK */
+
+.vx-range-progress {
+    position: absolute;
+    top: 50%;
+    height: 8px;
+
+    background: #222;
+
+    transform: translateY(-50%);
+
+    left: 3px;
+    right: 3px;
+
+    pointer-events: none;
+}
+
+
+/* RANGE INPUT */
+
+.vx-range {
+    position: absolute;
+
+    width: 100%;
+    height: 30px;
+
+    top: 0;
+    left: 0;
+
+    margin: 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: transparent;
+
+    pointer-events: none;
+
+    outline: none;
+}
+
+
+/* REMOVE DEFAULT TRACK */
+
+.vx-range::-webkit-slider-runnable-track {
+    height: 8px;
+    background: transparent;
+}
+
+.vx-range::-moz-range-track {
+    height: 8px;
+    background: transparent;
+}
+
+
+/* HANDLE - CHROME */
+
+.vx-range::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 32px;
+    height: 32px;
+
+    margin-top: -12px;
+
+    border-radius: 50%;
+
+    background: #222;
+
+    border: 9px solid #fff;
+
+    box-shadow: 0 0 0 1px #222;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+}
+
+
+/* HANDLE - FIREFOX */
+
+.vx-range::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: #222;
+
+    border: 9px solid #fff;
+
+    box-shadow: 0 0 0 1px #222;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+}
+
+
+/* ================================
+   PRICE INPUTS
+================================ */
+
+.vx-price-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+/* INPUT BOX */
+
+.vx-price-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    padding: 5px 10px;
+}
+
+
+/* ₹ */
+
+.vx-price-box span {
+    font-size: 15px;
+    color: #333;
+    /* margin-right: 12px; */
+}
+
+
+/* NUMBER INPUT */
+
+.vx-price-box input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 15px;
+    color: #222;
+    text-align: right;
+}
+
+
+/* REMOVE NUMBER ARROWS */
+
+.vx-price-box input::-webkit-outer-spin-button,
+.vx-price-box input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.vx-price-box input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* TO */
+
+.vx-price-to {
+    font-size: 15px;
+    color: #222;
+    flex-shrink: 0;
+}
+
+
+/* ================================
+   APPLY BUTTON
+================================ */
+
+.vx-price-apply {
+    width: 100%;
+    height: 72px;
+
+    margin-top: 28px;
+
+    border: 0;
+    border-radius: 5px;
+
+    background: #f9c85b;
+
+    color: #fff;
+
+    font-size: 23px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.vx-price-apply:hover {
+    background: #f5bb3e;
+}
+/* Price Testing */
 
 /* CHECKBOX */
 .vx-check {
   display: flex;
   justify-content: space-between;
+  /* align-items: center; */
   font-size: 14px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   cursor: pointer;
   transition: 0.2s;
 }
@@ -105,19 +369,17 @@
 }
 
 /* COLOR */
-.vx-color-item {
+.vx-cate-item {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
   cursor: pointer;
 }
-
-.vx-color-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
+.vx-cate-item span{
+  font-size: 14px;
 }
+
 
 /* SCROLLBAR */
 .vx-sidebar::-webkit-scrollbar {
@@ -154,17 +416,13 @@
 }
 
 .vx-filter-title {
-  font-size: 13px;
-  letter-spacing: 2px;
+  font-size: 14px;
+  letter-spacing: 1px;
   margin-bottom: 10px;
+  font-weight: 700;
 }
 
-/* CHECKBOX */
-.vx-check {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
+
 
 /* DROPDOWN */
 .vx-sort-select {
@@ -172,6 +430,7 @@
   border: 1px solid #ddd;
   background: white;
   cursor: pointer;
+  max-width: 200px;
 }
 
 /* MOBILE TOP BAR */
@@ -2537,7 +2796,7 @@ width: 100%;
     position: fixed;
     left: -100%;
     top: 0;
-    width: 100%;
+    width: 80%;
     height: 100%;
     z-index: 99999999999;
     transition: 0.3s;
@@ -3687,7 +3946,7 @@ width: 100%;
 
         width: 24px;
 
-        z-index: 30;
+        z-index: 2;
 
         pointer-events: none;
     }

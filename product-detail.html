@@ -25,7 +25,7 @@
 
 <style>
   .mobile-dis2 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   @media (max-width:768px) {
@@ -54,7 +54,7 @@
   .related-products-slider .row {
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     /* Finger / touch scrolling */
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
@@ -130,8 +130,8 @@
   }
 
   .related-slider-dots span {
-    width: 7px;
-    height: 7px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: #d2d2d2;
     display: block;
@@ -685,8 +685,8 @@
       </div>
     </div>
 
-    <div class="view-more-reviews text-center my-5 ">
-      <a class="py-3 px-5 border bg text-white border-1 btn-review bg-black" href="customer_review.html">
+    <div class="view-more-reviews text-center my-2 ">
+      <a class="py-2 px-5 border bg text-white border-1 btn-review bg-black" href="customer_review.html">
         See all Reviews</a>
     </div>
   </section>
@@ -747,7 +747,7 @@
 
       <!-- BUTTON -->
       <div class="d-flex gap-3 mt-3">
-        <button class="uxr-btn2 onclick="uxrClose()"">Cancel</button>
+        <button class="uxr-btn2 " onclick="uxrClose()">Cancel</button>
         <button class="uxr-btn ">Submit</button>
       </div>
     </div>
@@ -757,10 +757,10 @@
   <hr>
 
   <!-- Related Products Start-->
-  <section class="my-5 related-products-slider">
+  <section class="my-4 related-products-slider">
     <div class="container">
       <div class="mainsection-heading">
-        <h1>Related Products</h1>
+        <h1 class="mb-3">Related Products</h1>
       </div>
       <div class="row g-2"> <!-- YOUR EXISTING COL 1 -->
         <div class="col-xl-3 col-md-4 col-6">
@@ -909,10 +909,10 @@
 
 
   <!-- Recently Viewed Products Start-->
-  <section class="my-5 related-products-slider">
+  <section class="my-4 related-products-slider">
     <div class="container">
       <div class="mainsection-heading">
-        <h1>Recently Viewed Products</h1>
+        <h1 class="mb-3">Recently Viewed Products</h1>
       </div>
       <div class="row g-2"> <!-- YOUR EXISTING COL 1 -->
         <div class="col-xl-3 col-md-4 col-6">

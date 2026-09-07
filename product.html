@@ -36,10 +36,11 @@
 
 
     </div>
-    <div class="xzcv-heading mt-3 container-fluid">
-        <p> <a class="text-black fw-bold" href="index.html">Home</a> <i class="bi bi-chevron-compact-right"> </i><a  href="categories.html">Categories</a> <i class="bi bi-chevron-compact-right"> </i> <a
-                 href="sub-categories.html">Kurta</a> <i class="bi bi-chevron-compact-right"> </i> <a
-                 href="#">Plain Kurta</a></p>
+    <div class="xzcv-heading my-3 container-fluid">
+        <p> <a class="text-black fw-bold" href="index.html">Home</a> <i class="bi bi-chevron-compact-right"> </i><a
+                href="categories.html">Categories</a> <i class="bi bi-chevron-compact-right"> </i> <a
+                href="sub-categories.html">Kurta</a> <i class="bi bi-chevron-compact-right"> </i> <a href="#">Plain
+                Kurta</a></p>
     </div>
 
 
@@ -69,61 +70,129 @@
                 <span onclick="vxCloseFilter()">✕</span>
             </div>
             <hr>
-            <!-- <div class="vx-header d-flex align-items-center justify-content-between mb-5">
-                    <h3>Filter</h3>
-                    <span onclick="vxCloseFilter()">✕</span>
-                </div> -->
 
-            <!-- PRICE -->
+
+            <!-- CATEGORIES -->
             <div class="vx-filter-block vx-active">
-                <div class="vx-filter-title">PRICE</div>
+                <div class="vx-filter-title">CATEGORIES <i class="bi bi-chevron-down"></i></div>
                 <div class="vx-filter-content">
-                    <div class="vx-price-labels">
-                        <span>Rs. 0</span>
-                        <span>Rs. 2899</span>
-                    </div>
-                    <input type="range" class="vx-range">
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Kurta</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Pajama's</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Koti Set</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Jodhpuri</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Tuxedo</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Blazer</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Sherwani</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Hunting Jackets</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Indo-western</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Modi Jackets</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Coat Pant</span>
+                    </label>
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Customize</span>
+                    </label>
+
                 </div>
             </div>
 
             <!-- SIZE -->
             <div class="vx-filter-block vx-active">
-                <div class="vx-filter-title">SIZE</div>
-                <div class="vx-filter-content">
-                    <label class="vx-check"><input type="checkbox"> S <span>90</span></label>
-                    <label class="vx-check"><input type="checkbox"> M <span>90</span></label>
-                    <label class="vx-check"><input type="checkbox"> L <span>90</span></label>
-                    <label class="vx-check"><input type="checkbox"> XL <span>90</span></label>
+                <div class="vx-filter-title ">SIZE <i class="bi bi-chevron-down"></i></div>
+                <div class="vx-filter-content d-flex gap-2">
+                    <label class="vx-check"><input type="checkbox" class="mx-1"> S <span>90</span></label>
+                    <label class="vx-check"><input type="checkbox" class="mx-1"> M <span>90</span></label>
+                    <label class="vx-check"><input type="checkbox" class="mx-1"> L <span>90</span></label>
+                    <label class="vx-check"><input type="checkbox" class="mx-1"> XL <span>90</span></label>
                 </div>
             </div>
 
             <!-- COLOR -->
             <div class="vx-filter-block vx-active">
-                <div class="vx-filter-title">COLOR</div>
+                <div class="vx-filter-title">Availablity <i class="bi bi-chevron-down"></i></div>
                 <div class="vx-filter-content">
-                    <label class="vx-color-item">
-                        <input type="checkbox">
-                        <span class="vx-color-dot" style="background:#2b6cb0;"></span> Blue
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>In Stock(265)</span>
                     </label>
-
-                    <label class="vx-color-item">
-                        <input type="checkbox">
-                        <span class="vx-color-dot" style="background:#111;"></span> Black
-                    </label>
-
-                    <label class="vx-color-item">
-                        <input type="checkbox">
-                        <span class="vx-color-dot" style="background:#fff; border:1px solid #ccc;"></span> White
+                    <label class="vx-cate-item">
+                        <input type="checkbox"><span>Out Of Stock(9)</span>
                     </label>
                 </div>
             </div>
+
+            <!-- PRICE -->
+            <div class="vx-filter-block vx-active">
+                <div class="vx-filter-title">PRICE <i class="bi bi-chevron-down"></i></div>
+                <div class="vx-filter-content">
+
+                    <!-- Testing -->
+                    <div class="vx-price-range">
+
+                        <!-- Range Slider -->
+                        <div class="vx-range-wrap">
+                            <div class="vx-range-track"></div>
+                            <div class="vx-range-progress"></div>
+
+                            <input type="range" class="vx-range vx-range-min" min="0" max="5299" value="0" step="1">
+
+                            <input type="range" class="vx-range vx-range-max" min="0" max="5299" value="5299" step="1">
+                        </div>
+
+                        <!-- Price Inputs -->
+                        <div class="vx-price-inputs">
+
+                            <div class="vx-price-box">
+                                <span>₹</span>
+                                <input type="number" class="vx-min-price" value="0" min="0" max="5299">
+                            </div>
+
+                            <span class="vx-price-to">to</span>
+
+                            <div class="vx-price-box">
+                                <span>₹</span>
+                                <input type="number" class="vx-max-price" value="5299" min="0" max="5299">
+                            </div>
+
+                        </div>
+
+                        
+
+                    </div>
+                    <!-- Testing -->
+                </div>
+            </div>
+
+            <!-- Apply -->
+                        <button type="button" class="vx-price-apply">
+                            APPLY
+                        </button>
 
         </div>
 
         <!-- RIGHT CONTENT -->
         <main class="vx-content">
             <div class="vx-content-top">
-                <p class="vx-product-count">90 products</p>
+                <p class="vx-product-count mb-0">90 products</p>
 
                 <select class="vx-sort-select">
                     <option>Sort</option>
@@ -142,8 +211,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -151,7 +222,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -161,8 +234,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -175,8 +248,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -184,7 +259,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -194,8 +271,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -208,8 +285,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -217,7 +296,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -227,8 +308,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -241,8 +322,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -250,7 +333,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -260,8 +345,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -274,8 +359,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -283,7 +370,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -293,8 +382,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -307,8 +396,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -316,7 +407,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -326,8 +419,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -340,8 +433,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -349,7 +444,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -359,8 +456,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -373,8 +470,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -382,7 +481,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -392,8 +493,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -406,8 +507,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -415,7 +518,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -425,8 +530,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -439,8 +544,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -448,7 +555,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -458,8 +567,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -472,8 +581,10 @@
                         <div class="prd-crd">
                             <div class="prd-img">
                                 <img src="web/image/ctgimg1.webp" alt="" />
-                                
-                                <div class="btn-add"><p>Add To Cart</p></div>
+
+                                <div class="btn-add">
+                                    <p>Add To Cart</p>
+                                </div>
                             </div>
 
 
@@ -481,7 +592,9 @@
                                 <i class="bi bi-heart-fill"></i>
                             </button>
                             <p class="mobile-dis">Extra 10% Off</p>
-                            <div class="btn-add2"><p>Add To Cart</p></div>
+                            <div class="btn-add2">
+                                <p>Add To Cart</p>
+                            </div>
                             <div class="prd-info">
                                 <h6>LAAT SAHEB</h6>
                                 <p class="prd-name">
@@ -491,8 +604,8 @@
 
                                     <span class="price">Rs. 1,499.00</span>
                                     <br>
-<del>Rs. 6,999.00</del>
-                                                                  <span class="saving ">(79% Off)</span>
+                                    <del>Rs. 6,999.00</del>
+                                    <span class="saving ">(79% Off)</span>
                                 </p>
                             </div>
                         </div>
@@ -504,6 +617,8 @@
 
 
             </div>
+
+        </main>
     </div>
 
     <div id="footerId"></div>
@@ -515,11 +630,11 @@
 
 
 
-    
+
     <!-- bottom fixed nav end -->
     <script src="web/js/script.js"></script>
 
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

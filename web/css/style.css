@@ -1284,7 +1284,9 @@ body {
   .prd-info .prd-price {
   font-size: 15px;
 }
-  
+  .mobile-dis{
+    font-size: 11px;
+  }
 
   .btn-add {
     display: none;

@@ -121,6 +121,197 @@ function vxCloseFilter() {
   document.body.style.overflow = "auto";
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const minRange = document.querySelector(".vx-range-min");
+    const maxRange = document.querySelector(".vx-range-max");
+
+    const minInput = document.querySelector(".vx-min-price");
+    const maxInput = document.querySelector(".vx-max-price");
+
+    const progress = document.querySelector(".vx-range-progress");
+
+    const maxValue = 5299;
+
+
+    /* ================================
+       UPDATE RANGE
+    ================================= */
+
+    function updateRange() {
+
+        let minValue = parseInt(minRange.value);
+        let maxValueCurrent = parseInt(maxRange.value);
+
+
+        /* Prevent crossing */
+
+        if (minValue > maxValueCurrent) {
+
+            minValue = maxValueCurrent;
+
+            minRange.value = minValue;
+        }
+
+
+        if (maxValueCurrent < minValue) {
+
+            maxValueCurrent = minValue;
+
+            maxRange.value = maxValueCurrent;
+        }
+
+
+        /* Update text */
+
+        minInput.value = minValue;
+        maxInput.value = maxValueCurrent;
+
+
+        /* Calculate progress */
+
+        const minPercent =
+            (minValue / maxValue) * 100;
+
+        const maxPercent =
+            (maxValueCurrent / maxValue) * 100;
+
+
+        progress.style.left =
+            minPercent + "%";
+
+        progress.style.right =
+            (100 - maxPercent) + "%";
+    }
+
+
+    /* ================================
+       MIN SLIDER
+    ================================= */
+
+    minRange.addEventListener("input", function () {
+
+        let value = parseInt(this.value);
+
+        if (value > parseInt(maxRange.value)) {
+            value = parseInt(maxRange.value);
+            this.value = value;
+        }
+
+        updateRange();
+    });
+
+
+    /* ================================
+       MAX SLIDER
+    ================================= */
+
+    maxRange.addEventListener("input", function () {
+
+        let value = parseInt(this.value);
+
+        if (value < parseInt(minRange.value)) {
+            value = parseInt(minRange.value);
+            this.value = value;
+        }
+
+        updateRange();
+    });
+
+
+    /* ================================
+       MIN PRICE INPUT
+    ================================= */
+
+    minInput.addEventListener("input", function () {
+
+        let value = parseInt(this.value);
+
+        if (isNaN(value)) {
+            value = 0;
+        }
+
+        if (value < 0) {
+            value = 0;
+        }
+
+        if (value > maxValue) {
+            value = maxValue;
+        }
+
+        if (value > parseInt(maxRange.value)) {
+            value = parseInt(maxRange.value);
+        }
+
+
+        this.value = value;
+
+        minRange.value = value;
+
+        updateRange();
+    });
+
+
+    /* ================================
+       MAX PRICE INPUT
+    ================================= */
+
+    maxInput.addEventListener("input", function () {
+
+        let value = parseInt(this.value);
+
+        if (isNaN(value)) {
+            value = maxValue;
+        }
+
+        if (value < 0) {
+            value = 0;
+        }
+
+        if (value > maxValue) {
+            value = maxValue;
+        }
+
+        if (value < parseInt(minRange.value)) {
+            value = parseInt(minRange.value);
+        }
+
+
+        this.value = value;
+
+        maxRange.value = value;
+
+        updateRange();
+    });
+
+
+    /* ================================
+       APPLY BUTTON
+    ================================= */
+
+    document
+        .querySelector(".vx-price-apply")
+        .addEventListener("click", function () {
+
+            const minPrice = minRange.value;
+            const maxPrice = maxRange.value;
+
+            console.log("Minimum Price:", minPrice);
+            console.log("Maximum Price:", maxPrice);
+
+            // Your product filtering API/function can go here
+
+        });
+
+
+    /* INITIAL */
+
+    updateRange();
+
+});
+
+
+
 /* =========================================================
    CART
 ========================================================= */
