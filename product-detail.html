@@ -42,122 +42,6 @@
     }
 
   }
-
-
-  /*  */
-  /* ========================================= RELATED PRODUCTS - CSS ONLY SLIDER ========================================= */
-  .related-products-slider {
-    overflow: hidden;
-  }
-
-  /* Keep your existing ROW */
-  .related-products-slider .row {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    /* overflow-y: hidden; */
-    /* Finger / touch scrolling */
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
-    /* Smooth snap */
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    /* Remove Bootstrap row negative margin effect */
-    padding-bottom: 10px;
-  }
-
-  /* Chrome / Edge / Safari */
-  .related-products-slider .row::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Keep your existing COL structure */
-  .related-products-slider .row>[class*="col-"] {
-    flex: 0 0 25%;
-    width: 25%;
-    max-width: 25%;
-    scroll-snap-align: start;
-  }
-
-  /* ========================================= MOBILE 2 PRODUCTS VISIBLE ========================================= */
-  @media (max-width: 767.98px) {
-    .related-products-slider .row {
-      gap: 0 !important;
-    }
-
-    .related-products-slider .row>[class*="col-"] {
-      flex: 0 0 50%;
-      width: 50%;
-      max-width: 50%;
-    }
-  }
-
-  /* ========================================= TABLET 3 PRODUCTS VISIBLE ========================================= */
-  @media (min-width: 768px) and (max-width: 1199.98px) {
-    .related-products-slider .row>[class*="col-"] {
-      flex: 0 0 33.333333%;
-      width: 33.333333%;
-      max-width: 33.333333%;
-    }
-  }
-
-  /* ========================================= DESKTOP 4 PRODUCTS VISIBLE ========================================= */
-  @media (min-width: 1200px) {
-    .related-products-slider .row>[class*="col-"] {
-      flex: 0 0 25%;
-      width: 25%;
-      max-width: 25%;
-    }
-  }
-
-  /* ========================================= OPTIONAL: MAKE DRAGGING FEEL BETTER ========================================= */
-  .related-products-slider .row {
-    cursor: grab;
-  }
-
-  .related-products-slider .row:active {
-    cursor: grabbing;
-  }
-
-  /* ========================================= SLIDER DOTS Decorative CSS-only dots ========================================= */
-  .related-slider-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-    margin-top: 18px;
-  }
-
-  .related-slider-dots span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #d2d2d2;
-    display: block;
-    transition: all 0.3s ease;
-  }
-
-
-
-  /* ========================================= PRODUCT CARD IMPROVEMENT ========================================= */
-  .related-products-slider .prd-crd {
-    height: 100%;
-  }
-
-  /* Prevent links/content from causing weird horizontal overflow */
-  .related-products-slider a {
-    text-decoration: none;
-  }
-
-  /* ========================================= MOBILE CARD SPACING ========================================= */
-  @media (max-width: 575.98px) {
-
-
-    .related-slider-dots {
-      margin-top: 14px;
-    }
-  }
 </style>
 
 
@@ -737,12 +621,12 @@
         <label>Display name (displayed publicly like
           John Smith
           ) </label>
-        <input type="text" placeholder="Enter Name" ></inp>
+        <input type="text" placeholder="Enter Name"></inp>
       </div>
 
       <div class="uxr-field">
         <label>Email Addres </label>
-        <input type="email" placeholder="Enter Email" ></inp>
+        <input type="email" placeholder="Enter Email"></inp>
       </div>
 
       <!-- BUTTON -->
@@ -750,7 +634,7 @@
         <button class="uxr-btn2 " onclick="uxrClose()">Cancel</button>
         <button class="uxr-btn ">Submit</button>
       </div>
-    </div>
+    </form>
   </div>
 
   <!-- Review and Feedback -->
