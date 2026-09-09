@@ -640,6 +640,7 @@ z-index: 99;
   font-size: 25px;
   margin-top: 3px;
 } 
+
 .crd-wishlist:hover {
   color: var(--primary);
 }
@@ -1295,7 +1296,7 @@ body {
   .btn-add2 {
     display: block;
     padding: 8px 0;
-    font-size: 15px;
+    /* font-size: 15px; */
   }
 
   .footerimg {
@@ -3000,14 +3001,29 @@ textarea {
   gap: 20px;
 }
 
-.brx-blog-title {
-  font-size: 20px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
+.brx-blog-title{
+    font-size:20px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    width:100%;
 }
-.brx-blog-title a i {
-  font-size: 30px;
+
+.brx-blog-title a{
+    flex:0 0 auto;
+    text-decoration:none;
+    color:black;
+}
+
+.brx-blog-title a i{
+    font-size:30px;
+}
+
+.brx-blog-title span{
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
 .brx-blog-search {

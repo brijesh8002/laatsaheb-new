@@ -31,33 +31,21 @@
     <div id="header"></div>
 
     <div class="container-fluid m-0">
-        <h1 class="brx-blog-title mb-2"><a style="text-decoration: none; color: black; " href="index.html"><i
-                    class="bi bi-arrow-left-short"></i></a>Kurta</h1>
+        <h1 class="brx-blog-title mb-2"><a style="text-decoration: none; color: black; " href="sub-categories.html"><i
+                    class="bi bi-arrow-left-short"></i></a>Plain Kurta</h1>
 
 
     </div>
     <div class="xzcv-heading my-3 container-fluid">
         <p> <a class="text-black fw-bold" href="index.html">Home</a> <i class="bi bi-chevron-compact-right"> </i><a
                 href="categories.html">Categories</a> <i class="bi bi-chevron-compact-right"> </i> <a
-                href="sub-categories.html">Kurta</a> <i class="bi bi-chevron-compact-right"> </i> <a href="#">Plain
-                Kurta</a></p>
+                href="sub-categories.html">Kurta</a> <i class="bi bi-chevron-compact-right"> </i> Plain
+            Kurta</p>
     </div>
 
 
 
     <!-- <body> -->
-    <!-- MOBILE TOP BAR -->
-    <div class="vx-topbar-mobile">
-        <button class="vx-filter-btn" onclick="vxOpenFilter()">
-            ☰ Filter
-        </button>
-
-        <select class="vx-sort-select">
-            <option>Sort</option>
-            <option>Price Low to High</option>
-            <option>Price High to Low</option>
-        </select>
-    </div>
 
 
     <div class="vx-layout">
@@ -175,7 +163,7 @@
 
                         </div>
 
-                        
+
 
                     </div>
                     <!-- Testing -->
@@ -183,9 +171,9 @@
             </div>
 
             <!-- Apply -->
-                        <button type="button" class="vx-price-apply">
-                            APPLY
-                        </button>
+            <button type="button" class="vx-price-apply">
+                APPLY
+            </button>
 
         </div>
 
@@ -193,12 +181,90 @@
         <main class="vx-content">
             <div class="vx-content-top">
                 <p class="vx-product-count mb-0">90 products</p>
+                <button class="vx-filter-btn" onclick="vxOpenFilter()">
+                    ☰ FILTER
+                </button>
 
-                <select class="vx-sort-select">
+                <!-- <select class="vx-sort-select">
                     <option>Sort</option>
                     <option>Price Low to High</option>
                     <option>Price High to Low</option>
-                </select>
+                </select> -->
+                <!-- SORT CONTROL -->
+                <div class="brx-sort-wrap">
+
+                    <button type="button" class="brx-sort-btn" onclick="brxOpenSort()">
+                        <span>SORT BY</span>
+                        <strong id="brxSelectedSort">Date, new to old</strong>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+
+                    <!-- SORT OVERLAY -->
+                    <div class="brx-sort-overlay" id="brxSortOverlay" onclick="brxOverlayClose(event)">
+
+                        <!-- SORT POPUP -->
+                        <div class="brx-sort-popup">
+
+                            <div class="brx-sort-header">
+                                <span>SORT BY:</span>
+
+                                <button type="button" class="brx-sort-close" onclick="brxCloseSort()">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
+
+                            <div class="brx-sort-options">
+
+                                <button type="button" class="brx-sort-option" onclick="brxSelectSort(this, 'Featured')">
+                                    Featured
+                                </button>
+
+                                <button type="button" class="brx-sort-option"
+                                    onclick="brxSelectSort(this, 'Most relevant')">
+                                    Most relevant
+                                </button>
+
+                                <button type="button" class="brx-sort-option"
+                                    onclick="brxSelectSort(this, 'Best selling')">
+                                    Best selling
+                                </button>
+
+                                <button type="button" class="brx-sort-option"
+                                    onclick="brxSelectSort(this, 'Alphabetically, A-Z')">
+                                    Alphabetically, A-Z
+                                </button>
+
+                                <button type="button" class="brx-sort-option"
+                                    onclick="brxSelectSort(this, 'Alphabetically, Z-A')">
+                                    Alphabetically, Z-A
+                                </button>
+
+                                <button type="button" class="brx-sort-option"
+                                    onclick="brxSelectSort(this, 'Price, low to high')">
+                                    Price, low to high
+                                </button>
+
+                                <button type="button" class="brx-sort-option"
+                                    onclick="brxSelectSort(this, 'Price, high to low')">
+                                    Price, high to low
+                                </button>
+
+                                <button type="button" class="brx-sort-option"
+                                    onclick="brxSelectSort(this, 'Date, old to new')">
+                                    Date, old to new
+                                </button>
+
+                                <button type="button" class="brx-sort-option brx-active"
+                                    onclick="brxSelectSort(this, 'Date, new to old')">
+                                    Date, new to old
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <!-- PRODUCTS GRID WILL COME HERE -->
@@ -644,6 +710,87 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
+    <script>
+        /* =========================================
+       SORT POPUP
+    ========================================= */
+
+        const brxSortOverlay = document.getElementById("brxSortOverlay");
+        const brxSortWrap = document.querySelector(".brx-sort-wrap");
+        const brxSelectedSort = document.getElementById("brxSelectedSort");
+
+
+        /* OPEN */
+
+        function brxOpenSort() {
+
+            brxSortOverlay.classList.add("brx-show");
+            brxSortWrap.classList.add("brx-open");
+
+            document.body.classList.add("brx-sort-lock");
+        }
+
+
+        /* CLOSE */
+
+        function brxCloseSort() {
+
+            brxSortOverlay.classList.remove("brx-show");
+            brxSortWrap.classList.remove("brx-open");
+
+            document.body.classList.remove("brx-sort-lock");
+        }
+
+
+        /* CLICK OUTSIDE */
+
+        function brxOverlayClose(event) {
+
+            if (event.target === brxSortOverlay) {
+                brxCloseSort();
+            }
+
+        }
+
+
+        /* SELECT SORT */
+
+        function brxSelectSort(element, value) {
+
+            /* Remove active from all */
+            document.querySelectorAll(".brx-sort-option").forEach(function (item) {
+                item.classList.remove("brx-active");
+            });
+
+
+            /* Add active */
+            element.classList.add("brx-active");
+
+
+            /* Update desktop button */
+            brxSelectedSort.textContent = value;
+
+
+            /* Close popup */
+            brxCloseSort();
+
+
+            /* Your sorting logic can go here */
+            console.log("Selected sort:", value);
+
+        }
+
+
+        /* ESCAPE KEY */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+                brxCloseSort();
+            }
+
+        });
+    </script>
 
 </body>
 

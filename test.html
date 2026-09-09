@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* =========================================
+   SORT WRAPPER
+========================================= */
+
+.brx-sort-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* =========================================
+   SORT BUTTON - DESKTOP
+========================================= */
+
+.brx-sort-btn {
+    height: 64px;
+    min-width: 225px;
+    padding: 0 18px;
+
+    border: 1px solid #d8d8d8;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    color: #111;
+}
+
+.brx-sort-btn span {
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.brx-sort-btn strong {
+    max-width: 120px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brx-sort-btn i {
+    font-size: 14px;
+    flex-shrink: 0;
+
+    transition: transform 0.25s ease;
+}
+
+.brx-sort-wrap.brx-open .brx-sort-btn i {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.brx-sort-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.brx-sort-overlay.brx-show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================
+   DESKTOP POPUP
+========================================= */
+
+.brx-sort-popup {
+    position: absolute;
+
+    top: 124px;
+    right: 0;
+
+    width: 290px;
+
+    background: #fff;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.15);
+
+    transform: translateY(-8px);
+
+    transition: transform 0.25s ease;
+
+    overflow: hidden;
+}
+
+.brx-sort-overlay.brx-show .brx-sort-popup {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.brx-sort-header {
+    height: 58px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.brx-sort-header span {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+}
+
+.brx-sort-close {
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.brx-sort-close i {
+    font-size: 18px;
+    color: #111;
+}
+
+
+/* =========================================
+   OPTIONS
+========================================= */
+
+.brx-sort-options {
+    padding: 4px 0;
+}
+
+.brx-sort-option {
+    width: 100%;
+
+    min-height: 45px;
+
+    padding: 10px 18px;
+
+    border: 0;
+    background: #fff;
+
+    text-align: left;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #333;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.brx-sort-option:hover {
+    background: #f5f5f5;
+}
+
+.brx-sort-option.brx-active {
+    font-weight: 600;
+    color: #111;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    .brx-sort-wrap {
+        width: auto;
+    }
+
+    .brx-sort-btn {
+        height: 42px;
+
+        min-width: auto;
+
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+
+        gap: 5px;
+    }
+
+    .brx-sort-btn span {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .brx-sort-btn strong {
+        display: none;
+    }
+
+    .brx-sort-btn i {
+        font-size: 11px;
+    }
+
+
+    /* MOBILE OVERLAY */
+
+    .brx-sort-overlay {
+        display: flex;
+
+        align-items: flex-end;
+        justify-content: center;
+
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+
+    /* MOBILE BOTTOM SHEET */
+
+    .brx-sort-popup {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+
+        max-height: 85vh;
+
+        border-radius: 0;
+
+        box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+
+        transform: translateY(100%);
+
+        overflow-y: auto;
+    }
+
+    .brx-sort-overlay.brx-show .brx-sort-popup {
+        transform: translateY(0);
+    }
+
+
+    /* MOBILE HEADER */
+
+    .brx-sort-header {
+        height: 60px;
+
+        padding: 0 26px;
+
+        position: sticky;
+        top: 0;
+
+        background: #fff;
+
+        z-index: 2;
+    }
+
+    .brx-sort-header span {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .brx-sort-close {
+        width: 35px;
+        height: 35px;
+    }
+
+    .brx-sort-close i {
+        font-size: 18px;
+    }
+
+
+    /* MOBILE OPTIONS */
+
+    .brx-sort-options {
+        padding: 4px 0 15px;
+    }
+
+    .brx-sort-option {
+        min-height: 49px;
+
+        padding: 12px 26px;
+
+        font-size: 13px;
+
+        color: #17345d;
+    }
+
+    .brx-sort-option:hover {
+        background: #f7f7f7;
+    }
+
+    .brx-sort-option.brx-active {
+        background: #f7f7f7;
+
+        color: #111;
+
+        text-decoration: none;
+
+        font-weight: 700;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .brx-sort-header {
+        padding: 0 18px;
+    }
+
+    .brx-sort-option {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+}
+</style>
+<body>
+    <!-- SORT CONTROL -->
+<div class="brx-sort-wrap">
+
+    <button type="button" class="brx-sort-btn" onclick="brxOpenSort()">
+        <span>SORT BY</span>
+        <strong id="brxSelectedSort">Date, new to old</strong>
+        <i class="bi bi-chevron-down"></i>
+    </button>
+
+    <!-- SORT OVERLAY -->
+    <div class="brx-sort-overlay" id="brxSortOverlay" onclick="brxOverlayClose(event)">
+
+        <!-- SORT POPUP -->
+        <div class="brx-sort-popup">
+
+            <div class="brx-sort-header">
+                <span>SORT BY:</span>
+
+                <button type="button" class="brx-sort-close" onclick="brxCloseSort()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="brx-sort-options">
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Featured')">
+                    Featured
+                </button>
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Most relevant')">
+                    Most relevant
+                </button>
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Best selling')">
+                    Best selling
+                </button>
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Alphabetically, A-Z')">
+                    Alphabetically, A-Z
+                </button>
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Alphabetically, Z-A')">
+                    Alphabetically, Z-A
+                </button>
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Price, low to high')">
+                    Price, low to high
+                </button>
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Price, high to low')">
+                    Price, high to low
+                </button>
+
+                <button type="button" class="brx-sort-option"
+                    onclick="brxSelectSort(this, 'Date, old to new')">
+                    Date, old to new
+                </button>
+
+                <button type="button"
+                    class="brx-sort-option brx-active"
+                    onclick="brxSelectSort(this, 'Date, new to old')">
+                    Date, new to old
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    /* =========================================
+   SORT POPUP
+========================================= */
+
+const brxSortOverlay = document.getElementById("brxSortOverlay");
+const brxSortWrap = document.querySelector(".brx-sort-wrap");
+const brxSelectedSort = document.getElementById("brxSelectedSort");
+
+
+/* OPEN */
+
+function brxOpenSort() {
+
+    brxSortOverlay.classList.add("brx-show");
+    brxSortWrap.classList.add("brx-open");
+
+    document.body.classList.add("brx-sort-lock");
+}
+
+
+/* CLOSE */
+
+function brxCloseSort() {
+
+    brxSortOverlay.classList.remove("brx-show");
+    brxSortWrap.classList.remove("brx-open");
+
+    document.body.classList.remove("brx-sort-lock");
+}
+
+
+/* CLICK OUTSIDE */
+
+function brxOverlayClose(event) {
+
+    if (event.target === brxSortOverlay) {
+        brxCloseSort();
+    }
+
+}
+
+
+/* SELECT SORT */
+
+function brxSelectSort(element, value) {
+
+    /* Remove active from all */
+    document.querySelectorAll(".brx-sort-option").forEach(function (item) {
+        item.classList.remove("brx-active");
+    });
+
+
+    /* Add active */
+    element.classList.add("brx-active");
+
+
+    /* Update desktop button */
+    brxSelectedSort.textContent = value;
+
+
+    /* Close popup */
+    brxCloseSort();
+
+
+    /* Your sorting logic can go here */
+    console.log("Selected sort:", value);
+
+}
+
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") {
+        brxCloseSort();
+    }
+
+});
+</script>
+</body>
+</html>
