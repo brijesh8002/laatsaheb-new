@@ -85,7 +85,10 @@
                 <a class="color-black" href="categories.html">all collection</a>
             </div>
             <div class="all-cont-header w-100 d-flex justify-content-between text-uppercase ">
-                <a class="color-black" href="trending.html">trending products</a>
+                <a class="color-black" href="product.html">New Arrival</a>
+            </div>
+            <div class="all-cont-header w-100 d-flex justify-content-between text-uppercase ">
+                <a class="color-black" href="product.html">trending products</a>
             </div>
             <div class="all-cont-header w-100 d-flex justify-content-between text-uppercase ">
                 <a class="color-black" href="#" onclick="himOpen()">change language</a>
@@ -201,6 +204,24 @@
 
     <!-- FIXED CHECKOUT -->
     <div class="vx-cart-footer">
+        <!-- COUPON SECTION -->
+        <div class="vx-coupon-card">
+
+            <h3 class="vx-coupon-title">Apply Coupon</h3>
+
+            <div class="vx-coupon-form">
+                <input type="text" class="vx-coupon-input" placeholder="Enter Coupon Code" id="vxCouponInput">
+
+                <button type="button" class="vx-coupon-btn" onclick="vxApplyCoupon()">
+                    Apply
+                </button>
+            </div>
+
+            <button type="button" class="vx-coupon-link" onclick="vxShowCoupons()">
+                View Coupons and Gift Cards
+            </button>
+
+        </div>
         <div class="vx-subtotal">
             <span>SUBTOTAL</span>
             <span>Rs. 6,896.00</span>
@@ -342,6 +363,3 @@
     </div>
 
 </div>
-
-
-
