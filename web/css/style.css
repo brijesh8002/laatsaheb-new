@@ -641,6 +641,20 @@ z-index: 99;
   margin-top: 3px;
 } 
 
+.wishlist-new {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  padding: 0 10px;
+  border-radius: 50px;
+}
+.wishlist-new i{
+  font-size: 16px;
+}
+
 .crd-wishlist:hover {
   color: var(--primary);
 }

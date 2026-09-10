@@ -4028,15 +4028,15 @@ a.ux-active {
 .related-products-slider .row {
   flex-wrap: nowrap;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
+  /* -webkit-overflow-scrolling: touch; */
+  /* touch-action: pan-x; */
   /* Smooth snap */
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  /* scroll-snap-type: x mandatory; */
+  /* scroll-behavior: smooth; */
   /* Hide scrollbar */
   scrollbar-width: none;
   /* Remove Bootstrap row negative margin effect */
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 /* Chrome / Edge / Safari */
@@ -4375,12 +4375,13 @@ a.ux-active {
 }
 
 .crv-review-card {
-  padding: 27px 0 30px;
+  padding: 12px 0 ;
   border-bottom: 1px solid var(--crv-border);
 }
 
 .crv-review-card h3 {
-  margin: 0 0 14px;
+  /* margin: 0 0 14px; */
+  margin-bottom: 5px;
   font-size: 18px;
   line-height: 1.4;
   font-weight: 600;
@@ -4391,8 +4392,8 @@ a.ux-active {
   display: flex;
   gap: 2px;
   color: var(--crv-star);
-  font-size: 27px;
-  margin-bottom: 17px;
+  font-size: 20px;
+  margin-bottom: 7px;
 }
 
 .crv-review-stars .empty {
@@ -4408,13 +4409,13 @@ a.ux-active {
   display: flex;
   align-items: center;
   gap: 13px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .crv-avatar {
   position: relative;
-  width: 54px;
-  height: 54px;
+  width: 44px;
+  height: 44px;
   background: #eeeeee;
   overflow: hidden;
 }
@@ -4456,7 +4457,7 @@ a.ux-active {
 
 .crv-user strong {
   display: block;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -4740,7 +4741,7 @@ a.ux-active {
   /* Review */
 
   .crv-review-card {
-    padding: 22px 0 25px;
+    padding: 8px 0 ;
   }
 
   .crv-review-card h3 {
@@ -4750,20 +4751,20 @@ a.ux-active {
 
   .crv-review-stars {
     font-size: 24px;
-    margin-bottom: 14px;
+    /* margin-bottom: 14px; */
   }
 
-  .crv-avatar {
+  /* .crv-avatar {
     width: 48px;
     height: 48px;
-  }
+  } */
 
   .crv-user strong {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .crv-review-text {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.6;
   }
 
