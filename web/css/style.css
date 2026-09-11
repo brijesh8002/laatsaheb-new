@@ -1247,7 +1247,8 @@ body {
   .space-search {
     width: 100%;
     height: 80px;
-    background: #fffaf5;
+    
+    /* background: #fffaf5; */
   }
 }
 
@@ -1332,9 +1333,7 @@ body {
 
 /* Main Wrapper */
 
-main {
-  background: #fffaf5;
-}
+
 
 .brx-dashboard-wrapper {
   max-width: 1550px;
