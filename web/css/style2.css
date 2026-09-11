@@ -5947,7 +5947,7 @@ a.ux-active {
     width: 100%;
     background: #ffffff;
     border-radius: 10px;
-    /* padding: 18px 20px; */
+    padding: 18px 20px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     border: 1px solid #f1f1f1;
     margin-bottom: 20px;
@@ -6051,7 +6051,7 @@ a.ux-active {
 @media (max-width: 767px) {
 
     .vx-coupon-card {
-        /* padding: 17px 16px; */
+        padding: 17px 16px;
         border-radius: 9px;
     }
 
