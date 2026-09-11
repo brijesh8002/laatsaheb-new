@@ -16,6 +16,8 @@
 
     --third:#F2A320;
 
+    --fourth: #a0a2a3;
+
     --vx-test-bg: #8f0000;
 
     --vx-test-card: #f5f2d8;
@@ -1256,9 +1258,24 @@ body {
   .highlight-img img {
     width: 60px;
   }
-  .logoimg img {
-    width: 60px;
+  .logoimg{
+    gap: 6px;
   }
+  .logoimg img {
+    width: 48px;
+  }
+  .logoimg .logo-name {
+  width: 150px;
+}
+
+.accordion-body{
+  font-size: 13px;
+  padding: 10px !important;
+}
+.accordion-button{
+  font-size: 14px !important;
+  padding: 10px !important;
+}
 
   .offer-track p {
     font-size: 16px;
@@ -1314,9 +1331,7 @@ body {
     /* font-size: 15px; */
   }
 
-  .footerimg {
-    margin-bottom: 34px;
-  }
+
   .Copyright {
     font-size: 12px;
   }
@@ -1327,6 +1342,15 @@ body {
   .whatsapp-float {
     bottom: 100px;
   }
+}
+
+@media (max-width:330px) {
+  .logoimg img {
+    width: 38px;
+  }
+  .logoimg .logo-name {
+  width: 120px;
+}
 }
 
 /* New -drop down css file */

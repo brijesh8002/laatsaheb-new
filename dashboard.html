@@ -38,9 +38,9 @@
 
       <!-- USER CARD -->
       <div class="brxud-user-card">
-        <div>
-          <h2>Shiva S</h2>
-          <p>Customer's Dashboard ></p>
+        <div class="dash-username">
+          <h2 class="mb-0 ">Shiva S</h2>
+          <p class="mb-0">Customer's Dashboard ></p>
         </div>
         <div class="brxud-coin"><img src="web/image/user-img.jpeg" alt=""></div>
       </div>
@@ -55,7 +55,7 @@
           <a href="wishlist.html" class="brxud-box"><i class="bi bi-heart"></i>Wishlist</a>
         </div>
         <div class="col-6">
-          <a href="#" class="brxud-box"><i class="bi bi-ticket"></i>Coupons</a>
+          <a href="#" class="brxud-box"><i class="bi bi-bell"></i>Updates</a>
         </div>
         <div class="col-6">
           <a href="#" class="brxud-box"><i class="bi bi-headset"></i>Help Center</a>
@@ -89,8 +89,12 @@
         <a href="#" class="brxud-item"><i class="bi bi-bell"></i>
           <p>Notification Settings</p><i class="bi bi-chevron-right"></i>
         </a>
-        <a href="setting.html" class="brxud-item"><i class="bi bi-person-fill-lock"></i>
-          <p>Privacy Center Settings</p><i class="bi bi-chevron-right"></i>
+        <a href="#" class="brxud-item" onclick="openChangePassword()"><i class="bi bi-person-fill-lock"></i>
+          <p>Change Password</p><i class="bi bi-chevron-right"></i>
+        </a>
+
+        <a href="#" class="brxud-item"><i class="bi bi-person-fill-lock"></i>
+          <p>Delete Account</p><i class="bi bi-chevron-right"></i>
         </a>
       </div>
 
@@ -275,6 +279,165 @@
 
   </div>
 
+  <!-- CHANGE PASSWORD MODAL -->
+<div class="vx-pass-modal" id="vxChangePasswordModal" aria-hidden="true">
+
+    <div class="vx-pass-backdrop" onclick="closeChangePassword()"></div>
+
+    <div class="vx-pass-dialog" role="dialog" aria-modal="true" aria-labelledby="vxPassTitle">
+
+        <!-- Close -->
+        <button type="button" class="vx-pass-close" onclick="closeChangePassword()" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+
+        <!-- Header -->
+        <div class="vx-pass-header">
+
+            <div class="vx-pass-icon">
+                <i class="bi bi-shield-lock-fill"></i>
+            </div>
+
+            <div>
+                <h3 id="vxPassTitle">Change Password</h3>
+                <p>Keep your account secure with a strong password.</p>
+            </div>
+
+        </div>
+
+
+        <!-- Form -->
+        <form id="vxChangePasswordForm" novalidate>
+
+            <!-- Old Password -->
+            <div class="vx-pass-field">
+
+                <label for="vxOldPassword">
+                    Current Password
+                </label>
+
+                <div class="vx-input-wrap">
+
+                    <i class="bi bi-lock vx-input-icon"></i>
+
+                    <input type="password" id="vxOldPassword" class="vx-pass-input" placeholder="Enter current password"
+                        autocomplete="current-password" required>
+
+                    <button type="button" class="vx-password-toggle" data-target="vxOldPassword"
+                        aria-label="Show password">
+                        <i class="bi bi-eye"></i>
+                    </button>
+
+                </div>
+
+                <small class="vx-field-error" id="vxOldPasswordError"></small>
+
+            </div>
+
+
+            <!-- New Password -->
+            <div class="vx-pass-field">
+
+                <label for="vxNewPassword">
+                    New Password
+                </label>
+
+                <div class="vx-input-wrap">
+
+                    <i class="bi bi-key vx-input-icon"></i>
+
+                    <input type="password" id="vxNewPassword" class="vx-pass-input" placeholder="Enter new password"
+                        autocomplete="new-password" required>
+
+                    <button type="button" class="vx-password-toggle" data-target="vxNewPassword"
+                        aria-label="Show password">
+                        <i class="bi bi-eye"></i>
+                    </button>
+
+                </div>
+
+                <!-- Strength -->
+                <div class="vx-strength-box">
+
+                    <div class="vx-strength-top">
+                        <span>Password strength</span>
+                        <strong id="vxStrengthText">—</strong>
+                    </div>
+
+                    <div class="vx-strength-track">
+                        <span id="vxStrengthBar"></span>
+                    </div>
+
+                </div>
+
+                <small class="vx-password-hint">
+                    Use at least 8 characters with uppercase, lowercase,
+                    number and special character.
+                </small>
+
+                <small class="vx-field-error" id="vxNewPasswordError"></small>
+
+            </div>
+
+
+            <!-- Confirm Password -->
+            <div class="vx-pass-field">
+
+                <label for="vxConfirmPassword">
+                    Confirm New Password
+                </label>
+
+                <div class="vx-input-wrap">
+
+                    <i class="bi bi-check2-circle vx-input-icon"></i>
+
+                    <input type="password" id="vxConfirmPassword" class="vx-pass-input"
+                        placeholder="Re-enter new password" autocomplete="new-password" required>
+
+                    <button type="button" class="vx-password-toggle" data-target="vxConfirmPassword"
+                        aria-label="Show password">
+                        <i class="bi bi-eye"></i>
+                    </button>
+
+                </div>
+
+                <small class="vx-field-error" id="vxConfirmPasswordError"></small>
+
+            </div>
+
+
+            <!-- General Message -->
+            <div class="vx-pass-message" id="vxPasswordMessage"></div>
+
+
+            <!-- Actions -->
+            <div class="vx-pass-actions">
+
+                <button type="button" class="vx-pass-cancel" onclick="closeChangePassword()">
+                    Cancel
+                </button>
+
+                <button type="submit" class="vx-pass-submit" id="vxPasswordSubmit">
+
+                    <span class="vx-submit-text">
+                        Update Password
+                    </span>
+
+                    <span class="vx-submit-loader">
+                        <span class="spinner-border spinner-border-sm"></span>
+                        Updating...
+                    </span>
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
 
 
   <!-- Wish List end -->
@@ -308,6 +471,611 @@
         document.body.style.overflow = "auto";
       }
     }
+
+  </script>
+
+  <script>
+    // ======================== Change Password Modal ======================================
+
+ document.addEventListener("DOMContentLoaded", function () {
+
+        const modal = document.getElementById("vxChangePasswordModal");
+        const form = document.getElementById("vxChangePasswordForm");
+
+        const oldPassword =
+            document.getElementById("vxOldPassword");
+
+        const newPassword =
+            document.getElementById("vxNewPassword");
+
+        const confirmPassword =
+            document.getElementById("vxConfirmPassword");
+
+        const strengthBar =
+            document.getElementById("vxStrengthBar");
+
+        const strengthText =
+            document.getElementById("vxStrengthText");
+
+        const message =
+            document.getElementById("vxPasswordMessage");
+
+        const submitButton =
+            document.getElementById("vxPasswordSubmit");
+
+
+        /* =====================================================
+           OPEN MODAL
+        ===================================================== */
+
+        window.openChangePassword = function () {
+
+            if (!modal) return;
+
+            modal.classList.add("vx-pass-active");
+            modal.setAttribute("aria-hidden", "false");
+
+            document.body.style.overflow = "hidden";
+
+            setTimeout(function () {
+                oldPassword.focus();
+            }, 250);
+        };
+
+
+        /* =====================================================
+           CLOSE MODAL
+        ===================================================== */
+
+        window.closeChangePassword = function () {
+
+            if (!modal) return;
+
+            modal.classList.remove("vx-pass-active");
+            modal.setAttribute("aria-hidden", "true");
+
+            document.body.style.overflow = "";
+
+            resetForm();
+        };
+
+
+        /* =====================================================
+           ESCAPE KEY
+        ===================================================== */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("vx-pass-active")
+            ) {
+                closeChangePassword();
+            }
+
+        });
+
+
+        /* =====================================================
+           PASSWORD SHOW / HIDE
+        ===================================================== */
+
+        document
+            .querySelectorAll(".vx-password-toggle")
+            .forEach(function (button) {
+
+                button.addEventListener("click", function () {
+
+                    const targetId =
+                        this.getAttribute("data-target");
+
+                    const input =
+                        document.getElementById(targetId);
+
+                    const icon =
+                        this.querySelector("i");
+
+                    if (input.type === "password") {
+
+                        input.type = "text";
+
+                        icon.classList.remove("bi-eye");
+                        icon.classList.add("bi-eye-slash");
+
+                        this.setAttribute(
+                            "aria-label",
+                            "Hide password"
+                        );
+
+                    } else {
+
+                        input.type = "password";
+
+                        icon.classList.remove("bi-eye-slash");
+                        icon.classList.add("bi-eye");
+
+                        this.setAttribute(
+                            "aria-label",
+                            "Show password"
+                        );
+                    }
+
+                });
+
+            });
+
+
+        /* =====================================================
+           PASSWORD STRENGTH
+        ===================================================== */
+
+        newPassword.addEventListener("input", function () {
+
+            const password = this.value;
+
+            let score = 0;
+
+            if (password.length >= 8) score++;
+
+            if (/[a-z]/.test(password)) score++;
+
+            if (/[A-Z]/.test(password)) score++;
+
+            if (/[0-9]/.test(password)) score++;
+
+            if (/[^A-Za-z0-9]/.test(password)) score++;
+
+
+            let width = "0%";
+            let text = "—";
+
+            if (password.length > 0 && score <= 2) {
+                width = "35%";
+                text = "Weak";
+            }
+
+            if (score === 3) {
+                width = "55%";
+                text = "Fair";
+            }
+
+            if (score === 4) {
+                width = "78%";
+                text = "Good";
+            }
+
+            if (score === 5) {
+                width = "100%";
+                text = "Strong";
+            }
+
+            strengthBar.style.width = width;
+            strengthText.textContent = text;
+
+            if (score <= 2) {
+                strengthBar.style.background = "#dc3545";
+                strengthText.style.color = "#dc3545";
+            }
+
+            if (score === 3) {
+                strengthBar.style.background = "#f59e0b";
+                strengthText.style.color = "#f59e0b";
+            }
+
+            if (score === 4) {
+                strengthBar.style.background = "#0d6efd";
+                strengthText.style.color = "#0d6efd";
+            }
+
+            if (score === 5) {
+                strengthBar.style.background = "#198754";
+                strengthText.style.color = "#198754";
+            }
+
+            if (!password) {
+                strengthBar.style.background = "";
+                strengthText.style.color = "";
+            }
+
+            clearError(newPassword);
+            validatePasswordMatch();
+
+        });
+
+
+        /* =====================================================
+           CONFIRM PASSWORD LIVE VALIDATION
+        ===================================================== */
+
+        confirmPassword.addEventListener(
+            "input",
+            validatePasswordMatch
+        );
+
+
+        function validatePasswordMatch() {
+
+            if (!confirmPassword.value) {
+                return;
+            }
+
+            if (
+                newPassword.value !==
+                confirmPassword.value
+            ) {
+
+                showError(
+                    confirmPassword,
+                    "Passwords do not match."
+                );
+
+                return false;
+
+            } else {
+
+                clearError(confirmPassword);
+                confirmPassword.classList.add(
+                    "vx-input-success"
+                );
+
+                return true;
+            }
+        }
+
+
+        /* =====================================================
+           FORM SUBMIT
+        ===================================================== */
+
+        form.addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            clearAllErrors();
+            hideMessage();
+
+
+            const oldPass = oldPassword.value.trim();
+            const newPass = newPassword.value;
+            const confirmPass = confirmPassword.value;
+
+            let valid = true;
+
+
+            /* OLD PASSWORD */
+
+            if (!oldPass) {
+
+                showError(
+                    oldPassword,
+                    "Please enter your current password."
+                );
+
+                valid = false;
+            }
+
+
+            /* NEW PASSWORD */
+
+            if (!newPass) {
+
+                showError(
+                    newPassword,
+                    "Please enter a new password."
+                );
+
+                valid = false;
+
+            } else if (newPass.length < 8) {
+
+                showError(
+                    newPassword,
+                    "Password must contain at least 8 characters."
+                );
+
+                valid = false;
+
+            } else if (
+                !/[a-z]/.test(newPass) ||
+                !/[A-Z]/.test(newPass) ||
+                !/[0-9]/.test(newPass) ||
+                !/[^A-Za-z0-9]/.test(newPass)
+            ) {
+
+                showError(
+                    newPassword,
+                    "Use uppercase, lowercase, number and special character."
+                );
+
+                valid = false;
+            }
+
+
+            /* SAME PASSWORD */
+
+            if (
+                oldPass &&
+                newPass &&
+                oldPass === newPass
+            ) {
+
+                showError(
+                    newPassword,
+                    "New password must be different from your current password."
+                );
+
+                valid = false;
+            }
+
+
+            /* CONFIRM */
+
+            if (!confirmPass) {
+
+                showError(
+                    confirmPassword,
+                    "Please confirm your new password."
+                );
+
+                valid = false;
+
+            } else if (newPass !== confirmPass) {
+
+                showError(
+                    confirmPassword,
+                    "Passwords do not match."
+                );
+
+                valid = false;
+            }
+
+
+            if (!valid) {
+                return;
+            }
+
+
+            /* =================================================
+               LOADING STATE
+            ================================================= */
+
+            submitButton.disabled = true;
+            submitButton.classList.add("vx-loading");
+
+
+            try {
+
+                /*
+                 * =================================================
+                 * REAL API REQUEST
+                 *
+                 * Replace this URL with your Django API endpoint.
+                 *
+                 * Example:
+                 * /api/auth/change-password/
+                 * =================================================
+                 */
+
+                const response = await fetch(
+                    "/api/auth/change-password/",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json",
+
+                            /*
+                             * If using JWT:
+                             *
+                             * "Authorization":
+                             * "Bearer " + accessToken
+                             */
+                        },
+
+                        body: JSON.stringify({
+
+                            old_password: oldPass,
+                            new_password: newPass,
+                            confirm_password: confirmPass
+
+                        })
+                    }
+                );
+
+
+                const data = await response.json();
+
+
+                if (!response.ok) {
+
+                    let errorText =
+                        data.detail ||
+                        data.message ||
+                        "Unable to change password.";
+
+                    showMessage(
+                        errorText,
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                /* ================================================
+                   SUCCESS
+                ================================================ */
+
+                showMessage(
+                    "Your password has been changed successfully.",
+                    "success"
+                );
+
+                form.reset();
+
+                strengthBar.style.width = "0%";
+                strengthText.textContent = "—";
+                strengthBar.style.background = "";
+                strengthText.style.color = "";
+
+
+                /*
+                 * Automatically close after success
+                 */
+
+                setTimeout(function () {
+                    closeChangePassword();
+                }, 1800);
+
+
+            } catch (error) {
+
+                console.error(
+                    "Change password error:",
+                    error
+                );
+
+                showMessage(
+                    "Something went wrong. Please try again.",
+                    "error"
+                );
+
+            } finally {
+
+                submitButton.disabled = false;
+                submitButton.classList.remove("vx-loading");
+
+            }
+
+        });
+
+
+        /* =====================================================
+           ERROR FUNCTIONS
+        ===================================================== */
+
+        function showError(input, text) {
+
+            input.classList.add("vx-input-error");
+
+            const errorElement =
+                document.getElementById(
+                    input.id + "Error"
+                );
+
+            if (errorElement) {
+                errorElement.textContent = text;
+            }
+        }
+
+
+        function clearError(input) {
+
+            input.classList.remove("vx-input-error");
+
+            const errorElement =
+                document.getElementById(
+                    input.id + "Error"
+                );
+
+            if (errorElement) {
+                errorElement.textContent = "";
+            }
+        }
+
+
+        function clearAllErrors() {
+
+            document
+                .querySelectorAll(".vx-pass-input")
+                .forEach(function (input) {
+
+                    input.classList.remove(
+                        "vx-input-error",
+                        "vx-input-success"
+                    );
+
+                });
+
+            document
+                .querySelectorAll(".vx-field-error")
+                .forEach(function (error) {
+
+                    error.textContent = "";
+
+                });
+        }
+
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        function showMessage(text, type) {
+
+            message.textContent = text;
+
+            message.className =
+                "vx-pass-message " +
+                (type === "success"
+                    ? "vx-message-success"
+                    : "vx-message-error");
+        }
+
+
+        function hideMessage() {
+
+            message.textContent = "";
+
+            message.className =
+                "vx-pass-message";
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        function resetForm() {
+
+            form.reset();
+
+            clearAllErrors();
+            hideMessage();
+
+            strengthBar.style.width = "0%";
+            strengthBar.style.background = "";
+
+            strengthText.textContent = "—";
+            strengthText.style.color = "";
+
+            document
+                .querySelectorAll(".vx-password-toggle i")
+                .forEach(function (icon) {
+
+                    icon.classList.remove(
+                        "bi-eye-slash"
+                    );
+
+                    icon.classList.add(
+                        "bi-eye"
+                    );
+
+                });
+
+            document
+                .querySelectorAll(".vx-password-toggle")
+                .forEach(function (button) {
+
+                    button.setAttribute(
+                        "aria-label",
+                        "Show password"
+                    );
+
+                });
+        }
+
+    });
 
   </script>
 </body>
